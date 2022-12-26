@@ -9,18 +9,22 @@ import { IndexComponent } from './index/index.component';
 import { RoutingModule } from './routing/routing.module';
 import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './nav/nav.component';
+import { ArticlesComponent } from './articles/articles.component';
+import { LoginComponent } from './login/login.component';
+import { WriteComponent } from './write/write.component';
 
 
-const routing : Routes = [{
 
-}]
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
     ContactComponent,
-    NavComponent
+    NavComponent,
+    ArticlesComponent,
+    LoginComponent,
+    WriteComponent
   ],
   imports: [
     BrowserModule,

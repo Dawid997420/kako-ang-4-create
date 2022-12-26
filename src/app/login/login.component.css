@@ -1,0 +1,48 @@
+
+
+.login {
+
+
+
+  height: 520px;
+  background-color: aliceblue;
+}
+
+
+.link {
+
+
+}
+
+.link:hover {
+
+  cursor: pointer;
+
+}
+
+.btn-block {
+
+  width: 348px;
+  height: 40px;
+
+}
+
+.facebook-btn {
+
+  color :aliceblue;
+  background-color: #3b5998 ;
+}
+
+.google-btn {
+
+  color: aliceblue;
+
+ background-color: #DB4437;
+
+}
+
+.zaloguj-btn {
+  color :aliceblue;
+  background-color: #3b9890;
+
+}

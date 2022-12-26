@@ -4,6 +4,24 @@
 
 }
 
+.fixed {
+
+  width: 100%;
+
+  position: fixed;
+  transition: 0.2s linear;
+
+  top: 0px;
+}
+
+.nofixed {
+
+  position: static;
+  transition: 0.2s linear;
+  top: -50px;
+
+}
+
 .routerClick:hover {
 
     cursor: pointer;

@@ -1,22 +1,43 @@
 .c2 {
 
     text-align: center;
-   
-    background-color: #6e529d;
+
+    background-color:  linear-gradient(to bottom, #6e529d 100%,#d97b93 100%);;
+
+    background: #d97b93 ;
+
+background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,rgb(102, 26, 224) 100%);
+
+
+    position: relative;
+}
+
+.c3 {
+  text-align: center;
+
+}
+
+
+.alert {
+
+
 }
 
 .index-value {
 
     background-color: #9583b4;
-    height: 700px;
+    height: 2200px;
 
 }
 
+.reklama {
+  color: rgb(0, 0, 0);
+}
 
 .all-topics {
 
 
     background-color: #4b3d61;
-    height: 700px;
+    height: 1500px;
 
 }

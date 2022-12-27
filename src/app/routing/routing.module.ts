@@ -1,3 +1,4 @@
+import { ProfileComponent } from './../profile/profile.component';
 import { WriteComponent } from './../write/write.component';
 import { LoginComponent } from './../login/login.component';
 import { NgModule } from '@angular/core';
@@ -13,7 +14,8 @@ const routes : Routes =  [
   { path:"", component:IndexComponent},
   { path:"contact", component:ContactComponent},
   { path: "login", component:LoginComponent},
-  { path: "write", component:WriteComponent}
+  { path: "write", component:WriteComponent},
+  { path: "profile", component:ProfileComponent}
 ] ;
 
 @NgModule({

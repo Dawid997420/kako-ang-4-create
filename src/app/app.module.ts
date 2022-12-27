@@ -12,6 +12,7 @@ import { NavComponent } from './nav/nav.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { LoginComponent } from './login/login.component';
 import { WriteComponent } from './write/write.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -24,7 +25,8 @@ import { WriteComponent } from './write/write.component';
     NavComponent,
     ArticlesComponent,
     LoginComponent,
-    WriteComponent
+    WriteComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

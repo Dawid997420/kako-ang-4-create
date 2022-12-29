@@ -1,4 +1,6 @@
+import { HttpServiceService } from './../services/http-service.service';
 import { Component } from '@angular/core';
+import { Article } from '../model/Article';
 
 @Component({
   selector: 'app-index',
@@ -6,5 +8,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent {
+
+
+  articles: Article[] = []
+
+  constructor(private httpService:HttpServiceService) {
+
+  }
+
+
+  getAllArticles() {
+
+    this.httpService.getArticles().subscribe( (response) => {
+
+      this.articles = response;
+      console.log(response);
+    })
+
+  }
+
+
 
 }

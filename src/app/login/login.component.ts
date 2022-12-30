@@ -1,5 +1,9 @@
+import { AuthService } from './../services/auth.service';
+import { UserE } from './../model/UserE';
 import { HttpServiceService } from './../services/http-service.service';
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { catchError, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +14,19 @@ export class LoginComponent {
 
 
 
-  constructor(private httpService : HttpServiceService) {}
+  wrongCredentials = false ;
+
+
+
+  loginForm = new FormGroup({
+
+    username: new FormControl(''),
+    password: new FormControl('')
+
+  })
+
+
+  constructor(private httpService : HttpServiceService, private authService :AuthService) {}
 
 
 
@@ -18,6 +34,34 @@ export class LoginComponent {
 
 
 
+    if (this.loginForm.valid) {
+
+
+
+    let user : UserE = new UserE(this.loginForm.value.password!,this.loginForm.value.username!);
+
+    this.authService.LoginWithToken(user)
+              .pipe(
+                catchError(err => {
+
+                  this.wrongCredentials = true;
+                  console.log('WRONG CREDENTIALS', err);
+                  return throwError(() => err);
+              }))
+    .subscribe(response => {
+
+        //   console.log(response)
+    });
+
+
+  this.loginForm.reset()
+    }
+
+
+
   }
+
+
+
 
 }

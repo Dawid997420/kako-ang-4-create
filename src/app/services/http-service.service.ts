@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { Article } from '../model/Article';
 import { UserE } from '../model/UserE';
 
@@ -24,7 +24,7 @@ export class HttpServiceService {
 
   LoginWithToken(user: UserE) : Observable<string> {
 
-    return this.http.post<string>(this.baseUrl, user);
+    return this.http.post(this.baseUrl + "token", user, {responseType: 'text'});
 
   }
 

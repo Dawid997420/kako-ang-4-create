@@ -50,27 +50,23 @@
 
 
                   <h2 *ngIf="wrongCredentials" class="bg-danger" style="color:white; margin-bottom: -38px;" >WRONG CREDENTIALS</h2>
-                  <h2 *ngIf="loginForm.getError && loginForm.touched" class="bg-danger" style="color:white; margin-bottom: -38px;" >WPISZ WSZYTKIE DANE</h2>
+           
 
 
                   <form [formGroup]="loginForm"  (ngSubmit)="LoginGetToken()">
 
 
                         <br>
-                     <input type="text"
-                      required class="form-control my-5" 
-                      [class.valid]="loginForm.get('username')!.valid && 
-        (loginForm.get('username')!.dirty || loginForm.get('toDo')!.touched)" formControlName="username" placeholder="username / email">
+                     <input type="email"
+                     required email class="form-control my-5" 
+                    formControlName="email" placeholder="email" >
 
-        <small class="text-danger"
-        *ngIf="loginForm.get('username')!.hasError('required')">
-        The minimum length for this field is characters.
-    </small>
+   
 
                   
                      <input type="password" required class="form-control my-3" style="margin-top: 220px;"
 
-                     formControlName="password" placeholder="password">
+                     formControlName="password" placeholder="password" required="">
 
 
                      <div class="my-0">

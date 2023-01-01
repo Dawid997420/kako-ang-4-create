@@ -5,3 +5,14 @@
     background-color: aliceblue;
     height: 500px;
 }
+
+
+input.ng-touched.ng-invalid {
+
+    border:2px solid #ff0000;
+}
+
+input.ng-touched.ng-valid {
+
+    border:2px solid #6bc502
+}

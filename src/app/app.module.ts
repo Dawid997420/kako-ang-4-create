@@ -15,6 +15,7 @@ import { WriteComponent } from './write/write.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
+import { CytatyComponent } from './cytaty/cytaty.component';
 
 
 
@@ -28,7 +29,8 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent,
     WriteComponent,
     ProfileComponent,
-    RegisterComponent
+    RegisterComponent,
+    CytatyComponent
   ],
   imports: [
     BrowserModule,

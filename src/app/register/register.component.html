@@ -6,35 +6,83 @@
     <div class="row justify-content-center" style="text-align:center;">
 
 
-        <div class="register col-6 m-3">
+        <div class="register col-6 m-3 rounded">
 
 
             
+            <form [formGroup]="registerForm" (ngSubmit)="register()" >
+                    <div class="row my-2">
 
-            <div class="row my-2">
+                        <h4 >Utwórz konto to bardzo legalne</h4>
+                            <p style="margin-top: -10px;">i bardzo proste</p>
 
-                <div >Utwórz konto to bardzo leglne</div>
 
-                
+                        <div class="col-12 col-lg-6">
+                            <input type="email" class="form-control  my-sm-2" id="email"
+                            email formControlName="email" placeholder="Enter email" required>
+                        </div>
+                        
+                        <div class="col-12 col-lg-6">
 
-                <div class="col-6">
-                    <input type="email" class="form-control" id="email" placeholder="Enter email">
-                </div>
-                
-                <div class="col-6 ">
+                            <input type="text" class="form-control my-2" id="username" 
+                            formControlName="username" placeholder="Enter username(everyone can see)" required>
+                        </div>
 
-                    <input type="text" class="form-control" id="username" placeholder="Enter username">
-                </div>
-
+                    
+                    </div>
             
-            </div>
-      
 
-           
-            <input type="password" class="form-control my-2" id="password" placeholder="password">
+                
+                    <input type="password" class="form-control my-2" id="password" 
+                    formControlName="password" placeholder="password" required>
 
-            <input type="password" class="form-control  my-2" id="password" placeholder="repeat password">
+                    <input type="password" class="form-control  my-2" id="password2" 
+                    formControlName="password2" placeholder="repeat password" required >
 
+                    <div class="row">
+
+
+
+                        <div class="col-11 col-lg-4 bg-danger mx-3 my-1 rounded" >  
+                            
+                           
+                                <div style="margin-top:0px; color: azure;" >
+                                    Date of birth</div> 
+
+                             
+                        </div>
+                        <div class="col-12  col-lg-7">
+                            <input type="date" id="birthday" required
+                            formControlName="birthday" class="form-control col-7" name="birthday" >
+                        </div>
+                       
+                       
+  
+                    </div>
+                 
+
+                <div class="row my-2" >
+                    <div class="col-11 col-lg-4 mx-3 bg-primary rounded " style="color: azure; font-size: 15px;text-align:center;">
+                       <div style="margin-top:5px; ">Chromosom sex type</div> 
+                    </div>
+                    
+                    <div  class="col-12 col-lg-7  float-right "  >
+                            <select class="form-control " 
+                            formControlName="sex">
+
+                                <option >XY</option>
+                                <option>XX</option>
+                                <option>I don't know man</option>
+                            </select>
+                     </div>
+                </div>
+          
+
+                    <button type="submit" class="btn btn-success m-2" style="text-align: center;">Zarejestruj się</button>
+
+            </form>
+
+        
         </div>
 
 

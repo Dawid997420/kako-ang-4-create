@@ -1,0 +1,13 @@
+.cytat {
+
+    min-height: 100px;
+    text-align:justify;
+    border-radius:20px;
+    height: auto;
+}
+
+.profil {
+
+    background-color: rgb(53, 53, 53);
+    min-height: 100px;
+}

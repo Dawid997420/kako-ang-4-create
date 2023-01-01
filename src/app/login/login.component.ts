@@ -4,6 +4,7 @@ import { HttpServiceService } from './../services/http-service.service';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { catchError, throwError } from 'rxjs';
+import { UserELogin } from '../model/UserELogin';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent {
 
   loginForm = new FormGroup({
 
-    username: new FormControl(''),
+    email: new FormControl(''),
     password: new FormControl('')
 
   })
@@ -38,7 +39,7 @@ export class LoginComponent {
 
 
 
-    let user : UserE = new UserE(this.loginForm.value.password!,this.loginForm.value.username!);
+    let user : UserELogin = new UserELogin(this.loginForm.value.password!,this.loginForm.value.email!);
 
     this.authService.LoginWithToken(user)
               .pipe(

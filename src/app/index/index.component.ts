@@ -27,6 +27,13 @@ export class IndexComponent {
 
   }
 
+  getUsersTest() {
+
+    this.httpService.getUsers().subscribe((response) => {
+
+      console.log(response)
+    })
+  }
 
 
 }

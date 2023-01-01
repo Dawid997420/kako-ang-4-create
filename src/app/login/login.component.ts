@@ -46,15 +46,17 @@ export class LoginComponent {
 
                   this.wrongCredentials = true;
                   console.log('WRONG CREDENTIALS', err);
+                    this.loginForm.reset()
                   return throwError(() => err);
+                  
               }))
     .subscribe(response => {
-
+  this.loginForm.reset()
         //   console.log(response)
     });
 
 
-  this.loginForm.reset()
+
     }
 
 

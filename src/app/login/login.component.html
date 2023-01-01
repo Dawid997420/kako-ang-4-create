@@ -4,7 +4,7 @@
 
   <div class="row justify-content-md-center">
 
-    <div class="login col-8 m-4 rounded">
+    <div class="login col-8 mx-4 my-2 rounded">
 
 
       <div class="row">
@@ -50,14 +50,24 @@
 
 
                   <h2 *ngIf="wrongCredentials" class="bg-danger" style="color:white; margin-bottom: -38px;" >WRONG CREDENTIALS</h2>
+                  <h2 *ngIf="loginForm.getError && loginForm.touched" class="bg-danger" style="color:white; margin-bottom: -38px;" >WPISZ WSZYTKIE DANE</h2>
+
 
                   <form [formGroup]="loginForm"  (ngSubmit)="LoginGetToken()">
 
 
                         <br>
                      <input type="text"
-                      required class="form-control my-5"  formControlName="username" placeholder="username / email">
+                      required class="form-control my-5" 
+                      [class.valid]="loginForm.get('username')!.valid && 
+        (loginForm.get('username')!.dirty || loginForm.get('toDo')!.touched)" formControlName="username" placeholder="username / email">
 
+        <small class="text-danger"
+        *ngIf="loginForm.get('username')!.hasError('required')">
+        The minimum length for this field is characters.
+    </small>
+
+                  
                      <input type="password" required class="form-control my-3" style="margin-top: 220px;"
 
                      formControlName="password" placeholder="password">

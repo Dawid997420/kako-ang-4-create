@@ -7,6 +7,7 @@ import { Route, RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from '../index/index.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { ContactComponent } from '../contact/contact.component';
+import { RegisterComponent } from '../register/register.component';
 
 
 
@@ -15,7 +16,8 @@ const routes : Routes =  [
   { path:"contact", component:ContactComponent},
   { path: "login", component:LoginComponent},
   { path: "write", component:WriteComponent},
-  { path: "profile", component:ProfileComponent}
+  { path: "profile", component:ProfileComponent},
+  { path: "register" , component:RegisterComponent }
 ] ;
 
 @NgModule({

@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { WriteComponent } from './write/write.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     ArticlesComponent,
     LoginComponent,
     WriteComponent,
-    ProfileComponent
+    ProfileComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

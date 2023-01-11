@@ -1,7 +1,7 @@
 <div class="container-fluid  c2">
 
 
-    <div class="row justify-content-center m-1 c3">
+    <div class="row justify-content-center  c3">
 
 
         <div class="col-12 index-value m-2 rounded " >
@@ -22,10 +22,125 @@
 
                     </div>
 
-               
+                    <h2>{{user.username || ''}}</h2>
            
+                        <div class="col-12">
+
+                            <div class="bg-dark m-5 rounded" style="color: aliceblue; min-height: 500px;">
+
+                            <div class="row">
+
+                                <div class="col-lg-4 col-5  bg-secondary rounded" style="min-height: 500px;">
 
 
+                                    <div class="col-12 leftButton" style="margin-top:7px;" (click)="showInformationsCommand()" >Informacje</div>
+                                    <div class="col-12 leftButton" (click)="showCommentsCommand()">Komentarze</div>
+                                    
+
+
+                                </div>
+
+
+                                <div  class="col-lg-8 col-7 bg-dark rounded" style="min-height: 500px;">
+                                    
+
+                                    <div *ngIf="showInformations" class="row">
+                                      
+                                        
+                                        <div class="col-12 m-3">
+                                           
+                                            <div class="row">
+                                                <div class="col-12 col-lg-1">
+                                                    <i class="bi bi-envelope icon " ></i>
+                                                </div>
+                                             
+                                                <div class="col-12 col-lg-3">
+                                                    <div>{{user.email}}</div>
+                                                    <small class="float-left" style="font-size: 13px;"> email</small>
+                                                </div>
+
+                                                <div class="col-12 col-lg-8 float-right icon-click ">
+                                                   
+                                                        <i class="bi bi-pencil-square " ></i>
+                                                   
+                                                 
+                                                </div>
+                                              
+                                            </div>
+                                         
+                                        </div>
+                                        
+
+                                        <div class="col-12 m-3">
+                                           
+                                            <div class="row">
+                                                <div class="col-12 col-lg-1">
+                                                    <i class="bi bi-gender-male icon"></i>
+                                                </div>
+                                             
+                                                <div class="col-12 col-lg-3">
+                                                    <div>{{user.sex}}</div>
+                                                    <small class="float-left" style="font-size: 13px;"> sex</small>
+                                                </div>
+
+                                                <div class="col-12 col-lg-8 icon-click ">
+                                                    <i class="bi bi-pencil-square "></i>
+                                                </div>
+                                              
+                                            </div>
+                                         
+                                        </div>
+
+
+                                        <div class="col-12 m-3">
+                                           
+                                            <div class="row">
+                                                <div class="col-12 col-lg-1">
+                                                    <i class="bi bi-calendar-date icon"></i>
+                                                </div>
+                                             
+                                                <div class="col-12 col-lg-3">
+                                                    <div>{{user.birthday |date : 'yyyy-MM-dd'}}</div>
+                                                    <small class="float-left" style="font-size: 13px;"> birthday</small>
+                                                </div>
+                                              
+                                                <div class="col-12 col-lg-8 icon-click">
+                                                    <i class="bi bi-pencil-square " ></i>
+                                                </div>
+                                            </div>
+                                         
+                                        </div>
+                                      
+                                    
+                                       
+                                    </div>
+
+
+                                    <div *ngIf="showComments">
+
+
+                                        
+
+
+
+
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+
+
+                            </div>
+                           
+
+                        </div>
+                  
+                   
 
             </div>
           

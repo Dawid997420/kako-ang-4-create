@@ -1,1 +1,426 @@
-<p>articles works!</p>
+
+
+<div class="container-fluid c2">
+
+
+    <div class="row" >
+
+
+        <div class=" col-12 index-art justify-content-md-center my-3">
+
+            
+            
+            <form>
+
+                <div class="row m-3" style="text-align: center;" >
+
+                    <div class="col-1"></div>
+                    <div class="col-12" style="text-align: center;">
+                        <h2 class="font-subtitle ">WRITE ARTICLE</h2>
+
+                    </div>
+
+                    
+                </div>
+
+
+                <div class="row m-3" style="text-align: center;" >
+
+
+                    <div class="col-1"></div>
+                    <div class="col-10" style="text-align: center;">
+                        <input class="form-control " (input)="saveTitleToStorage()"
+                         [(ngModel)]="title" name="title">
+                    </div>
+                    <div class="col-3"><h5>-Title</h5></div>
+                </div>
+               
+                <div class="col-12 col-lg-12 my-3">
+
+                    <div class="row">
+
+                        <div class="col-lg-10 col-12" >
+                            <textarea class="form-control " [ngClass]="paragraphClass" style="max-width: 1300px; max-height: 400px;"
+                            (input)="saveTextToStorage()" id="text" rows="5" name="text" [(ngModel)]="text"></textarea>
+            
+                        </div>
+
+                        <div class="col-12 col-lg-2">
+
+                                    <div class="form-check form-switch col-4 col-lg-8">
+                                      
+                                        <div class="pointer">
+                                            <input class="form-check-input pointer" [(ngModel)]="plainI" name="plainI" 
+                                            (change)="plain()" type="checkbox" id="flexSwitchCheckDefault">
+                                        </div>
+
+                                         <label class="form-check-label font-bold7" >Plain</label>
+                                        
+                                    </div>
+              
+
+
+                                    <div class="form-check form-switch col-4 col-lg-8">
+                                      
+                                        <div class="pointer">
+                                            <input class="form-check-input pointer" (change)="bold()" name="boldI"
+                                            [(ngModel)]="boldI" type="checkbox" id="flexSwitchCheckDefault">
+                                        </div>
+                                        
+                                       <label class="form-check-label font-bold7"   >Bold</label>
+                                    </div>
+                                
+
+                                
+                              <div class="form-check form-switch col-4 col-lg-8">
+                               
+                                <div class="pointer">
+                                    <input class="form-check-input" (change)="subtitle()" name="subtitleI"
+                                    [(ngModel)]="subtitleI" type="checkbox" id="flexSwitchCheckDefault">
+                                </div>
+                           
+                                <label class="form-check-label font-bold7"  
+                                >Subtitle</label>
+                              </div>
+                            
+
+
+                              <div class="col-2  col-lg-7 my-2" style="text-align: center;">
+                                <button class="btn btn-add btn-warning " type="button" (click)="addParagraph()"
+                                >ADD</button>
+                               </div>
+
+                               <div class="col-2  col-lg-7 " style="text-align: center;">
+                                <button class="btn btn-add btn-warning " (click)="clearText()" >CLEAR</button>
+                               </div>
+                         
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-2"><h5>AKAPIT 1</h5></div>
+                </div>
+
+                <div class="col-4">
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-2">
+                      
+                    </div>
+                    <div class="col-12">
+    
+                        <input  type="file" class="form-control " id="customFile"
+                        (change)="onSelectImage($event)"/>
+                        <small> </small>
+
+
+                        <img #realImg [src]="url" class="my-4 img-fluid">
+                        
+                        <div>
+
+                        </div>
+
+                        <div *ngIf="url.length > 1">
+                            <button class="btn btn-primary mx-2" style="min-width: 100px;"
+                            (click)="addImage()">add </button>
+                            <button class="btn btn-secondary" style="min-width: 100px;"
+                            (click)="clearImage()">clear </button>
+                        </div>
+
+                        <div>Width {{realImgWidth}}</div>
+                        <div>Heigth {{realImgHeight}}</div>
+                        <h5 *ngIf="realImgWidth < 869 && realImgWidth != 0">Minimalna szerokosc 869</h5>
+
+                    </div>
+
+
+                    
+                    <div class="col-6">
+                        <h4>-Add Images</h4>
+                    </div>
+                </div>
+
+
+                <div>
+                    <select [(ngModel)]="selected" class="form-select" name="categorie"
+                     aria-label="Default select example">
+                        <option selected>Kategorie</option>
+                        <option value="NARKOTYKI">Narkotyki</option>
+                        <option value="ALKOHOL">Alkohol</option>
+                        <option value="HAZARD">HAZARD</option>
+                        <option value="PORNOGRAFIA">Pornografia</option>
+                        <option value="Seksoholizm">Seksoholizm</option>
+                        <option value="CYBERSEKS">Cyberseks</option>
+                        <option value="SPORT">Sport</option>
+                        <option value="WIARA">Wiara</option>
+                        <option value="ZAKUPOHOLIZM">Zakupoholizm</option>
+                        <option value="PRACOHOLIZM">pracoholizm</option>
+                        <option value="PAPIEROSY">Papierosy</option>
+                        <option value="OBŻARSTWO">Obżarstwo</option>
+                        <option value="SEKSOHOLIZM">Seksoholizm</option>
+                      </select>
+                      
+                      <div *ngFor="let categorie of categories">
+
+                        <div>
+                            {{categorie}}
+                        </div>
+                        
+
+                      </div>
+
+                      <button class="btn btn-primary my-2" type="submit" style="min-width: 100px;"
+                      (click)="addCat(selected)">Add</button>
+                </div>
+
+            
+                <div class="row p-3"  >
+                    
+                    
+                    <div class="col-12" >
+
+
+                        <div class="row">
+                    
+                            <div class="col-2"></div>
+                            <div class="col-lg-4 col-12">
+                                <button class="btn btn-lg btn-primary btn-block"
+                                (click)="saveArticle()" >SAVE</button>
+                            </div>
+                           
+                            <div class="col-lg-4 col-12 my-lg-0 my-2 ">
+                                <button class="btn btn-lg btn-secondary btn-block" 
+                                (click)="clearAll()"
+                                 >CLEAR</button>
+                            </div>
+                            <div class="col-2"></div>
+                        </div>
+                     
+                 
+
+
+                    </div>
+
+                  
+
+                </div>
+                   
+            </form>
+            
+
+
+        </div>
+
+
+
+
+      
+
+
+     
+        
+        
+                <div class="col-12 index-value my-3 rounded justify-content-md-center " >
+        
+                    <h2 style="color: aliceblue; text-align: center;">YOUR ARTICLE</h2>
+        
+                    
+                    <div class="row m-4">
+                         
+
+                        <div  class="col-12 col-lg-9 title  text-justify  font-subtitle mx-2 "
+                          [class.smallTitle]="title.length<70">
+
+
+                               <div style=""  [ngClass]="mouseClass"  >{{title}}</div> 
+                             
+
+                        </div>
+
+                        <div class="col-12 col-lg-3 my-lg-4 my-5  btn-background rounded" (mouseenter)="mouseEnterRemove()" 
+                        (mouseleave)="mouseLeaveRemove()" style="margin-left: 7px;">
+                            <div style="margin-left: -12px;" >
+                                <button type="button" class="btn btn-outline-primary" 
+                                (click)="removeTitle()" >REMOVE</button>    
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="col-12 col-lg-3 mx-3 my-lg-4 my-5   btn-background rounded"  >
+                            <div style="margin-left: -12px; "(mouseenter)="mouseEnterChange()"    (mouseleave)="mouseLeaveChange()"  >
+                                <button type="button" class="btn btn-outline-dark" >CHANGE</button>    
+                            </div>
+                            
+                        </div>
+
+
+                        <hr class="col-12 col-lg-9" style="margin-left: 10px; " NOSHADE >
+
+
+                        <div class="created row">
+                            <div class="col-1 " style="max-width: 10px; margin-left: 10px;">
+                            
+                                <i class="bi bi-clock float-left " style="font-size: 24px;
+                                font-weight: 900;"></i> 
+                            </div>
+                          
+                            <div class=" col-1 " style="margin-left: 5px; margin-top: 1px; font-weight: 600; font-size: 22px;">
+                                
+                                {{date | date: 'dd.MM.yyyy' }}
+                            </div>
+                       
+                        </div>
+
+                                <div class="row my-2">
+                                            <div   class="col-12 col-lg-9 my-2 " 
+                                              id="keywords" [ngClass]="mouseClass2" >
+
+                                              <div 
+                                                 *ngFor="let cat of categories">
+
+                                                <div *ngIf="categories.length > 0" class="keyword"> 
+                                                    
+                                                    {{cat}}
+
+                                                </div>
+
+                                              </div>
+
+                                                
+                                        
+
+                                            </div>
+                                            
+                                         
+                                                <div class="col-12 col-lg-3  btn-background rounded"  style="margin-left: 29px;">
+                                                    <div >
+                                                        <button  type="button" class="btn btn-outline-primary" style="margin-left: -12px;"
+                                                        (mouseleave)="mouseLeaveRemoveCat()"
+                                                        (mouseenter)="mouseEnterRemoveCat()"
+                                                        (click)="removeCategory()" >REMOVE</button>    
+                                                    </div>
+                                                    
+                                                </div>
+                                                
+                                            <div class="col-12 col-lg-3 mx-3  btn-background rounded"  >
+                                                <div style="margin-left: -12px; "  >
+                                                    <button type="button" class="btn btn-outline-dark"
+                                                    (mouseenter)="mouseEnterChangeCat()"
+                                                    (mouseleave)="mouseLeaveChangeCat()"
+                                                    >CHANGE</button>    
+                                                </div>
+                                                
+                                            </div>
+
+                                            
+                                         
+                                </div>
+
+                       
+
+                     
+
+                        <div class="mr-5">
+                                
+                                        <div *ngFor="let paragraph of paragraphsList;let i = index" class="row " >
+
+                                        
+                                            <div  class="row col-lg-9 col-12  text-val " >
+
+                                                <div>
+
+                                                    <div [ngClass]="paragraph.type"  class="my-3" 
+                                                    [class.indentation]="i==0 &&  paragraph.type != 'image'" >
+                                                    <div class="row">
+                                                        <div *ngIf="paragraph.type!='image'" class="col-12 m-lg-2" style="margin-right: -15px;" [ngClass]="paragraph.klasa">
+                                                            {{paragraph.text}}
+                                                        </div>
+                                                        
+                                                       
+                                                    </div>
+                                                    
+                                                      
+                                                        <div *ngIf="paragraph.type=='image'"   [ngClass]="paragraph.klasa" 
+                                                         style=" min-height: 520px; margin-top: -10px;
+                                                         " class="col-12">
+
+                                                         <div class="col-12 col-lg-12 m-lg-3 m-0" style="background-color: red;">
+                                                            <img [src]="paragraph.text" class="img-fluid" style="
+                                                            min-width: 100%;" >
+                                                         </div>
+                                                       
+                                                        </div>
+                                                      
+                                                    </div>
+
+                                                    
+                                                </div>
+
+                                            
+                                            </div>
+
+
+                                            <div class="col-12 col-lg-3 my-3 btn-background rounded" style="margin-left: 60px;" >
+                                                <div style="margin-left: -12px; "  >
+                                                    <button type="button" class="btn btn-outline-primary" 
+                                                   (mouseenter)="mouseEnterRemoveParagraph(i)"
+                                                   (mouseleave)="mouseLeaveRemoveParagraph(i)"
+                                                    (click)="removeParagraph(i)" >REMOVE</button>    
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-12 col-lg-2 mx-3 my-3 btn-background rounded"  >
+                                                <div style="margin-left: -12px; "  >
+                                                    <button type="button" class="btn btn-outline-dark" 
+                                                    (mouseleave)="mouseLeaveChangeParagraph(i)"
+                                                    (mouseenter)="mouseEnterChangeParagraph(i)">CHANGE</button>    
+                                                </div>
+                                                
+                                            </div>
+
+                                         
+
+                                        </div>
+
+                                        
+
+                                    </div>
+
+                                       
+                       
+                 
+
+                </div>
+
+                <div *ngFor="let paragraph of paragraphsList" class="col-lg-2" >
+                                            
+                                         
+                                            
+
+                    
+                   
+
+                </div>
+
+
+
+                </div>
+        
+        
+        
+         
+        
+        
+        
+        
+    
+
+
+    </div>
+
+</div>

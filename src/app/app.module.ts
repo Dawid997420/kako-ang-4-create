@@ -13,9 +13,14 @@ import { ArticlesComponent } from './articles/articles.component';
 import { LoginComponent } from './login/login.component';
 import { WriteComponent } from './write/write.component';
 import { ProfileComponent } from './profile/profile.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { CytatyComponent } from './cytaty/cytaty.component';
+import { QuotesComponent } from './quotes/quotes.component';
+import { UsersComponent } from './users/users.component';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 
@@ -30,7 +35,10 @@ import { CytatyComponent } from './cytaty/cytaty.component';
     WriteComponent,
     ProfileComponent,
     RegisterComponent,
-    CytatyComponent
+    CytatyComponent,
+    QuotesComponent,
+    UsersComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -38,9 +46,20 @@ import { CytatyComponent } from './cytaty/cytaty.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
+
+
+
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

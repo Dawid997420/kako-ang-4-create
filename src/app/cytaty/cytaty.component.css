@@ -1,3 +1,4 @@
+
 .cytat {
 
     min-height: 100px;
@@ -8,6 +9,58 @@
 
 .profil {
 
-    background-color: rgb(53, 53, 53);
+    background-color: rgb(62, 57, 57);
     min-height: 100px;
+    min-width: 100px;
+}
+
+.fade-in-fade-out {
+    opacity: 0;
+    animation: fadeIn-out 8s infinite normal;
+    animation-delay: 8s;
+ 
+}
+
+
+@keyframes fadeIn-out {
+    
+   0% {  
+    opacity: 0;
+  
+}
+
+    12% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 1; 
+    }
+
+    50% {
+        opacity: 1; 
+    }
+
+    75% {
+        opacity: 1; 
+
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+
+
+   100% { opacity: 0;
+    
+    }
+}
+
+
+
+
+.image {
+
+    max-width: 150px;
+    max-height: 150px;
 }

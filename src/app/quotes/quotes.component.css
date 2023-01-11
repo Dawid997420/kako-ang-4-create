@@ -1,0 +1,32 @@
+
+.c2 {
+
+    text-align: center;
+
+    position: relative;
+    background: #d97b93 ;
+
+    background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,rgb(102, 26, 224) 100%);
+
+}
+
+
+.index-value {
+
+    background-color: #9583b4;
+    height: auto;
+
+}
+
+.add-btn{
+
+    font-size: 20px;
+    background-color: aquamarine;
+}
+
+.image {
+    max-height:200px;
+    max-width:200px;
+    height:auto;
+    width:auto;
+}

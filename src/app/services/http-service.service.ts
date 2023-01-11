@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { UrlTree } from '@angular/router';
 import { catchError, Observable } from 'rxjs';
 import { Article } from '../model/Article';
+import { Quote } from '../model/Quote';
 import { UserE } from '../model/UserE';
 import { UserELogin } from '../model/UserELogin';
 
@@ -23,9 +25,14 @@ export class HttpServiceService {
   }
 
 
+  saveArticle(article :Article) : Observable<Article> {
+    
+    return this.http.post<Article>(this.baseUrl + "articles"  ,article);
+  }
+ 
   LoginWithToken(user: UserELogin) : Observable<string> {
 
-    return this.http.post(this.baseUrl + "token", user, {responseType: 'text'});
+    return this.http.post(this.baseUrl + "token", user, {responseType: 'text', withCredentials:true});
 
   }
 
@@ -39,5 +46,23 @@ export class HttpServiceService {
 
     return this.http.get<UserE[]>(this.baseUrl + "users");
   }
+
+  sendQuote2(formData : FormData) : Observable<any> {
+
+    return this.http.post<FormData>(this.baseUrl + "quotes", formData)
+  }
+
+  getQuotesWithImages() : Observable<Quote[]>{
+
+    return this.http.get<Quote[]>(this.baseUrl + "quotes/dto");
+  }
+
+  getLogedUserInfo() : Observable<UserE> {
+    
+    return this.http.get<UserE>(this.baseUrl + "users/profile" );
+  
+  }
+
+
 
 }

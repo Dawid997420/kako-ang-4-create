@@ -26,7 +26,7 @@ background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,r
 .index-value {
 
     background-color: #9583b4;
-    height: 2200px;
+    min-height: 2200px;
 
 }
 

@@ -1,19 +1,23 @@
-<div class="row  justify-content-md-center  " >
+<div [@popOverState]="stateName"   class="row fade-in-fade-out  justify-content-md-center  m-1" style="opacity: 0;">
 
-    <div class="bg-secondary p-4 col-9 my-3 cytat" >
+    <div class="bg-secondary p-4 col-12 col-lg-9 my-1 cytat" >
 
-            <h4  class="m-1 "> Szczęścia nie można znaleźć na dnie butelki lub na czubku igły, 
-                nie można go znaleźć wśród chmur dymu lub w pigułce z cukrem. 
-                Jeśli szukają go Państwo w tych miejscach, znajdą Państwo tylko rozpacz.Szczęścia nie można znaleźć na dnie butelki lub na czubku igły, 
+            <h4  class="m-1 ">
+                {{quoteNow.quote }}
         
             </h4>
+
+            <small style="font-size: 17px;" class="my-5">-{{quoteNow.author }}</small>
     </div>
 
-    <div class="col-2 profil rounded m-2">
+    <div class="col-12 col-lg-2 profil rounded mx-2">
 
+        <img [src]="quoteNow.image" style="" class="image rounded-circle">
         
     </div>
 
   
+
+    
 
 </div>

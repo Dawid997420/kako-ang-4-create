@@ -8,17 +8,45 @@
 
 
 
-    <div class="row justify-content-md-center m-1 c3">
+    <div class="row justify-content-md-center  c3">
 
         <app-cytaty></app-cytaty>
 
-        <div class="col-12 index-value rounded " >
+        <div class="col-12 index-value  " >
 
 
-<br><br><br>
-          <button class="btn btn-primary" (click)="getAllArticles()">GET ALL</button>
-          <button class="btn btn-primary" (click)="getAllArticles()">GET ALL Users</button>
+            <div class="row my-2" *ngFor="let article of articles">
 
+                <div class="col-lg-6" >
+
+                    
+                        
+                        <img class="img-fluid" [src]="getFirstImgArtice(article)">
+    
+                  
+
+                </div>
+
+                <div class="col-lg-3" >
+              
+                    <!--  NG FOR TU -->
+
+                </div>
+
+                
+                <div class="col-lg-3">
+                    
+                
+
+                </div>
+
+
+            </div>
+
+               
+
+            
+      
         </div>
 
 

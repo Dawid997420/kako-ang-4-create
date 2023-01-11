@@ -1,30 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'kako-ang-4';
 
-  kot1 = ""
-  kot = "kotek";
 
-  klik() {
-
-    console.log("qwer");
-
+  constructor() {
+  }
+  ngOnInit(): void {
+   
   }
 
 
 
-  klik2()
-  {
 
-   this.kot = this.kot1;
-
-  }
 
 
 }

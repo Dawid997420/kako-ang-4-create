@@ -8,6 +8,10 @@ import { IndexComponent } from '../index/index.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { ContactComponent } from '../contact/contact.component';
 import { RegisterComponent } from '../register/register.component';
+import { QuotesComponent } from '../quotes/quotes.component';
+import { ArticlesComponent } from '../articles/articles.component';
+import { UsersComponent } from '../users/users.component';
+import { AuthGuard } from '../guards/auth.guard';
 
 
 
@@ -16,8 +20,12 @@ const routes : Routes =  [
   { path:"contact", component:ContactComponent},
   { path: "login", component:LoginComponent},
   { path: "write", component:WriteComponent},
-  { path: "profile", component:ProfileComponent},
-  { path: "register" , component:RegisterComponent }
+  { path: "profile", component:ProfileComponent ,canActivate:[AuthGuard]},
+  { path: "register" , component:RegisterComponent },
+  { path: "quotes" , component:QuotesComponent },
+  { path: "articles" , component:ArticlesComponent},
+  { path: "users" , component:UsersComponent}
+  
 ] ;
 
 @NgModule({

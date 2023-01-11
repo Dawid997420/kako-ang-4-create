@@ -39,7 +39,7 @@ export class LoginComponent {
 
 
 
-    let user : UserELogin = new UserELogin(this.loginForm.value.password!,this.loginForm.value.email!);
+    let user : UserELogin = new UserELogin(this.loginForm.value.email!,this.loginForm.value.password!);
 
     this.authService.LoginWithToken(user)
               .pipe(
@@ -53,7 +53,7 @@ export class LoginComponent {
               }))
     .subscribe(response => {
   this.loginForm.reset()
-        //   console.log(response)
+   
     });
 
 

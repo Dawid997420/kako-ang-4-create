@@ -1,0 +1,58 @@
+<div class="container-fluid c2 ">
+
+
+    <div class="row justify-content-md-center m-0 c3">
+
+
+        <div class="col-12 index-value my-3 rounded " >
+
+            
+            <form [formGroup]="quoteForm" (ngSubmit)="saveQuote()">
+
+                <h4 class="form-label" for="customFile">Chose image to your quote</h4>
+                <input formControlName="image" type="file" class="form-control" id="customFile" 
+                (change)="onSelectFile($event)"/>
+    
+                <div class="mb-3">
+                    <h4 for="exampleFormControlTextarea1" class="form-label">Write Quote</h4>
+                    <textarea minlength="10" maxlength="400" formControlName="quote" class="form-control" id="exampleFormControlTextarea1" style="font-size: 20px; max-height: 160px;" rows="3"></textarea>
+                </div>
+
+                <input type="text" class="form-control" formControlName="author" placeholder="author">
+
+                <div style="background-color: aliceblue;" class="rounded my-2">
+                    <button type="submit" class="add-btn btn form-control">Click</button>
+                </div>
+            
+                
+            </form>
+       
+
+            <div class="row my-5">
+                <div class="col-8" style="text-align:justify; ">
+             {{quoteForm.value.quote}}
+                </div>
+
+                <div class="col-3">
+                    <img [src]="url" class="rounded-circle img-fluid image">
+                </div>
+               
+            </div>
+     
+
+            <button (click)="getQuotes()">Get ALL QuotedsDto</button>
+
+            
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+</div>

@@ -17,7 +17,7 @@ background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,r
 .index-value {
 
     background-color:aliceblue;
-    height: 600px;
+    height: auto;
 
 }
 
@@ -34,4 +34,44 @@ background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,r
     height: 200px;
     margin-top: -95px;
     border: 6px solid aliceblue;
+}
+
+
+.leftButton {
+
+    font-size: 20px;
+    background-color:cornflowerblue;
+    color: aliceblue;
+    margin-top: 5px;
+    border-radius: 4px;
+}
+.leftButton:hover {
+
+    cursor: pointer;
+    background-color:rgb(137, 173, 240);
+}
+
+
+.infoDiv {
+    
+
+    background-color:rgb(48, 48, 48);
+}
+
+.icon {
+    font-size: 30px;
+}
+
+.icon-click {
+
+    font-size: 30px;
+    color:royalblue;
+    
+ 
+}
+.icon-click :hover{
+    cursor: pointer;
+    font-size: 30px;
+    color:royalblue;
+    
 }

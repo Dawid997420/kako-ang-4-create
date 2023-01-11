@@ -1,5 +1,5 @@
 import { HttpServiceService } from './../services/http-service.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Article } from '../model/Article';
 
 @Component({
@@ -7,12 +7,38 @@ import { Article } from '../model/Article';
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent {
+export class IndexComponent implements OnInit {
 
 
-  articles: Article[] = []
+  articles: Article[] = [];
+
 
   constructor(private httpService:HttpServiceService) {
+
+  }
+
+
+  ngOnInit(): void {
+    
+  
+    this.getAllArticles();
+  }
+
+
+  getFirstImgArtice( article : Article) {
+
+    let image = "";
+
+    for ( let i = 0 ; i < article.paragraphs.length ; i++) {
+
+      if ( article.paragraphs[i].type == "image") {
+        image = article.paragraphs[i].text ;
+        break;
+      }
+      
+    }
+
+    return image;
 
   }
 

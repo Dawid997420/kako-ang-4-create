@@ -1,8 +1,15 @@
+import { UserE } from "./UserE";
+import { ParagraphDto} from "./ParagraphDto"
+
 export class Article {
 
-  id! : string ;
+  id? : string ;
   topic! : string ;
-  text! : string ;
+  paragraphs! : ParagraphDto[]
+  created! : Date ;
+  comments? : Comment[];
+  author! : UserE;
+  categories! : string[]; 
 
 
 }

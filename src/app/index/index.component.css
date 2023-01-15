@@ -41,3 +41,44 @@ background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,r
     height: 1500px;
 
 }
+
+
+.topic-right {
+
+  font-weight: 700;
+
+}
+
+.pointer {
+
+  
+}
+
+.pointer :hover {
+
+  
+  cursor: pointer;
+}
+
+
+.col-art {
+  min-height: 290px;
+  margin-top: 10px;
+
+
+}
+
+.col-art :hover{
+  cursor: pointer;
+
+}
+
+
+.topic {
+  text-align:justify;
+
+  justify-content:space-evenly;
+  word-spacing: -1px;
+  font-weight: 600;
+  font-size: 20px;
+}

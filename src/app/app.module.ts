@@ -21,6 +21,8 @@ import { UsersComponent } from './users/users.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
+
 
 
 
@@ -37,7 +39,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     RegisterComponent,
     CytatyComponent,
     QuotesComponent,
-    UsersComponent
+    UsersComponent,
+    ImageUploadComponent
    
   ],
   imports: [
@@ -47,7 +50,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+  
 
 
 

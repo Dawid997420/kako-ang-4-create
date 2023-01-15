@@ -15,33 +15,116 @@
         <div class="col-12 index-value  " >
 
 
-            <div class="row my-2" *ngFor="let article of articles">
+            <div class="row my-2" >
 
-                <div class="col-lg-6" >
-
+              
                     
-                        
-                        <img class="img-fluid" [src]="getFirstImgArtice(article)">
+                
+                <div class="m-0 p-2  col-lg-3 " >
+                    
+                            <div *ngFor="let article of articles1col" >
+                                <div class="col-art" (click)="chosenArticle(article.id )">
+
+                                        <div  class="obraz">
+
+                                            <img class="img-fluid" [src]="getFirstImgArtice(article)">
+                                        </div>
+                                    
+                                        <div class="topic">
+            
+                                            <div> {{article.topic}}</div>
+            
+                                        </div>         
+                                </div>
+
+                            </div>
+                </div>
+
+                <div class="m-0 p-2 col-lg-3 ">
+
+                    <div *ngFor="let article of articles2col">
+                        <div class="col-art"  (click)="chosenArticle(article.id )">
+
+                                <div  class="obraz">
+
+                                    <img class="img-fluid" [src]="getFirstImgArtice(article)">
+                                </div>
+                            
+                                <div class="topic">
     
+                                    <div> {{article.topic}}</div>
+    
+                                </div>         
+                        </div>
+
+                    </div>
+            
+                </div>
+                         
+
+                <div class=" m-0 p-2 col-lg-3 " >
+                    
+                    <div *ngFor="let article of articles3col">
+                        <div class="col-art" (click)="chosenArticle(article.id )" >
+                            
+
+                                <div  class="obraz">
+
+                                    <img class="img-fluid" [src]="getFirstImgArtice(article)">
+                                </div>
+                            
+                                <div class="topic">
+    
+                                    <div> {{article.topic}}</div>
+    
+                                </div>         
+                        </div>
+
+                    </div>
+                </div>
+           
+                  
+
+            
+
+
+
+           
+
+                
+                <div class="col-lg-3 p-3 m-0 " >
+                    
+                    <div *ngFor="let article of rightArticles" >
+                           
+
+                        <div class="row pointer my-0 " (click)="chosenArticle(article.id )" >
+
+
+                            <div class="col-lg-4 p-0 p-1 m-0">
+
+                                <img class="img-fluid" [src]="getFirstImgArtice(article)">
+
+                            </div>
+
+                            <div class="col-lg-8 p-0 m-0 px-1 topic-right ">
+                                <div style="text-align: left; ">
+                                    {{article.topic}}
+                                </div>
+                             
+                            </div>
+                            <HR SIZE=5 class="my-1">
+
+                        </div>
                   
 
                 </div>
-
-                <div class="col-lg-3" >
-              
-                    <!--  NG FOR TU -->
-
-                </div>
-
-                
-                <div class="col-lg-3">
-                    
                 
 
-                </div>
 
+                </div>
 
             </div>
+           
 
                
 

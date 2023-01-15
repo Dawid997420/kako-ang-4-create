@@ -17,6 +17,10 @@ export class ArticlesComponent implements OnInit{
   ///// blue
   ///// normal
 
+
+
+
+
   paragraphClass :string = "font-plain";
 
   paragraphsList: Paragraph[] = [];
@@ -37,6 +41,14 @@ export class ArticlesComponent implements OnInit{
 
   constructor( private httpService :HttpServiceService) {}
   
+
+  getImageDestination(event:string){
+    this.paragraphsList.push(new Paragraph(event,"image","normal")) 
+     
+
+    this.saveParagraphsList()
+
+  }
 
   saveArticle() {
 
@@ -194,8 +206,39 @@ export class ArticlesComponent implements OnInit{
   }
 
 
-  onSelectImage(event : any) {
+  isItFirstParagraph(   numer :number) : boolean {
 
+    let firstParagraph = false ;
+   let  paragraph : Paragraph = this.paragraphsList[numer];
+
+    if ( paragraph.type === "image") {
+    //  console.log("OBRAZ")
+      return false ;
+    } else {
+
+   
+
+
+    for ( let i = 0 ; i < numer ; i ++) {
+
+      if (this.paragraphsList[i].type = "text") {
+        return false ;
+        
+      }
+
+
+
+    } 
+    return true;
+  }
+
+   
+
+
+  }
+
+  onSelectImage(event : any) {
+    this.clearImage();
 
     if ( event.target.files) {
       //display image on angular
@@ -315,8 +358,9 @@ this.mouseClass2 = ""
   }
 
   getCategories() {
-    if ( sessionStorage.getItem("categories") != null ||
-     sessionStorage.getItem("categories")!.length > 1 ) {
+    if ( sessionStorage.getItem("categories") != null )
+{
+    if (      sessionStorage.getItem("categories")!.length > 1 )
       this.categories =  JSON.parse(sessionStorage.getItem("categories") || '')
     }
 
@@ -405,7 +449,8 @@ this.mouseClass2 = ""
 
   ngOnInit(): void {
 
-  
+
+    
 
     this.getParagraphList();
     this.saveParagraphsList() ;

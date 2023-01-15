@@ -12,6 +12,7 @@ import { QuotesComponent } from '../quotes/quotes.component';
 import { ArticlesComponent } from '../articles/articles.component';
 import { UsersComponent } from '../users/users.component';
 import { AuthGuard } from '../guards/auth.guard';
+import { ImageUploadComponent } from '../image-upload/image-upload.component';
 
 
 
@@ -24,7 +25,8 @@ const routes : Routes =  [
   { path: "register" , component:RegisterComponent },
   { path: "quotes" , component:QuotesComponent },
   { path: "articles" , component:ArticlesComponent},
-  { path: "users" , component:UsersComponent}
+  { path: "users" , component:UsersComponent},
+  { path: "image", component: ImageUploadComponent}
   
 ] ;
 

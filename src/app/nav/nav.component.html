@@ -25,9 +25,9 @@
         <a class="nav-item nav-link navbar-light routerClick  mx-2 " routerLink="profile">Profile</a>
 
 
-        <a class="nav-item nav-link navbar-light routerClick  mx-2 " routerLink="gambling">Hazard</a>
+        <div class="nav-item nav-link navbar-light routerClick  mx-2 " routerLink="chosenCat" (click)="selectedHazard()">Hazard</div>
 
-        <a class="nav-item nav-link navbar-light routerClick  mx-2 " routerLink="drugs">Narkomania</a>
+        <a class="nav-item nav-link navbar-light routerClick  mx-2 " (click)="selectedDrugs()" routerLink="chosenCat">Narkomania</a>
 
         
         <li class="nav-item dropdown">
@@ -35,13 +35,13 @@
             Uzależnienia seksualne
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><a class="dropdown-item" routerLink="pornography">Pornografia</a></li>
-            <li><a class="dropdown-item" routerLink="sexoholism">Seksoholizm</a></li>
-            <li><a class="dropdown-item" routerLink="cybersex">Cyberseks</a></li>
+            <li><div class="dropdown-item pointer" routerLink="chosenCat" (click)="selectedPorno()">Pornografia</div></li>
+            <li><a class="dropdown-item" routerLink="chosenCat" (click)="selectedSeks()">Seksoholizm</a></li>
+            <li><a class="dropdown-item" routerLink="chosenCat"  (click)="selectedCyberSeks()">Cyberseks</a></li>
           </ul>
         </li>
 
-        <a class="nav-item nav-link navbar-light routerClick  mx-2 " routerLink="alcohol">Alkoholizm</a>
+        <div class="nav-item nav-link navbar-light routerClick  mx-2 " routerLink="chosenCat" (click)="selectedAlcohol()">Alkoholizm</div>
 
 
         <a class="nav-item nav-link navbar-light routerClick  mx-2 " routerLink="register">Register</a>
@@ -52,7 +52,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
             <li><a class="dropdown-item" routerLink="quotes">Quotes</a></li>
-            <li><a class="dropdown-item" routerLink="articles">Articles</a></li>
+            <li><a class="dropdown-item" routerLink="articlesOption">Articles</a></li>
             <li><a class="dropdown-item" routerLink="users">Users</a></li>
             <li><a class="dropdown-item" routerLink="image">ImageTEST</a></li>
           </ul>

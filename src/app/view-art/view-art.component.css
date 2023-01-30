@@ -1,0 +1,91 @@
+.bold {
+
+    font-size: 25px;
+    font-weight:600;
+    text-align: justify;
+  
+}
+
+.keyword {
+
+    float:left; 
+    margin-left: 6px;
+    background-color: rgb(126, 55, 126);
+    color: aliceblue;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.keyword:hover{
+
+    cursor: pointer;
+    float:left; 
+    margin-left: 5px;
+    background-color: rgb(144, 94, 144);
+    color: aliceblue;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+
+#keywords {
+
+    margin-left: -1px;
+}
+
+.index-value {
+
+
+    background-color: #9583b4;
+    height: auto;
+}
+
+
+
+.font-subtitle {
+    font-weight: 700;
+    font-size: 31px;
+    letter-spacing: 0px;
+  
+    
+
+}
+.subtitle {
+    font-weight: 700;
+    font-size: 31px;
+    letter-spacing: 0px;
+  
+    
+
+}
+
+.plain {
+    font-size: 21px;
+    text-align: justify;
+ 
+ 
+    
+}
+
+.title {
+
+
+   
+   
+    text-align: left;
+   
+    font-size: 30px;
+    word-break: keep-all;
+ 
+    margin-bottom: 10px;
+    
+    margin-top: 10px;
+
+}
+
+.pointer {
+
+    cursor: pointer;
+}
+
+

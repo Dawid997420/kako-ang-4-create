@@ -26,19 +26,49 @@ export class ImageUploadComponent {
       this.imageDestination = "";
   }
 
+  @Input() 
+  maxWidth : number | undefined = undefined;
 
   @Output()
   imageDestination2 = new EventEmitter<string>();
 
+  @Output()
+  anulujUpload = new EventEmitter<string>();
+
   emit() {
     
+    
+
     this.imageDestination2.emit(this.imageDestination);
   }
+
+  @Input()
+  imageClear = false ;
+
+  @Input()
+  edit = false;
+
+  @Output()
+  deleteImage = new EventEmitter<string>();
 
 
   clear() {
     this.imageDestination = "";
     this.imageSource = "";
+    this.imageClear=true;
+  }
+
+
+  
+
+  anuluj() {
+
+    this.anulujUpload.emit('false');
+  
+  }
+
+  deleteImg() {
+    this.deleteImage.emit("true");
   }
 
   public ngAfterViewInit() {

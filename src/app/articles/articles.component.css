@@ -214,3 +214,8 @@
    
     border-radius: 4px;
 }
+
+.editTextArea {
+    resize: none;
+    text-align:justify;
+}

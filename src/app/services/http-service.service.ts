@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { UrlTree } from '@angular/router';
 import { catchError, Observable } from 'rxjs';
 import { Article } from '../model/Article';
+import { ParagraphDto } from '../model/ParagraphDto';
 import { Quote } from '../model/Quote';
 import { UserE } from '../model/UserE';
 import { UserELogin } from '../model/UserELogin';
@@ -22,6 +23,13 @@ export class HttpServiceService {
   getArticles () : Observable<Article[]> {
 
     return this.http.get<Article[]>(this.baseUrl+ "articles" )
+  }
+
+
+  getArticlesByCategory( category :string ) : Observable<Article[]>{
+    
+    return this.http.get<Article[]>(this.baseUrl + "articles/category/" + category);
+
   }
 
 
@@ -63,6 +71,13 @@ export class HttpServiceService {
   
   }
 
+  deleteArticle(articleId: string) : Observable<any>{
+    return this.http.delete(this.baseUrl + "articles/" + articleId);
+  }
+
+  addParagraphToArticle(index:number, articleId:string,paragraph:ParagraphDto) :Observable<Article> {
+    return this.http.post<Article>(this.baseUrl + "paragraphs/" + index + "/" +articleId,paragraph)
+  }
 
 
 }

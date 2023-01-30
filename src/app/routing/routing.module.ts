@@ -13,6 +13,11 @@ import { ArticlesComponent } from '../articles/articles.component';
 import { UsersComponent } from '../users/users.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { ImageUploadComponent } from '../image-upload/image-upload.component';
+import { ViewArtComponent } from '../view-art/view-art.component';
+import { ChosenCatComponent } from '../chosen-cat/chosen-cat.component';
+import { ArticlesOptionsComponent } from '../articles-options/articles-options.component';
+import { EditSingleArticleComponent } from '../edit-single-article/edit-single-article.component';
+import { NotFoundComponent } from '../not-found/not-found.component';
 
 
 
@@ -26,7 +31,13 @@ const routes : Routes =  [
   { path: "quotes" , component:QuotesComponent },
   { path: "articles" , component:ArticlesComponent},
   { path: "users" , component:UsersComponent},
-  { path: "image", component: ImageUploadComponent}
+  { path: "image", component: ImageUploadComponent},
+
+  { path: "view/:id", component:ViewArtComponent},
+  { path: "chosenCat", component:ChosenCatComponent},
+  { path: "articlesOption", component:ArticlesOptionsComponent},
+  { path: "editSingleArticle", component:EditSingleArticleComponent},
+  { path:"**", component: NotFoundComponent}
   
 ] ;
 

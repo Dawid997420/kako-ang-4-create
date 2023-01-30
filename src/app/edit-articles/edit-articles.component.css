@@ -1,0 +1,35 @@
+.index-value  {
+    background-color: #9583b4;
+    min-height: 2200px;
+}
+
+.article {
+    background-color: aliceblue;
+    
+}
+
+
+.topic {
+    text-align: justify;
+    font-weight: 700;
+
+}
+
+.edit {
+    min-height: 100px;
+    font-size: 20px;
+    font-weight: 600;
+    height: 108px;
+    background-color: cornflowerblue;
+    color: aliceblue;
+   
+}
+
+.pointer {
+
+}
+
+.pointer:hover {
+    cursor: pointer;
+    background-color: rgb(75, 111, 177);
+}

@@ -1,0 +1,174 @@
+<div class="container-fluid">
+    {{name}}
+<div class="row index-value my-3 rounded justify-content-md-center " >
+
+            <div class="row m-4">
+                                    
+
+                        <div class="col-lg-9" >
+
+                        
+
+                                <div  class=" title  text-justify  font-subtitle mx-3 px-3 " >
+
+
+                                <div style=""  >{{chosenArticle.topic}}</div> 
+                            
+
+                                 </div>
+                        
+
+
+                            <hr class=" mx-4" style=" " NOSHADE >
+
+
+                            <div class="created row mx-3 px-1">
+                                <div class="col-1 " style="max-width: 10px; ">
+                                
+                                    <i class="bi bi-clock float-left " style="font-size: 24px;
+                                    font-weight: 900;"></i> 
+                                </div>
+                            
+                                <div class=" col-1 mx-2 " style="margin-left: 5px; margin-top: 1px; font-weight: 600; font-size: 22px;">
+                                    
+                                    {{chosenArticle.created| date: 'dd.MM.yyyy' }}
+                                </div>
+                        
+                            </div>
+
+                                    <div class="row my-2 mx-2 p-1 ">
+                                                <div   class=" my-2 " 
+                                                id="keywords" >
+
+                                                <div 
+                                                    *ngFor="let cat of chosenArticle.categories">
+
+                                                    <div *ngIf="chosenArticle.categories.length > 0" class="keyword"> 
+                                                        
+                                                        {{cat}}
+
+                                                    </div>
+
+                                                </div>
+
+                                                    
+                                            
+
+                                                </div>
+                                                    
+                                    </div>
+
+                        
+
+                        
+
+                            <div class="mr-5">
+                                    
+                                            <div *ngFor="let paragraph of chosenArticle.paragraphs;let i = index" class="row " >
+
+                                            
+                                                <div  class="row  text-val " >
+
+                                                    <div>
+
+                                                        <div [ngClass]="paragraph.type"  class="my-1" 
+                                                        [class.indentation]="i==0 &&  paragraph.type != 'image'"
+                                                         >
+                                                        <div class="row" >
+                                                            <div *ngIf="paragraph.type!='image'" class="col-12 m-lg-3 " style="margin-right: 100px;" [ngClass]="paragraph.type">
+                                                                {{paragraph.text}}
+                                                            </div>
+                                                            
+                                                        
+                                                        </div>
+                                                        
+                                                        
+                                                            <div *ngIf="paragraph.type=='image'"   [ngClass]=" paragraph.type" 
+                                                            style=" min-height: 520px; margin-top: -10px;
+                                                            " class="col-12">
+
+                                                            <div class="col-12 col-lg-12 m-lg-3 my-0" style="background-color: red;">
+                                                                <img [src]="paragraph.text" class="img-fluid" style="
+                                                                min-width: 100%;" >
+                                                            </div>
+                                                        
+                                                            </div>
+                                                        
+                                                        </div>
+
+                                                        
+                                                    </div>
+
+                                                
+                                                </div>
+
+
+                                        
+                                        
+                                            
+
+                                            </div>
+
+                                            
+
+                             </div>
+
+
+
+                             <app-write-comment>
+
+                                
+                             </app-write-comment>
+
+
+                            </div>
+
+                        <div class="col-lg-3 p-3 m-0 "  >
+                                
+                            <div *ngFor="let article of rightArticles" >
+                                
+                        
+                                <div class="row pointer my-0 " *ngIf="article.id!=chosenArticle.id" (click)="chosenArticle2(article )" >
+                        
+                        
+                                    <div class="col-lg-4 p-0 p-1 m-0">
+                        
+                                        <img class="img-fluid" [src]="getFirstImgArtice(article)">
+                        
+                                    </div>
+                        
+                                    <div class="col-lg-8 p-0 m-0 px-1 topic-right ">
+                                        <div style="text-align: left; ">
+                                            {{article.topic}}
+                                        </div>
+                                    
+                                    </div>
+                                    <HR SIZE=5 class="my-1">
+                        
+                                </div>
+                        
+                        
+                        </div>
+
+
+                            
+           
+
+
+
+
+
+
+
+
+
+
+
+                           
+            </div>
+
+
+
+</div>
+</div>
+

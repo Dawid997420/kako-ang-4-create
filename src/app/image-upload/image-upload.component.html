@@ -3,25 +3,64 @@
 
     <div class="row">
 
-        <div class="col-12 justify-content-md-center " style="text-align: center;">
+        <div class="col-12 justify-content-md-center " style="text-align: center; margin: auto;">
+            <div *ngIf="edit" class="my-3"></div>
 
-
-            <div class="img-container ">
+            <div class="img-container d-flex justify-content-center" >
                 <img #image crossorigin [src]="imageSource" class="img-fluid ">
             </div>
+
+            <div *ngIf="edit" class="my-3"></div>
             
-            <div class="img-preview">
+            <div class="img-preview d-flex justify-content-center">
                 <img imageUpload
-                 *ngIf="imageDestination.length>1" class="img-preview " [src]="imageDestination">
+                 *ngIf="imageDestination.length>1" class="img-preview " [style.width]="maxWidth+'px'"  [src]="imageDestination">
              </div>
           
-            <div class="col-lg-12 my-2">
-                <button class="btn btn-primary" style="width: 200px;" (click)="emit()">upload</button>
-            </div>
-            <div class="col-lg-12">
-                <button class="btn btn-secondary" style="width: 200px;" (click)="clear()">clear</button>
-            </div>
-         
+
+             <div *ngIf="!edit" class="row my-2 mx-0 p-0">
+
+                <div class="col-lg-12 my-2">
+                    <button class="btn btn-primary" style="width: 200px;" (click)="emit()">upload</button>
+                </div>
+                <div class="col-lg-12">
+                    <button class="btn btn-secondary" style="width: 200px;" (click)="clear()">clear</button>
+                </div>
+                <ng-content></ng-content>
+              
+    
+             </div>
+
+
+             <div  *ngIf="edit">
+                <div class="row my-2 mx-0 p-0">
+
+                    <div class="col-lg-6 my-0">
+                        <button class="btn btn-primary" style="width: 200px;" (click)="emit()">replace</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button class="btn btn-secondary" style="width: 200px;" (click)="clear()">clear</button>
+                    </div>
+                   
+                  
+        
+                 </div>
+    
+                 <div class="row my-1 mx-0 p-0">
+    
+                    <div class="col-lg-6 my-0">
+                        <button class="btn btn-danger" style="width: 200px;" (click)="deleteImg()">delete</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button class="btn btn-dark" style="width: 200px;" (click)="anuluj()">anuluj</button>
+                    </div>
+    
+                  
+        
+                 </div>
+           
+             </div>
+             
         
 
         </div>

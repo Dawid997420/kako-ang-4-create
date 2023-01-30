@@ -1,0 +1,9 @@
+<div class="col-12 option p-2 my-2  "  [class.selectedOption]="!writeOption" (click)="choseEdit()">EDIT</div>
+<div class="col-12 option p-2" [class.selectedOption]="writeOption" (click)="choseWrite()">WRITE</div>
+
+<div *ngIf="writeOption" >
+    <app-articles></app-articles>
+</div>
+<div *ngIf="!writeOption" class="my-3">
+   <app-edit-articles></app-edit-articles>
+</div>

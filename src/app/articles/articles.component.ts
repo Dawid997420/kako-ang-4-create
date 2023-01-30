@@ -18,8 +18,13 @@ export class ArticlesComponent implements OnInit{
   ///// normal
 
 
+  
+  style: string = '' ;
 
 
+  setStyle(area : HTMLTextAreaElement) {
+      area.style.height = (area.scrollHeight ) + 'px';
+  }
 
   paragraphClass :string = "font-plain";
 
@@ -41,6 +46,75 @@ export class ArticlesComponent implements OnInit{
 
   constructor( private httpService :HttpServiceService) {}
   
+
+
+
+  selectedTitle :string = "";
+
+  anulujTitle() {
+    this.selectedTitle = '99214i3580151705209347305123748021501927402579124106512794-1257321051275';
+  }
+
+  titleToSave = "";
+  saveTitle(){
+    console.log(this.titleToSave)
+    this.title = this.titleToSave
+    this.saveTitleToStorage();
+  }
+
+  setTitleToChange(title :string) { 
+
+    this.titleToSave = title;
+
+      this.selectedTitle = title;
+
+  }
+
+
+  textAreaSize(textArea:HTMLTextAreaElement ){ 
+    
+    console.log("do it")
+    
+    textArea.style.height = "5px";
+    textArea.style.height = (textArea.scrollHeight)+"px";
+  }
+
+ 
+
+
+  saveParagraph(paragraph:Paragraph) {
+    paragraph.text = this.paragraphToSave;
+    this.chosenParagraph= "";
+    this.saveParagraphsList();
+  }
+
+  paragraphToSave: string = "";
+
+  chosenParagraph : string = "";
+
+  cancelParagraph() {
+    this.chosenParagraph = ""
+  }
+
+  changeParagraph(paragraph : Paragraph) {
+
+    this.paragraphToSave = paragraph.text;
+
+      for ( let i = 0 ; i < this.paragraphsList.length; i++) {
+
+    
+        if ( paragraph.text == this.paragraphsList[i].text) {
+
+           // this.paragraphsList[i].text = "edit";
+            this.chosenParagraph = paragraph.text
+         
+        }
+        
+
+      }
+  }
+
+ 
 
   getImageDestination(event:string){
     this.paragraphsList.push(new Paragraph(event,"image","normal")) 
@@ -240,6 +314,8 @@ export class ArticlesComponent implements OnInit{
   onSelectImage(event : any) {
     this.clearImage();
 
+
+    
     if ( event.target.files) {
       //display image on angular
         let reader = new FileReader();

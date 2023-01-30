@@ -1,6 +1,7 @@
 import { HttpServiceService } from './../services/http-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../model/Article';
+import { ArticleService } from '../services/article.service';
 
 @Component({
   selector: 'app-index',
@@ -26,10 +27,10 @@ export class IndexComponent implements OnInit {
   articles3col : Article[] = [];  
   
 
-  chosenArticle(id:string |undefined) {
+  chosenArticle(article:Article) {
 
-
-    console.log(id);
+    this.articleService.chosenArticle = article
+    this.articleService.enterArticle(article.topic);
     
 
   }
@@ -56,7 +57,7 @@ export class IndexComponent implements OnInit {
   }
 
 
-  constructor(private httpService:HttpServiceService) {
+  constructor(private httpService:HttpServiceService, private articleService :ArticleService) {
 
   }
 
@@ -113,31 +114,23 @@ export class IndexComponent implements OnInit {
 
   getFirstImgArtice( article : Article) {
 
-    let image = "";
-
-    for ( let i = 0 ; i < article.paragraphs.length ; i++) {
-
-      if ( article.paragraphs[i].type == "image") {
-        image = article.paragraphs[i].text ;
-        break;
-      }
-      
-    }
-
-    return image;
-
+  return this.articleService.getFirstImgArtice(article)
   }
 
 
   getAllArticles() {
 
+    
     this.httpService.getArticles().subscribe( (response) => {
 
-      this.articles = response;
-    //  this.getRightArticles();   
-      this.getNormalArticles();
-      this.getArticlesToColumns123(); 
+      this.articles = response
+      //  this.getRightArticles();   
+        this.getNormalArticles();
+        this.getArticlesToColumns123(); 
+    
     });
+   
+    
 
 
   }

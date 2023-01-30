@@ -1,0 +1,392 @@
+<div class="container-fluid">
+    <div class="col-12">
+        
+        <div class="justify-content-md-center my-2" style="text-align: center; font-size: 30px;
+        font-weight: 700;"
+        >Zapisz artykuł po wprowadzonych zmianach!</div>
+        
+  
+            <button class="col-12 saveButton btn" (click)="zapiszArtykul()" > ZAPISZ </button>
+      
+
+    </div>
+<div class="row index-value my-3 rounded justify-content-md-center " >
+
+<div class="row m-4">
+
+
+<div class="col-lg-9" >
+
+
+
+<div  class="pointerText title  text-justify  font-subtitle mx-3 px-3 " style=" min-width: 870px;" >
+
+
+<div style=""  *ngIf="!chosenTopicToEdit" (click)="editTopic()" >{{chosenArticleToEdit.topic}}</div> 
+
+
+
+<div *ngIf="chosenTopicToEdit"  class="row p-0" style="margin-left: -30px; ">
+
+    <textarea #area  style="resize: none;"                                        
+    [(ngModel)]="chosenArticleToEdit.topic" class="form-control mx-3 editTextArea font-subtitle"
+     [style.height]="setStyle(area)"
+     (keydown)="getHeightTopic(chosenArticleToEdit.topic)" 
+    rows="1" >
+
+    </textarea>
+    <div class="row m-0 my-2 mx-3 p-0">
+       
+            <button class="btn btn-primary  my-0 col-6" (click)="saveChosenTopic()">SAVE</button>
+       
+        
+            <button class="col-6 btn btn-secondary  my-0 " (click)="anulujChosenTopic()">ANULUJ</button>
+        
+        
+    </div>
+   
+</div>
+
+
+</div>
+
+
+
+<hr class=" mx-4" style=" " NOSHADE >
+
+
+<div class="created row mx-3 px-1">
+<div class="col-1 " style="max-width: 10px; ">
+
+<i class="bi bi-clock float-left " style="font-size: 24px;
+font-weight: 900;"></i> 
+</div>
+
+<div class=" col-1 mx-2 " style="margin-left: 5px; margin-top: 1px; font-weight: 600; font-size: 22px;">
+
+{{chosenArticleToEdit.created| date: 'dd.MM.yyyy' }}
+</div>
+
+</div>
+
+<div class="row my-2 mx-2 p-1 ">
+            <div   class=" my-2 p-1 " 
+            id="keywords" class="" >
+
+            <div 
+                *ngFor="let cat of chosenArticleToEdit.categories; let i = index" >
+
+                <div *ngIf="chosenArticleToEdit.categories.length > 0" class="keyword"
+                     (click)="deleteCategorie(i)"> 
+                    
+                    {{cat}}
+
+                </div>
+                
+              
+              
+
+            </div>
+            <div class="row">
+                    
+                <div class="keywordAdd" (click)="addCategorie()">
+                    +
+                </div>
+            
+                <div class="row my-2"   *ngIf="addingCategorie">
+                        <div style="height:100px ; margin-bottom: -50px; max-width: 230px; " class=" col-10 p-0" >
+                            
+                            <select [(ngModel)]="categoryToAdd" class="form-control catPointer"  style="height:60px; max-width: 230px;"> 
+
+                            
+                                <option value="NARKOTYKI">Narkotyki</option>
+                                <option value="ALKOHOL">Alkohol</option>
+                                <option value="HAZARD">HAZARD</option>
+                                <option value="PORNOGRAFIA">Pornografia</option>
+                                <option value="Seksoholizm">Seksoholizm</option>
+                                <option value="CYBERSEKS">Cyberseks</option>
+                                <option value="SPORT">Sport</option>
+                                <option value="WIARA">Wiara</option>
+                                <option value="ZAKUPOHOLIZM">Zakupoholizm</option>
+                                <option value="PRACOHOLIZM">pracoholizm</option>
+                                <option value="PAPIEROSY">Papierosy</option>
+                                <option value="OBŻARSTWO">Obżarstwo</option>
+                                <option value="SEKSOHOLIZM">Seksoholizm</option>
+                                <option value="TECHNOLOGY">TECHNOLOGY</option>
+                                <option value="ZABURZENIA_ODZYWIANIA">ZABURZENIA ODŻYWIANIA</option>
+                                <option value="PAPIEROSY">PAPIEROSY</option>
+                                <option value="LEKOMANIA">LEKOMANIA</option>
+                            </select>
+
+                         
+                        </div>
+                        <div class="col-2 my-1 mx-1 p-0">   <button style="height:50px;" (click)="addTrueCategorie()" class=" btn btn-primary">add</button></div>
+                </div>
+
+            </div>
+                
+        
+
+            </div>
+
+            <div *ngIf="true">
+
+            </div>
+                
+</div>
+
+
+
+
+
+<div class="mr-5 " style="min-width: 990px;" >
+
+        <div *ngFor="let paragraph of chosenArticleToEdit.paragraphs;let i = index" class="row " >
+            
+            <div class="col-12" style="max-height: 60px;" >
+                <div class="row mt-1" *ngIf="paragraph.type!='textArea'" >
+
+
+                    <div #opcja  class="col-6 ms-5 me-4 p-3 mt-2"  style="height: 54px; 
+                        margin-top: -120px;  width: 840px; " >
+
+                        <div class="row  p-1 " style="margin-top: -12px;
+                        background-color: aliceblue;"*ngIf="buttonsExistsParagraphId==paragraph.id">
+                            
+                            
+                                <div class="col-6 editOption " >
+                                    
+                                    <div style="margin-top: 2.5%;" (click)="addNewParagraphImage(i)"
+                                     class="">
+                                                ADD IMAGE
+                                    </div>
+
+
+                                </div>
+                                                                                                                            
+
+                                <div  class="col-6 editOption" (click)="addNewParagraph(i)" >
+                                <div style="margin-top: 2.5%;">
+                                    ADD PARAGRAPH
+                                </div>
+                                    
+                                </div>
+
+                            
+
+
+                        </div>
+                        
+
+                    </div>
+
+                    
+                    
+                    <div  class="col-6 p-0   strzal" style=""  *ngIf="availableStrzaly " >
+                        <img  #strzala class="img-fluid mx-2 pointer" (click)="addParahraphBefore(strzala,paragraph)"
+                         [src]="strzalka">
+                    </div>
+
+                    
+
+                </div>
+
+            </div>
+        
+            <div  class="row  text-val col-11 " style="margin-bottom: -25px;" >
+
+                <div>
+                    
+                    
+                    <div [ngClass]="paragraph.type"  class="my-0" 
+                    [class.indentation]="i==0 &&  paragraph.type != 'image'"
+                        >
+                                                        <div class="row" >
+                                                            <div class="row m-0 p-0">
+                                                                <div *ngIf="paragraph.type!='image'&&paragraph.type!='textArea'
+                                                                && chosenParagraphToEdit != paragraph" class="col-12 m-lg-3 " 
+                                                                [class.pointerText]="choseParagraphOption"
+                                                                [ngClass]="paragraph.type" (click)="editParagraph(paragraph)">
+                                                                    {{paragraph.text}}
+                                                                </div>
+                                                                <div *ngIf="chosenParagraphToEdit == paragraph "  class="row p-0 m-0">
+
+                                                                    <textarea #area [ngClass]="paragraph.type" 
+                                                                    [(ngModel)]="chosenParagraphToEdit.text" class="form-control mx-3 editTextArea"
+                                                                    [style.height]="setStyle(area)"
+                                                                    (keydown)="getHeight(chosenParagraphToEdit)"
+                                                                    rows="1" >
+            
+                                                                    </textarea>
+                                                                    <div class="row m-0 my-2 mx-3 p-0">
+                                                                       
+                                                                            <button class="btn btn-primary  my-0 col-6" (click)="saveChosen(paragraph,i)">SAVE</button>
+                                                                       
+                                                                        
+                                                                            <button class="col-6 btn btn-secondary  my-0 " (click)="anulujChosen()">ANULUJ</button>
+                                                                        
+                                                                        
+                                                                    </div>
+                                                                   
+                                                                </div>
+
+                                                             
+                                                                <div style="height: 30px;"></div>
+                                                        </div>
+                                                         
+                                    <div  class="mx-3  " *ngIf="paragraph.type=='textArea'">
+                                        <div class="row mt-3">
+                                            <div class="col-3"> </div>
+                                             <div class="col-3 m-0 p-0" >
+                                                <div  class="checkboxFont"(click)="changeClassTextArea('plain')"
+                                                [class.selectedCheckbox]="classParagraph=='plain'" >
+                                                    Font
+                                                </div>
+                                             
+                                            </div>
+                                         
+                                             <div class="col-3 m-0 p-0 " >
+                                                <div class="checkboxSubtitle" (click)="changeClassTextArea('subtitle')"
+                                                [class.selectedCheckbox]="classParagraph=='subtitle'">
+                                                    Subtitle
+                                                </div>
+                                              
+                                            </div>
+                                        
+                                             <div class="col-3  m-0 p-0 float-right" >
+                                                <div class="checkboxBold" (click)="changeClassTextArea('bold')"
+                                                [class.selectedCheckboxBold]="classParagraph=='bold'">
+                                                    Bold
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                            <textarea #area class="form-control mt-2" style="height: auto; min-height: 130px;
+                                            "  [value]="'xddd'"(keydown)="setStyle(area)"
+                                             [style.height]="'5px'" [ngClass]="classParagraph">
+
+                                            </textarea>
+                                            <div class="row" style=" ">
+
+                                           
+                                           
+                                                    <div class="col-6  my-0 p-2" (click)="cancelAddingParagraph(i)" >
+                                                        <div class="anulujParagraph"  >
+                                                         
+                                                               
+                                                                   <div style="height: 10px;"></div>
+                                                                    Anuluj
+
+                                                        </div> 
+                                                    </div>
+                                                    <div class="col-6 my-4 p-0" (click)="addTrueParagraph(i,area)">
+                                                        <div class="dodajParagraph ">
+                                                            <div style="height: 10px;">    </div>
+                                                            Dodaj
+                                                        </div>
+                                                        
+                                                    </div>
+                                                   
+                                               
+                                              
+                                             
+                                            </div>
+                                            <div style="min-height:20px"></div>
+                                    </div>
+
+                                    <div #input *ngIf="paragraph.type=='choseImage'" class="col-12">
+
+                                        <div>
+                                            <input  type="file" class="form-control " id="customFile"
+
+                                            (change)="onSelectImage($event)"/>
+                                        </div>
+                                       
+                                        <small> </small>
+                
+                                        <div class="d-flex justify-content-center">
+                                            <app-image-upload [maxWidth]="400" *ngIf="url.length > 10" (imageDestination2)="getImageDestination(i,$event)" [src]="url">
+                                                <div class="col-lg-12 my-2">
+                                                    <button class="btn btn-dark " style="width: 200px;" (click)="anulujDodawanie(i)">anuluj</button>
+                                                </div>
+                                              
+                                             </app-image-upload>
+                                           
+                                        </div>
+                                        
+                                        <div style="min-height: 100px;"></div>
+                                        <!-- <img #realImg [src]="url" class="my-4 img-fluid"> -->
+                         
+                                        
+
+                                    </div>
+                                                            
+                                                        </div>
+                    
+                    
+                        <div *ngIf="paragraph.type=='image'"   [ngClass]=" paragraph.type" 
+                        style=" min-height: 520px; margin-top: -10px;
+                        " class="col-12 mt-4">
+
+                        <div  *ngIf="chosenImgToEdit!=paragraph.id"     [class.pointerImg]="choseParagraphOption"
+                         class="col-12 col-lg-12 m-lg-3 my-0" style="background-color: red;"
+                        (click)="editChosenImg(i,paragraph)">
+                            <img [src]="paragraph.text" class="img-fluid" style=" 
+                            min-width: 100%;" >
+                           
+                        </div>
+
+                        <div *ngIf="chosenImgToEdit==paragraph.id">
+                            
+                            <div>
+                                <input  type="file" class="form-control " id="customFile"
+
+                                (change)="onSelectImage($event)"/>
+                            </div>
+                           
+                            <div class=" d-flex justify-content-center">
+                                <app-image-upload [edit]="true" [maxWidth]="400" *ngIf="url.length > 10" 
+                                (deleteImage)="deleteImg($event,i)" (anulujUpload)="anulujUpload($event)"    (imageDestination2)="editChosenImage($event,paragraph)" [src]="url">
+                                    </app-image-upload>
+        
+                            </div>
+                            
+
+                         
+                        </div>
+
+                        <div style="height: 12px;"></div>
+                        </div>
+                    
+                    </div>
+
+                    
+                </div>
+
+            
+            </div>
+
+
+    
+    
+        
+
+        </div>
+
+        
+
+</div>
+</div>
+
+<div class="col-12 my-2">
+        
+    <div class="justify-content-md-center my-2" style="text-align: center; font-size: 30px;
+    font-weight: 700;"
+    >Pamiętaj by zapisać zmiany!</div>
+    
+
+        <button class="col-12 saveButton btn" (click)="zapiszArtykul()"> ZAPISZ </button>
+  
+
+</div>
+</div>    

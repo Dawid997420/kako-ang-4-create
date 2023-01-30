@@ -1,5 +1,4 @@
 
-
 <div class="container-fluid c2">
 
 
@@ -32,6 +31,9 @@
                         <input class="form-control " (input)="saveTitleToStorage()"
                          [(ngModel)]="title" name="title">
                     </div>
+
+                     
+                
                     <div class="col-3"><h5>-Title</h5></div>
                 </div>
                
@@ -239,16 +241,31 @@
                           [class.smallTitle]="title.length<70">
 
 
-                               <div style=""  [ngClass]="mouseClass"  >{{title}}</div> 
+                               <div *ngIf="title!=selectedTitle" style=""  [ngClass]="mouseClass"  >{{title}}</div> 
                              
 
+                               <textarea #area *ngIf="title==selectedTitle"
+                               
+                               [value]="chosenParagraph" class="form-control m-0 p-0  font-subtitle editTextArea " 
+                                [style.height]="setStyle(area)"  [value]="title" [(ngModel)]="titleToSave"
+                                 rows="1">
+                                
+                               </textarea>
                         </div>
+
+                     
+    
+                        
+                     
 
                         <div class="col-12 col-lg-3 my-lg-4 my-5  btn-background rounded" (mouseenter)="mouseEnterRemove()" 
                         (mouseleave)="mouseLeaveRemove()" style="margin-left: 7px;">
                             <div style="margin-left: -12px;" >
-                                <button type="button" class="btn btn-outline-primary" 
+                                <button *ngIf="title!=selectedTitle" type="button" class="btn btn-outline-primary" 
                                 (click)="removeTitle()" >REMOVE</button>    
+                                <button *ngIf="title==selectedTitle" type="button" (click)="anulujTitle()"
+                                style="min-width: 88px;" 
+                                class="btn btn btn-outline-danger" >ANULUJ</button>    
                             </div>
                             
                         </div>
@@ -256,7 +273,11 @@
                         
                         <div class="col-12 col-lg-3 mx-3 my-lg-4 my-5   btn-background rounded"  >
                             <div style="margin-left: -12px; "(mouseenter)="mouseEnterChange()"    (mouseleave)="mouseLeaveChange()"  >
-                                <button type="button" class="btn btn-outline-dark" >CHANGE</button>    
+                                <button *ngIf="title!=selectedTitle" type="button" (click)="setTitleToChange(title)"
+                                class="btn btn-outline-dark" >CHANGE</button>    
+                                <button *ngIf="title==selectedTitle" type="button" (click)="saveTitle()"
+                                style="min-width: 88px;"
+                                class="btn btn-outline-success" >ZAPISZ</button>    
                             </div>
                             
                         </div>
@@ -341,10 +362,16 @@
                                                     [class.indentation]="i==0 &&  paragraph.type != 'image'"
                                                    >
                                                     <div class="row" >
-                                                        <div *ngIf="paragraph.type!='image'" class="col-12 m-lg-3 " style="margin-right: 100px;" [ngClass]="paragraph.klasa">
+                                                        <div   *ngIf="paragraph.type!='image' && chosenParagraph != paragraph.text" class="col-12 m-lg-3 " style="margin-right: 100px;" [ngClass]="paragraph.klasa">
                                                             {{paragraph.text}}
                                                         </div>
                                                         
+                                                        <textarea #area *ngIf="chosenParagraph == paragraph.text " [ngClass]="paragraph.type" 
+                                                        [value]="chosenParagraph" class="form-control mx-3 editTextArea"  [style.height]="setStyle(area)" 
+                                                        rows="1" [(ngModel)]="paragraphToSave">
+
+                                                        </textarea>
+                                                         
                                                        
                                                     </div>
                                                     
@@ -353,10 +380,13 @@
                                                          style=" min-height: 520px; margin-top: -10px;
                                                          " class="col-12">
 
-                                                         <div class="col-12 col-lg-12 m-lg-3 m-0" style="background-color: red;">
+                                                         <div class="col-12 col-lg-12 m-lg-3 m-0"  style="background-color: red;">
                                                             <img [src]="paragraph.text" class="img-fluid" style="
-                                                            min-width: 100%;" >
+                                                            min-width: 100%" >
                                                          </div>
+
+                                                        
+
                                                        
                                                         </div>
                                                       
@@ -372,17 +402,28 @@
                                             <div class="col-12 col-lg-3 my-3 btn-background rounded" style="margin-left: 60px;" >
                                                 <div style="margin-left: -12px; "  >
                                                     <button type="button" class="btn btn-outline-primary" 
+                                                    *ngIf="chosenParagraph != paragraph.text "
                                                    (mouseenter)="mouseEnterRemoveParagraph(i)"
                                                    (mouseleave)="mouseLeaveRemoveParagraph(i)"
                                                     (click)="removeParagraph(i)" >REMOVE</button>    
+                                                
+                                                    <button *ngIf="chosenParagraph == paragraph.text " type="button" 
+                                                    style="min-width: 88px;"
+                                                    class="btn btn btn-outline-danger" (click)="cancelParagraph()" >ANULUJ</button>    
                                                 </div>
                                                 
                                             </div>
                                             <div class="col-12 col-lg-2 mx-3 my-3 btn-background rounded"  >
                                                 <div style="margin-left: -12px; "  >
-                                                    <button type="button" class="btn btn-outline-dark" 
+                                                    <button type="button" class="btn btn-outline-dark"
+                                                    (click)="changeParagraph(paragraph)" 
+                                                    *ngIf="chosenParagraph != paragraph.text " 
                                                     (mouseleave)="mouseLeaveChangeParagraph(i)"
-                                                    (mouseenter)="mouseEnterChangeParagraph(i)">CHANGE</button>    
+                                                    (mouseenter)="mouseEnterChangeParagraph(i)">CHANGE</button>  
+
+                                                    <button *ngIf="chosenParagraph == paragraph.text "  type="button" 
+                                                    style="min-width: 88px;"
+                                                    class="btn btn-outline-success" (click)="saveParagraph(paragraph)">ZAPISZ</button>     
                                                 </div>
                                                 
                                             </div>

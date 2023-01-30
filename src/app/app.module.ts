@@ -22,6 +22,13 @@ import { UsersComponent } from './users/users.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
+import { ViewArtComponent } from './view-art/view-art.component';
+import { WriteCommentComponent } from './write-comment/write-comment.component';
+import { ChosenCatComponent } from './chosen-cat/chosen-cat.component';
+import { ArticlesOptionsComponent } from './articles-options/articles-options.component';
+import { EditArticlesComponent } from './edit-articles/edit-articles.component';
+import { EditSingleArticleComponent } from './edit-single-article/edit-single-article.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -40,7 +47,14 @@ import { ImageUploadComponent } from './image-upload/image-upload.component';
     CytatyComponent,
     QuotesComponent,
     UsersComponent,
-    ImageUploadComponent
+    ImageUploadComponent,
+    ViewArtComponent,
+    WriteCommentComponent,
+    ChosenCatComponent,
+    ArticlesOptionsComponent,
+    EditArticlesComponent,
+    EditSingleArticleComponent,
+    NotFoundComponent
    
   ],
   imports: [
@@ -50,7 +64,8 @@ import { ImageUploadComponent } from './image-upload/image-upload.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
+
   
 
 

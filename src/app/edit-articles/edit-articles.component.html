@@ -1,0 +1,145 @@
+<div class="container-fluid c2 ">
+
+
+
+    <div class="row index-value ">
+
+
+
+
+        <div class="col-12">
+
+
+            <div class="row my-3">
+            
+                <div class="col-3"></div>
+                <div class="col-6 m-0 p-0" style="max-width: 300px;">
+                    <select [(ngModel)]="selected" (change)="choseCategory()">
+                        <option >WSZYSTKIE</option>
+                        <option>PORNOGRAFIA</option>
+                        <option>ALKOHOL</option>
+                        <option>NARKOTYKI</option>
+                        <option>CYBERSEKS</option>
+                        <option>HAZARD</option>
+                        <option>SPORT</option>
+                        <option>ZAKUPOHOLIZM</option>
+                        <option>PRACOHOLIZM</option>
+                        <option>PAPIEROSY</option>
+
+                        <option>WIARA</option>
+                        <option>OBŻARSTWO</option>
+                        <option>SEKSOHOLIZM</option>
+                        <option>TECHNOLOGY</option>
+                        <option>ZABURZENIA_ODZYWIANIA</option>
+                        <option>LEKOMANIA</option>
+
+                    </select>
+                </div>
+                <div class="col-3 m-0 p-0" style="max-width: 30px;">
+                    <button class=" btn btn-primary" style="
+                        margin-top: -4px; max-height: 30px; text-align: center;">
+                    <div style="margin-top: -4px;" >find</div>
+                </button>
+                </div>
+               
+                
+            </div>
+
+
+            <div *ngFor="let article of articles">
+
+                
+                <div class="row m-0 p-0" *ngIf="categoryFilter(article)">
+                <div #article1 class="col-8 article m-2"  >
+
+
+                    <div class="row" >
+                    
+                            <div class="col-6 m-0 p-0">
+                                <img [src]="getImage(article)" class="img-fluid" style="width: 100%;">
+                            </div>
+
+                            <div class="col-5  p-0 mx-4"  >
+                                
+                                <div class="row">
+
+                                    <div class="topic col-12 p-2 mx-1">
+                                        {{article.topic}}
+                                    </div>
+                              
+                                    <div class="col-1">
+                                        <i class="bi bi-clock" style="font-size: 14px;
+                                        font-weight: 900;"></i> 
+                                    </div>
+
+                                    <div class="col-1 m-0 p-0">
+
+                                        <small class="float-left">{{article.created | date: 'dd.MM.yyyy'}}</small>
+                                    </div>
+
+                                    <div class="col-5 mx-4" style="font-size: 16px;">
+                                         -   {{article.categories}}
+                                    </div>
+                               
+
+
+                                </div>
+                              
+                                <div class="row">
+
+
+                                    {{getFirstParagraphText(article.paragraphs)}}
+
+
+                                </div>
+                                 
+                                    
+                                
+
+                            </div>
+                            
+
+                    </div>
+                    
+                      
+                    
+                  
+                </div>
+             
+
+                <div class="col-2">
+
+                    <div >
+        
+                        <div class="col-12 " style="margin-top: 11px;" >
+                          
+                            <div class="edit pointer " (click)="deleteArticle(article)"
+                            style="text-align: center; margin-top: 7px; margin-bottom: 8px;" >
+                                <div style="margin-top: 0px;" > Delete</div>   
+                            </div>
+
+                            <div class="edit p-0 my-0 pointer" (click)="editArticle(article)"
+                             style="margin-top: 20px; text-align: center;">Edit</div>
+                       
+                        </div>
+                    
+        
+        
+                    </div>
+        
+                </div>
+            </div>
+
+            </div>
+
+       
+  
+
+        </div>
+
+       
+
+    </div>
+
+
+</div>

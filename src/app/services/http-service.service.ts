@@ -80,4 +80,8 @@ export class HttpServiceService {
   }
 
 
+  getArticleFromUrl(topic :string) : Observable<Article>{
+    return this.http.get<Article>(this.baseUrl + "articles/topic/" + topic) 
+  }
+
 }

@@ -219,3 +219,10 @@
     resize: none;
     text-align:justify;
 }
+
+input.ng-dirty.ng-invalid {
+    border:2px solid #f31413
+}
+input.ng-dirty.ng-valid {
+    border:2px solid #13f365
+}

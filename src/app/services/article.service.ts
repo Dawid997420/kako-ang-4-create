@@ -37,12 +37,31 @@ export class ArticleService {
   enterArticle( topic:string ) {
 
 
-    let topicEdited = topic.split(' ').join('-');
+    topic = this.makeUrl(topic)
+    
     
 
-    this.router.navigateByUrl("view/"+topicEdited);
+    this.router.navigateByUrl("view/"+topic);
     sessionStorage.setItem("chosenArticle",JSON.stringify(this.chosenArticle))
 
+  }
+
+  makeUrl(topic:string) {
+
+    topic = topic.split(' ').join('-');
+    topic = topic.split('?').join('');
+    topic = topic.split('ł').join('l');
+    topic = topic.split('ą').join('a');
+    topic = topic.split('ó').join('o');
+    topic = topic.split('ę').join('e');
+    topic = topic.split('ć').join('c');
+    topic = topic.split('ń').join('n');
+    topic = topic.split('ź').join('z');
+    topic = topic.split('ż').join('z');
+    topic = topic.split('ś').join('s');
+    
+
+    return topic
   }
 
   getAllArticles() {

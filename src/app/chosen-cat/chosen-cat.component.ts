@@ -18,7 +18,7 @@ export class ChosenCatComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(sessionStorage.getItem("category"))
+    
     this.articleService.getCategory().subscribe(response => {
 
       //this.articles = response;
@@ -48,7 +48,7 @@ export class ChosenCatComponent implements OnInit {
 
     for ( let i = 0 ; i < paragraphs.length ; i++) {
 
-      console.log(paragraphs[i].type)
+     
         if ( "image" != paragraphs[i].type && paragraphs[i].text.length > 50 ) {
             
           textToShow = paragraphs[i].text.substring(0,130)+ "..."

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Article } from '../model/Article';
 import { ArticleService } from '../services/article.service';
+import { AuthService } from '../services/auth.service';
 import { HttpServiceService } from '../services/http-service.service';
 
 @Component({
@@ -17,17 +18,48 @@ export class ViewArtComponent implements OnInit{
 
   rightArticles : Article[] = [];
 
-  constructor(private route:ActivatedRoute ,private artService :ArticleService , private httpService : HttpServiceService) {
+
+  historyUrl :string[] = [];
+
+  constructor(private route:ActivatedRoute ,private artService :ArticleService , 
+    private httpService : HttpServiceService, private authService :AuthService) {
 
     
     this.getChosenArticleFromSession();
+
   }
 
   name : string = "";
-  ngOnInit(): void {
-    this. getRightArticles();
+
+
+
+  getNewUrl() {
+    
     this.name = this.route.snapshot.params['id'];
-    console.log("router id is " + this.route.snapshot.paramMap.get("id"))
+
+    if ( this.chosenArticle == undefined || this.chosenArticle == null ||
+       this.artService.makeUrl( this.chosenArticle.topic) != this.name ) {
+    this.httpService.getArticleFromUrl(this.name).subscribe(repsonse =>{
+      this.chosenArticle = repsonse;
+      sessionStorage.setItem("chosenArticle",JSON.stringify(this.chosenArticle))
+    })}
+
+  }
+
+
+  isUserLogedIn() {
+    return this.authService.isLoggedIn()
+
+  }
+
+  ngOnInit(): void {
+
+    
+    this. getRightArticles();
+    
+    this.getNewUrl();
+
+    this.historyUrl.push(this.chosenArticle.topic)
     
     
   }
@@ -35,7 +67,7 @@ export class ViewArtComponent implements OnInit{
 
   getRightArticles() {
 
-    console.log(this.artService.articles)
+    
 
         
     this.httpService.getArticles().subscribe( (response) => {
@@ -48,17 +80,70 @@ export class ViewArtComponent implements OnInit{
 
 
   }
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event:any) {
+   
+  
+    //this.chosenArticle.topic="";
+   this.getNewUrl();
+   this.getPrevious();
+  }
+
+
+  getPrevious() {
+
+    
+    
+    let previousURL = ""
+
+    for ( let i = 0 ; i < this.historyUrl.length ; i++) {
+     
+      
+      let historyValue = this.artService.makeUrl(this.historyUrl[i])
+   
+     // console.log( this.name  + "   " + this.historyUrl[i].valueOf() )
+
+      if ( this.name ==  historyValue && this.historyUrl[i-1] != null ) {
+
+        
+        let historyValueBefore = this.artService.makeUrl(this.historyUrl[i-1])
+
+        previousURL = historyValueBefore
+        console.log("--------------" + historyValueBefore)
+
+        this.httpService.getArticleFromUrl(historyValueBefore).subscribe(repsonse =>{
+          this.chosenArticle = repsonse;
+          sessionStorage.setItem("chosenArticle",JSON.stringify(this.chosenArticle))
+          console.log(this.chosenArticle)
+          this.chosenArticle= JSON.parse(sessionStorage.getItem("chosenArticle") || "")
+        })
+     
+
+      }
+
+    }
+
+  }
 
   chosenArticle2(article:Article) {
 
-    console.log("klik")
+    this.artService.enterArticle(article.topic);
+   
+    //this.getNewUrl();
+
+
+    this.historyUrl.push(article.topic)
+    
+ 
     this.artService.chosenArticle = article
     this.artService.enterArticle(article.topic);
 
-   
+    //location.reload();
+    
 
     this.getChosenArticleFromSession();
 
+    
   }
 
   getFirstImgArtice(article:Article) {

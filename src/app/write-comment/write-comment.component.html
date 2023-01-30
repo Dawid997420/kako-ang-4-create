@@ -1,26 +1,41 @@
 
 
-<div class="col-12 mx-3 p-5 comment rounded" >
+<div class="col-12 mx-3 p-5 comment rounded"  >
 
 
     <div class="row">
 
 
         
-         <div class="col-1 profile rounded-circle " > </div>
+         <div class="col-1 profile rounded-circle " *ngIf="isUserLoggedIn()" >
+            <div style="margin-top:1px;"></div>
+            <img src="assets/user1.png" class="img-fluid" style="width: 100%;">    
+        </div>
         
-         <div class="col-10 my-1" >
-            <textarea class="form-control text "  
+        <div class="col-1 profile rounded-circle " *ngIf="!isUserLoggedIn()" >
+            <div style="margin-top:1px;"></div>
+            <img src="assets/user3.png" class="img-fluid" style="width: 100%;">    
+        </div>
+
+         <div class="col-10 my-1" style="margin-left: -20px;" *ngIf="isUserLoggedIn()">
+            <textarea #area="ngModel" class="form-control text" [(ngModel)]="ngModel"  
             rows="1" name="text" ></textarea>
+         </div>
+
+         <div class="col-10 my-1" style="margin-left: -20px;" *ngIf="!isUserLoggedIn()">
+            <textarea #area="ngModel" class="form-control text" [(ngModel)]="ngModel"  
+            rows="1" name="text" (click)="redirectTo()"></textarea>
          </div>
     
     </div>
-    
-    <div class="row" style="margin-top: -10px;">
+    <div style="height: 10px;" ></div>
+
+    <div class="row" style="margin-top: -10px; " *ngIf="isUserLoggedIn()">
 
         <div class="col-9 mx-3">
 
         </div>
+
 
         <div class="col-2 rounded-pill  p-0 send">
             <button class="btn btn-primary rounded-pill">Wyślij</button>

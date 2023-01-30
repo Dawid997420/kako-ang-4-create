@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    {{name}}
+
 <div class="row index-value my-3 rounded justify-content-md-center " >
 
             <div class="row m-4">
@@ -115,10 +115,18 @@
 
 
 
-                             <app-write-comment>
+                             
+
+                             <app-write-comment >
 
                                 
                              </app-write-comment>
+
+                             <div *ngIf="!isUserLogedIn()">
+
+
+                             </div>
+
 
 
                             </div>

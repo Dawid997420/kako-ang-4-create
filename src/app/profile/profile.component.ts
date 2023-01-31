@@ -10,7 +10,7 @@ import { HttpServiceService } from '../services/http-service.service';
 export class ProfileComponent implements OnInit{
 
 
-  user : UserE = new UserE('','','',new Date,'') ;
+  user : UserE = new UserE('','','',new Date,'','') ;
 
   constructor( private httpService :HttpServiceService) {}
 
@@ -43,7 +43,7 @@ export class ProfileComponent implements OnInit{
     this.httpService.getLogedUserInfo().subscribe( response => {
       
       this.user = response;
-      console.log(this.user)
+     
     })
   } 
 

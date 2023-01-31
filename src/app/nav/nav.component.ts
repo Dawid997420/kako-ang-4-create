@@ -1,20 +1,30 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { UserE } from '../model/UserE';
 import { ArticleService } from '../services/article.service';
+import { AuthService } from '../services/auth.service';
+import { HttpServiceService } from '../services/http-service.service';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent {
+export class NavComponent implements OnInit{
 
 
   navbarfixed =false;
   showNav = false ;
+  role= "SPECTATOR"
 
+  constructor( private articleSerice :ArticleService,
+    public authService :AuthService,private httpService :HttpServiceService) {
 
-  constructor( private articleSerice :ArticleService) {
+  }
+  ngOnInit(): void {
+      this.role= localStorage.getItem("role") || "SPECTATOR"
 
+      this.authService.role = localStorage.getItem("role") ||"SPECTATOR"
+    console.log(localStorage.getItem("role"))
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -52,6 +62,15 @@ export class NavComponent {
     this.articleSerice.setChosenCategory("ALKOHOL")
  
    // window.location.reload();
+    }
+
+
+    logout() {
+      
+      localStorage.setItem("token","");
+      localStorage.setItem("role","")
+     this.authService.role = localStorage.getItem("role") ||"SPECTATOR"
+ 
     }
 
 

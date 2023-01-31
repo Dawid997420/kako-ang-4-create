@@ -18,13 +18,13 @@
 
 
                         <div class="col-12 col-lg-6">
-                            <input type="email" class="form-control  my-sm-2" id="email"
+                            <input type="email" class="check form-control  my-sm-2" id="email"
                             email formControlName="email" placeholder="Enter email" required>
                         </div>
                         
                         <div class="col-12 col-lg-6">
 
-                            <input type="text" class="form-control my-2" id="username" 
+                            <input type="text" class="check form-control my-2" id="username" 
                             formControlName="username" placeholder="Enter username(everyone can see)" required>
                         </div>
 
@@ -33,10 +33,10 @@
             
 
                 
-                    <input type="password" class="form-control my-2" id="password" 
+                    <input type="password" class="check form-control my-2" id="password" 
                     formControlName="password" placeholder="password" required>
 
-                    <input type="password" class="form-control  my-2" id="password2" 
+                    <input type="password" class="check form-control  my-2" id="password2" 
                     formControlName="password2" placeholder="repeat password" required >
 
                     <div class="row">
@@ -52,7 +52,8 @@
                              
                         </div>
                         <div class="col-12  col-lg-7">
-                            <input type="date" id="birthday" [class.birthdayError]="birthdayError" required (change)="bithdayChange()"
+                            <input type="date" id="birthday" [class.birthdayGood]="birthdayError"
+                             [class.birthdayError]="!birthdayError" required (change)="bithdayChange()"
                             formControlName="birthday" class="form-control col-7" name="birthday" >
                         </div>
                        
@@ -80,7 +81,7 @@
 
                 <div class="row p-2" *ngIf="showSecretCode">
                     
-                    <input type="text" class="form-control p-1" 
+                    <input type="text" class="check form-control p-1" required
                     [(ngModel)]="secretCode" placeholder="ENTER CODE"  name="secretCode" [ngModelOptions]="{standalone: true}" >
                 
 

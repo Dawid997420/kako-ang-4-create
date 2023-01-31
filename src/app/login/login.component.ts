@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { catchError, throwError } from 'rxjs';
 import { UserELogin } from '../model/UserELogin';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +28,7 @@ export class LoginComponent {
   })
 
 
-  constructor(private httpService : HttpServiceService, private authService :AuthService) {}
+  constructor(private router :Router,private httpService : HttpServiceService, private authService :AuthService) {}
 
 
 
@@ -40,7 +41,7 @@ export class LoginComponent {
 
 
     let user : UserELogin = new UserELogin(this.loginForm.value.email!,this.loginForm.value.password!);
-
+   
     this.authService.LoginWithToken(user)
               .pipe(
                 catchError(err => {
@@ -52,8 +53,16 @@ export class LoginComponent {
                   
               }))
     .subscribe(response => {
-  this.loginForm.reset()
-   
+  this.loginForm.reset();
+
+ 
+  sessionStorage.setItem("user",response)
+
+
+    this.router.navigateByUrl("")
+
+    this.authService.setRole()  
+
     });
 
 

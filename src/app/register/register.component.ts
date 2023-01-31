@@ -28,46 +28,132 @@ export class RegisterComponent {
   })
 
 
+  secretCode = "";
+  showSecretCode = false;
+
+
+  secretError = "" ;
+
+
+  showCode() {
+    this.showSecretCode = !this.showSecretCode
+  }
+
+
   register() {
 
-    
-
-    if ( this.registerForm.valid &&  this.registerFormCheck() ) {
 
 
-      let birthday : Date = new Date(this.registerForm.value.birthday || '');
 
-      let user: UserE 
-      = new UserE(this.registerForm.value.username || '' , this.registerForm.value.password || ''
-      , this.registerForm.value.email || '' , birthday, this.registerForm.value.sex || '');
+    if ( this.registerForm.valid && this.registerFormCheck() ) {
+
+      if ( !this.showSecretCode) {
+
+     
+                  let birthday : Date = new Date(this.registerForm.value.birthday || '');
+
+                  let user: UserE 
+                  = new UserE(this.registerForm.value.username || '' , this.registerForm.value.password || ''
+                  , this.registerForm.value.email || '' , birthday, this.registerForm.value.sex || '');
 
 
-      console.log(user)
-    this.httpService.register(user).subscribe( response => {
+                  console.log(user)
+                this.httpService.register(user).subscribe( response => {
 
-      if ( response) {
+              
+                  
+                  if ( response) {
+                   
 
-        this.router.navigate(['profile'])
-      } else  {
+                    if ( sessionStorage.getItem("previousSite") != null) {
 
-        
+                      this.router.navigateByUrl(sessionStorage.getItem("previousSite") || "")
+
+                    } else {
+
+                      this.router.navigateByUrl("")
+                    }
+
+               
+                  } else  {
+                    this.secretError = "typicalError"
+                    
+                  }
+                })
+
+      } else {                                                    
+
+
+                      
+                let birthday : Date = new Date(this.registerForm.value.birthday || '');
+
+                let user: UserE 
+                = new UserE(this.registerForm.value.username || '' , this.registerForm.value.password || ''
+                , this.registerForm.value.email || '' , birthday, this.registerForm.value.sex || '');
+
+
+                
+
+              this.httpService.registerAdmin(user,this.secretCode).subscribe( response => {
+
+                  console.log("error")
+                  if (response) {
+
+                    this.router.navigateByUrl("")
+                    this.secretError=""
+
+                  } else  {
+                    this.secretError="secretError"
+                    
+
+
+
+                  }
+ 
+
+              });
+
+
       }
 
-    })
+
+   
+        
+
+    }
+  }
+
+  bithdayChange() {
+
+    let date :string | undefined | null   = this.registerForm.value.birthday;
+ 
+    let birthday : Date = new Date(date || "");
+
+    let timeDiff = Math.abs(Date.now() - birthday.getTime());
+
+    let age = Math.floor((timeDiff / (1000 * 3600 * 24))/365.25)
+   
+    if ( age < 16 ) {
 
 
-     // console.log(this.registerForm.value.birthday)
-    } 
+      this.birthdayError = false;
+     
+    }
+
+
+    this.birthdayError = true;
 
   }
 
 
+  birthdayError= false;
 
   registerFormCheck() : boolean {
 
     if ( this.registerForm.value.password2 !== this.registerForm.value.password) {
       
       return false;
+
 
     }
    
@@ -83,12 +169,12 @@ export class RegisterComponent {
     if ( age < 16 ) {
 
 
-      
+      this.birthdayError = true;
       return false;
     }
 
 
-
+    this.birthdayError = false;
 
     return true;
   }

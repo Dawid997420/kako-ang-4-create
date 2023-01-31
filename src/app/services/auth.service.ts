@@ -25,6 +25,9 @@ export class AuthService implements OnInit{
   isLoggedIn() :boolean{
 
 
+    if (localStorage.getItem("token") != null ) {
+
+    
     const token = localStorage.getItem("token");
 
     const payload = window.atob(token!.split('.')[1]);
@@ -33,7 +36,9 @@ export class AuthService implements OnInit{
 
 
     return parsedPayload.exp > Date.now() / 1000 ;
-
+  } else  {
+    return false;
+  }
   }
 
 

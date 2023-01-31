@@ -44,9 +44,15 @@ export class HttpServiceService {
 
   }
 
-  register(user:UserE) : Observable<UserE>{
+  register(user:UserE) : Observable<boolean>{
 
-    return this.http.post<UserE>(this.baseUrl + "users" , user);
+    return this.http.post<boolean>(this.baseUrl + "users" , user);
+  }
+
+
+  registerAdmin(user:UserE ,secretCode : string) : Observable<boolean> {
+
+    return this.http.post<boolean>(this.baseUrl + "users/" + secretCode ,user)
   }
 
 

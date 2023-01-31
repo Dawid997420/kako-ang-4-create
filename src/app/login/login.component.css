@@ -2,16 +2,19 @@
 
 .login {
 
-
-
-  height: 520px;
+  position: relative;
+  top: 50%;
+  transform: translateY(25%);
+  top: 50%;
+  height: auto;
   background-color: aliceblue;
 }
 
 
 .link {
-
-
+  text-decoration: none;
+  font-weight: 600;
+  text-decoration: none
 }
 
 .link:hover {
@@ -19,6 +22,7 @@
   cursor: pointer;
 
 }
+
 
 .btn-block {
 
@@ -55,4 +59,15 @@ input.ng-touched.ng-invalid {
 input.ng-touched.ng-valid {
 
   border:2px solid #6bc502
+}
+
+input.ng-dirty.ng-valid {
+
+  border:2px solid #6bc502
+}
+
+
+input.ng-dirty.ng-invalid {
+
+  border:2px solid #ff0000;
 }

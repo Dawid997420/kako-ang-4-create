@@ -9,34 +9,65 @@
 
       <div class="row">
 
-                <div class="col-6 my-5 align-items-center justify-content-center" style="text-align: center; float:top" >
+                <div class="col-6 my-5 align-items-center justify-content-center" style="text-align: center; float:top ; " >
 
 
-                  <div class="my-0 row p-5" *ngIf="!wrongCredentials">
-                    <h1 style="font-size:70px; font-family: 'Hanalei Fill', cursive; ">
-                      JOIN US !
-                    </h1>
+                  <div class="my-0 row p-5" >
 
-                      <div style="width:200px; margin-left:20px "
-                      class="col-12 mx-5 my-3">
+                    <div class="row">
 
-    <img src="assets/felix.webp"  class="img-fluid" width="">
+                      <div class="col-12">
+                          <h1 *ngIf="!wrongCredentials" style="font-size:63px; font-family: 'Hanalei Fill', cursive; ">
+                            JOIN US !
+                          </h1>
+                          <h1 *ngIf="wrongCredentials" style="font-size:55px; font-family: 'Hanalei Fill', cursive; ">
+                           WRONG DATA
+                          </h1>
+                     </div>
+
+                    </div>
+                  
+                    <div class="row">
+
+                      <div class="col-2"></div>
+                      
+                      <div style=""
+                      class="col-8 my-3">
+
+                         <img *ngIf="!wrongCredentials" src="assets/felix.webp"  class="img-fluid" width="">
+                         
+                         <img *ngIf="wrongCredentials" src="assets/felixhead.webp"  class="img-fluid" width="">
                       </div>
+
+                      <div class="col-2"> </div>
+
+                    </div>
+
+            
 
                   </div>
 
-                    <div *ngIf="wrongCredentials" class="my-2">
+                    <div *ngIf="false" class="my-2">
 
 
-                      <h1 style="font-size:70px; font-family: 'Hanalei Fill', cursive; ">
+                      <h1 style="font-size:67px; font-family: 'Hanalei Fill', cursive; ">
                         WHO ARE YOU ?
                       </h1>
 
-                        <div style="width:200px; margin-left:20px; margin-top: -10px;"
-                        class="col-12 mx-5 " >
 
-      <img src="assets/felixhead.webp"  class="img-fluid" style="margin-left: 28px;" width="">
+                      <div class="row">
+
+                        <div class="col-1"></div>
+                        
+                        <div style=""
+                        class="col-7 my-">
+  
+                           <img src="assets/felixhead.webp"  class="img-fluid" style="margin-left: 28px;" width="">
                         </div>
+  
+                        <div class="col-2"> </div>
+  
+                      </div>
 
 
 
@@ -64,7 +95,7 @@
    
 
                   
-                     <input type="password" required class="form-control my-3" style="margin-top: 220px;"
+                     <input type="password" minlength="5" required class="form-control my-3" style="margin-top: 220px;"
 
                      formControlName="password" placeholder="password" required="">
 
@@ -80,11 +111,14 @@
 
 
 
-                      <button class="btn  btn-block form-control my-1 zaloguj-btn" width="500" style="clear:both"
+                      <button class="btn  btn-block form-control my-1 zaloguj-btn" style="clear:both"
                       type="submit">Zaloguj</button>
 
-                      <label class="my-1">OR</label>
-                      <button class="btn btn-block form-control my-1 facebook-btn" width="500"
+                      <div class="row">
+                        <label class="my-1">OR</label>
+                      </div>
+                     
+                      <button class="btn btn-block form-control my-1 facebook-btn"
                       style="clear:both" type="button">
                         <i class="bi bi-facebook"></i>
                         <i class="mx-2">Continue with Facebook</i>
@@ -92,10 +126,21 @@
 
 
                        <button class="btn btn-block form-control my-1 google-btn"
-                       type="button" width="500" style="clear:both">
+                       type="button"  style="clear:both">
                        <i class="bi bi-google" ></i>
                         <i class="mx-3">Continue with Google</i>
                        </button>
+
+                       <div class="row my-1 ">
+                        
+                        <div class="col-4"></div>
+                        <div class="col-4">
+                          <a class="link"  href="register">Utwórz konto</a>
+                        </div>
+                  
+                        <div class="col-4"></div>
+                       </div>
+                   
 
 
                     </form>

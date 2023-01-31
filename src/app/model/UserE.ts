@@ -1,7 +1,7 @@
 export class UserE {
 
 
-  constructor(private password :string , public username:string , 
+  constructor(  public username:string , private password :string,
     public email :string, public birthday : Date, public sex :string){
     //this.password = password1;
     //this.username = username1;

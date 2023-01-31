@@ -52,7 +52,7 @@
                              
                         </div>
                         <div class="col-12  col-lg-7">
-                            <input type="date" id="birthday" required
+                            <input type="date" id="birthday" [class.birthdayError]="birthdayError" required (change)="bithdayChange()"
                             formControlName="birthday" class="form-control col-7" name="birthday" >
                         </div>
                        
@@ -66,7 +66,7 @@
                        <div style="margin-top:5px; ">Chromosom sex type</div> 
                     </div>
                     
-                    <div  class="col-12 col-lg-7  float-right "  >
+                    <div  class="col-12 col-lg-7  float-right"  >
                             <select class="form-control " 
                             formControlName="sex">
 
@@ -76,9 +76,35 @@
                             </select>
                      </div>
                 </div>
-          
 
-                    <button type="submit" class="btn btn-success m-2" style="text-align: center;">Zarejestruj się</button>
+
+                <div class="row p-2" *ngIf="showSecretCode">
+                    
+                    <input type="text" class="form-control p-1" 
+                    [(ngModel)]="secretCode" placeholder="ENTER CODE"  name="secretCode" [ngModelOptions]="{standalone: true}" >
+                
+
+                    
+                </div>
+
+          
+                    <div class="row">
+                        <div class="col-4">
+
+                        </div>
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-success m-2" style="text-align: center;">Zarejestruj się</button>    
+                        </div>
+                        <div class="col-4">
+                    
+                        <div  class=" m-2 p-2 " style="opacity:0; background-color: red; height: 40px;" (click)="showCode()"></div>
+
+                        </div>
+                    
+                    </div>
+           
+
+
 
             </form>
 

@@ -6,6 +6,7 @@ import { Article } from '../model/Article';
 import { ParagraphDto } from '../model/ParagraphDto';
 import { Quote } from '../model/Quote';
 import { UserE } from '../model/UserE';
+import { Comment } from '../model/Comment';
 import { UserELogin } from '../model/UserELogin';
 
 @Injectable({
@@ -32,6 +33,11 @@ export class HttpServiceService {
 
   }
 
+  getArticleById(articleId:string) :Observable<Article> {
+
+    return this.http.get<Article>(this.baseUrl + "articles/" + articleId );
+
+  }
 
   saveArticle(article :Article) : Observable<Article> {
     
@@ -56,10 +62,21 @@ export class HttpServiceService {
   }
 
 
+
+
   getUsers() : Observable<UserE[]> {
 
     return this.http.get<UserE[]>(this.baseUrl + "users");
   }
+
+  findUserById(userId : string) : Observable<UserE> {
+
+    return this.http.get<UserE>(this.baseUrl + "users/" + userId); 
+  }
+
+
+
+
 
   sendQuote2(formData : FormData) : Observable<any> {
 
@@ -85,9 +102,20 @@ export class HttpServiceService {
     return this.http.post<Article>(this.baseUrl + "paragraphs/" + index + "/" +articleId,paragraph)
   }
 
-
   getArticleFromUrl(topic :string) : Observable<Article>{
     return this.http.get<Article>(this.baseUrl + "articles/topic/" + topic) 
   }
+
+  addComment(commentToAdd:Comment) : Observable<Article> {
+
+    return this.http.post<Article>(this.baseUrl + "comments",commentToAdd);
+  }
+
+
+  
+
+
+
+
 
 }

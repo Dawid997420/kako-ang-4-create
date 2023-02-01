@@ -113,9 +113,18 @@
 
                              </div>
 
+                             <div *ngIf="chosenArticle.comments != null">
+
+                            
+                                    <app-comments [comments]="chosenArticle.comments">
+
+                                    </app-comments>
 
 
-                             
+
+                             </div>
+
+
 
                              <app-write-comment >
 

@@ -31,10 +31,23 @@ background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,r
 
 
     background-color: rgb(78, 78, 78);
-    height: 200px;
+    height: auto;
     margin-top: -95px;
     border: 6px solid aliceblue;
 }
+@media (max-width: 570px) {
+    .profile {
+
+
+        background-color: rgb(78, 78, 78);
+        height: auto;
+        margin-top: -95px;
+        border: 6px solid aliceblue;
+    }
+    
+  }
+
+
 
 
 .leftButton {

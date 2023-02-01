@@ -30,7 +30,8 @@ import { EditArticlesComponent } from './edit-articles/edit-articles.component';
 import { EditSingleArticleComponent } from './edit-single-article/edit-single-article.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CommentsComponent } from './comments/comments.component';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon'
 
 
 
@@ -66,8 +67,9 @@ import { CommentsComponent } from './comments/comments.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule
   
 
 

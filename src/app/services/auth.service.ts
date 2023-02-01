@@ -72,6 +72,10 @@ export class AuthService implements OnInit{
       if ( localStorage.getItem("token")!.length < 10) {
        // this.router.navigateByUrl("") 
        this.urlToRedirect();
+       localStorage.setItem("token","");
+       localStorage.setItem("role","")
+      this.role = localStorage.getItem("role") ||"SPECTATOR"
+      sessionStorage.setItem("user","")
         return false
       }
     
@@ -84,7 +88,12 @@ export class AuthService implements OnInit{
 
     return parsedPayload.exp > Date.now() / 1000 ;
   } else  {
-  
+    console.log("DDD")
+    localStorage.setItem("token","");
+    localStorage.setItem("role","")
+   this.role = localStorage.getItem("role") ||"SPECTATOR"
+   sessionStorage.setItem("user","")
+    
     return false;
   }
   }

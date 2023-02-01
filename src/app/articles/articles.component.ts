@@ -2,6 +2,7 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Article } from '../model/Article';
 import { Paragraph } from '../model/paragraph';
 import { ParagraphDto } from '../model/ParagraphDto';
+import { UserE } from '../model/UserE';
 import { HttpServiceService } from '../services/http-service.service';
 
 @Component({
@@ -126,11 +127,15 @@ export class ArticlesComponent implements OnInit{
 
   saveArticle() {
 
+   let user1 : UserE = JSON.parse(sessionStorage.getItem("user")|| "") ;
+
     let articleToSave  = new Article();
 
     articleToSave.created = new Date();
     articleToSave.topic = this.title ;
     articleToSave.categories = this.categories;
+    
+    articleToSave.userId = user1.id || "";
 
 
     let paragraphListDto : ParagraphDto[] = []
@@ -168,6 +173,8 @@ export class ArticlesComponent implements OnInit{
    this.httpService.saveArticle(articleToSave).subscribe( response => {
       console.log(response)
     }) 
+
+
    
     this.clearAll();
 

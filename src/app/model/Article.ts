@@ -9,7 +9,7 @@ export class Article {
   paragraphs! : ParagraphDto[]
   created! : Date ;
   comments? : Comment[];
-  author! : UserE;
+  userId! : string;
   categories! : string[]; 
 
 

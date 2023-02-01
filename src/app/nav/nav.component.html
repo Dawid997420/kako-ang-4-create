@@ -76,7 +76,7 @@
             <li><a class="dropdown-item" routerLink="articlesOption">Profil</a></li>
             <li><a class="dropdown-item" routerLink="users">Ustawienia</a></li>
             <li><a class="dropdown-item" routerLink="" (click)="logout()" *ngIf="authService.getRole()=='ADMIN' || 
-              authService.getRole()=='USER'">Logout</a></li>
+              authService.getRole()=='USER' ">Logout</a></li>
           </ul>
         </li>
 

@@ -21,16 +21,17 @@ export class ArticleService {
 
   constructor( private router : Router , private httpService :HttpServiceService) {
 
-    this.getAllArticles()
+    this.getAllArticles();
+    //console.log("essa")
    }
 
 
    setChosenCategory(chosen:string) {
-    
+   
     this.chosenCategory = chosen;
 
     sessionStorage.setItem("category" ,this.chosenCategory)
-    this.getCategory();
+    this.getCategory(); this.router.navigateByUrl("chosenCat");
    }
 
 

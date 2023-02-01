@@ -1,0 +1,38 @@
+<div  *ngFor="let comment of comments"
+class="mx-3 my-3 rounded" style="background-color:green ">
+
+    <div class="row  p-0">
+
+        <div class="col-6">
+            <div class="row">
+
+
+                <div class="col-2 profile rounded-circle "  >
+                    <div style="margin-top:1px;"></div>
+                    <img src="assets/user1.png" class="img-fluid" style="width: 100%;" >    
+                </div>
+
+
+                <div class="col-1">
+                    {{comment.username}}   
+                </div>
+            
+            
+            </div>
+       
+    
+             
+
+        </div>
+
+        <div class="col-6">
+            {{comment.text}}
+        </div>
+
+
+
+
+    </div>
+  
+
+</div>

@@ -70,6 +70,7 @@ export class NavComponent implements OnInit{
       localStorage.setItem("token","");
       localStorage.setItem("role","")
      this.authService.role = localStorage.getItem("role") ||"SPECTATOR"
+     sessionStorage.setItem("user","")
  
     }
 

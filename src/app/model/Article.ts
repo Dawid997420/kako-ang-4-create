@@ -1,5 +1,6 @@
 import { UserE } from "./UserE";
 import { ParagraphDto} from "./ParagraphDto"
+import { Comment } from "./Comment";
 
 export class Article {
 

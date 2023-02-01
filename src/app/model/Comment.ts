@@ -3,13 +3,11 @@ import { Article } from './Article';
 export class Comment {
 
 
-  id!:string;
-  text!: string ;
-  author!: UserE;
-
-  article!:Article;
+  constructor(public text:string,public articleId:string, public username :string,
+    public userId:string,public id? :string) {}
 
 
+  
 
 
 }

@@ -26,6 +26,7 @@ export class ViewArtComponent implements OnInit{
 
     
     this.getChosenArticleFromSession();
+    
 
   }
 
@@ -160,9 +161,26 @@ export class ViewArtComponent implements OnInit{
 
     if (sessionStorage.getItem("chosenArticle") != null && sessionStorage.getItem("chosenArticle") != undefined) {
 
-     this.chosenArticle = JSON.parse(sessionStorage.getItem("chosenArticle") || "")
+      let article:Article = JSON.parse(sessionStorage.getItem("chosenArticle") || "") ;
+     this.httpService.getArticleById(article.id || "" ).subscribe( response =>  {
+      console.log(response)
+      sessionStorage.setItem("chosenArticle",JSON.stringify(response));
+      this.chosenArticle = JSON.parse(sessionStorage.getItem("chosenArticle") || "")
+
+     })
+      
+     
     }
     
+  }
+
+  getUsernameFromId(id:string) {
+
+    this.httpService.findUserById(id).subscribe( response =>{
+        
+    })
+
+
   }
   
 

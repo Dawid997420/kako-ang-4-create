@@ -29,6 +29,7 @@ import { ArticlesOptionsComponent } from './articles-options/articles-options.co
 import { EditArticlesComponent } from './edit-articles/edit-articles.component';
 import { EditSingleArticleComponent } from './edit-single-article/edit-single-article.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CommentsComponent } from './comments/comments.component';
 
 
 
@@ -54,7 +55,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ArticlesOptionsComponent,
     EditArticlesComponent,
     EditSingleArticleComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CommentsComponent
    
   ],
   imports: [

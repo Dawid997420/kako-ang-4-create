@@ -9,6 +9,68 @@
     padding: 10px;
 }
 
+@media screen and (max-height: 700px) {
+ 
+    .register {
+
+
+    background-color: aliceblue;
+    position: relative;
+    top: 50%;
+    transform: translateY(15%);
+    padding: 10px;
+}
+
+    
+    }
+
+    @media screen and (max-height: 800px) {
+ 
+        .register {
+    
+    
+        background-color: aliceblue;
+        position: relative;
+        top: 50%;
+        transform: translateY(25%);
+        padding: 10px;
+    }
+    
+        
+        }
+    
+        @media screen and (max-height: 600px) {
+ 
+            .register {
+        
+        
+            background-color: aliceblue;
+            position: relative;
+            top: 50%;
+            transform: translateY(6%);
+            padding: 10px;
+        }
+        
+            
+}
+ 
+@media screen and (max-height: 650px) {
+ 
+    .register {
+
+
+    background-color: aliceblue;
+    position: relative;
+    top: 50%;
+    transform: translateY(10%);
+    padding: 10px;
+}
+
+    
+    }
+        
+
+
 
 .check.ng-touched.ng-invalid {
 

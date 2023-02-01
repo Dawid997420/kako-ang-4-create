@@ -21,7 +21,7 @@
         <a class="item nav-item nav-link navbar-light routerClick  " routerLink="write">Write</a>
 
         <a class="item nav-item nav-link navbar-light routerClick "
-        *ngIf="authService.getRole()=='SPECTATOR'" routerLink="login">Login</a>
+        *ngIf="authService.getRole()=='SPECTATOR'" routerLink="login">Login</a>/
 
         <a class="item nav-item nav-link navbar-light routerClick  mx-2 " *ngIf="authService.getRole()!='SPECTATOR'" routerLink="profile"
       >Profile</a>

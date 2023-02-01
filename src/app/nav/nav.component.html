@@ -4,33 +4,35 @@
 
 
 
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg "
+    <nav class=" navbar navbar-dark bg-dark navbar-expand-lg "
      role = "navigation"  >
 
-      <a class="navbar-brand mx-3 h1" style="font-size:30px; font-family: 'Hanalei Fill', cursive;" href="#">Writers</a>
+      <a class="item navbar-brand  h1" style="font-size:30px; font-family: 'Hanalei Fill', cursive;" href="#">Writers</a>
 
-      <button class="navbar-toggler mx-2 my-0" type="button" (click)="showNavClick()">
+      <button class="navbar-toggler  my-0" type="button" (click)="showNavClick()">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-nav navbar-collapse" *ngIf="!showNav">
 
-        <a class="nav-item nav-link routerClick  mx-2 " routerLink="" >Home</a>
+        <a class="item nav-item nav-link routerClick  " routerLink="" >Home</a>
 
-        <a class="nav-item nav-link navbar-light mx-2 routerClick" routerLink="contact" >Contact</a>
+        <a class="item nav-item nav-link navbar-light  routerClick" routerLink="contact" >Contact</a>
 
-        <a class="nav-item nav-link navbar-light routerClick  mx-2 " routerLink="write">Write</a>
+        <a class="item nav-item nav-link navbar-light routerClick  " routerLink="write">Write</a>
 
-        <a class="nav-item nav-link navbar-light routerClick  mx-2 " routerLink="login">Login</a>
+        <a class="item nav-item nav-link navbar-light routerClick "
+        *ngIf="authService.getRole()=='SPECTATOR'" routerLink="login">Login</a>
 
-        <a class="nav-item nav-link navbar-light routerClick  mx-2 " routerLink="profile">Profile</a>
+        <a class="item nav-item nav-link navbar-light routerClick  mx-2 " *ngIf="authService.getRole()!='SPECTATOR'" routerLink="profile"
+      >Profile</a>
 
 
-        <div class="nav-item nav-link navbar-light routerClick  mx-2 " routerLink="chosenCat" (click)="selectedHazard()">Hazard</div>
+        <div class="item nav-item nav-link navbar-light routerClick   " routerLink="chosenCat" (click)="selectedHazard()">Hazard</div>
 
-        <a class="nav-item nav-link navbar-light routerClick  mx-2 " (click)="selectedDrugs()" routerLink="chosenCat">Narkomania</a>
+        <a class="item nav-item nav-link navbar-light routerClick " (click)="selectedDrugs()" routerLink="chosenCat">Narkomania</a>
 
         
-        <li class="nav-item dropdown">
+        <li class="item nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"  data-bs-toggle="dropdown" aria-expanded="false">
             Uzależnienia seksualne
           </a>
@@ -41,13 +43,14 @@
           </ul>
         </li>
 
-        <div class="nav-item nav-link navbar-light routerClick  mx-2 " routerLink="chosenCat" (click)="selectedAlcohol()">Alkoholizm</div>
+        <div class="item nav-item nav-link navbar-light routerClick  " routerLink="chosenCat" (click)="selectedAlcohol()">Alkoholizm</div>
 
 
-        <a class="nav-item nav-link navbar-light routerClick  mx-2 " routerLink="register">Register</a>
+        <a class="item nav-item nav-link navbar-light routerClick  " 
+        *ngIf="authService.getRole()=='SPECTATOR'" routerLink="register">Register</a>
        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"  data-bs-toggle="dropdown" aria-expanded="false">
+        <li class="item nav-item dropdown" *ngIf="authService.getRole()=='ADMIN'">
+          <a class="item nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"  data-bs-toggle="dropdown" aria-expanded="false">
             Admin Site
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
@@ -57,6 +60,28 @@
             <li><a class="dropdown-item" routerLink="image">ImageTEST</a></li>
           </ul>
         </li>
+
+        <div class="float-right nav-item routerClick " 
+        style="max-width: 50px;float: right;">
+
+
+        <li class="item nav-item dropdown" >
+          <a class="item nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"  data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="navbar-nav ml-auto " style="min-width: 20px;  top: 50%; margin-left: -10%;">
+              <img src="assets/set2.png" class="img-fluid" style="">
+            </div>
+          </a>
+          <ul class="dropdown-menu" style="margin-left: -50px;" aria-labelledby="navbarScrollingDropdown" >
+            <li><a class="dropdown-item" routerLink="quotes">Pomoc</a></li>
+            <li><a class="dropdown-item" routerLink="articlesOption">Profil</a></li>
+            <li><a class="dropdown-item" routerLink="users">Ustawienia</a></li>
+            <li><a class="dropdown-item" routerLink="" (click)="logout()" *ngIf="authService.getRole()=='ADMIN' || 
+              authService.getRole()=='USER'">Logout</a></li>
+          </ul>
+        </li>
+
+          
+        </div>
 
       </div>
 

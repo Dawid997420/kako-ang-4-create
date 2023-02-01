@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserE } from '../model/UserE';
+import { UserELogin } from '../model/UserELogin';
 import { HttpServiceService } from '../services/http-service.service';
+import { AuthService } from './../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +16,7 @@ export class RegisterComponent {
 
 
   constructor( private httpService : HttpServiceService,
-    private router: Router) {}
+    private router: Router, private authService :AuthService ) {}
 
   registerForm = new FormGroup({
 
@@ -54,7 +56,7 @@ export class RegisterComponent {
 
                   let user: UserE 
                   = new UserE(this.registerForm.value.username || '' , this.registerForm.value.password || ''
-                  , this.registerForm.value.email || '' , birthday, this.registerForm.value.sex || '');
+                  , this.registerForm.value.email || '' , birthday, this.registerForm.value.sex || '','');
 
 
                   console.log(user)
@@ -63,7 +65,12 @@ export class RegisterComponent {
               
                   
                   if ( response) {
+
                    
+                    let userLogin : UserELogin = new UserELogin(user.email,user.password)
+                    this.authService.LoginWithToken(userLogin).subscribe(
+
+                    );
 
                     if ( sessionStorage.getItem("previousSite") != null) {
 
@@ -89,15 +96,22 @@ export class RegisterComponent {
 
                 let user: UserE 
                 = new UserE(this.registerForm.value.username || '' , this.registerForm.value.password || ''
-                , this.registerForm.value.email || '' , birthday, this.registerForm.value.sex || '');
+                , this.registerForm.value.email || '' , birthday, this.registerForm.value.sex || '','');
 
 
                 
 
               this.httpService.registerAdmin(user,this.secretCode).subscribe( response => {
 
+
+                
                   console.log("error")
                   if (response) {
+                    let userLogin : UserELogin = new UserELogin(user.email,user.password)
+                    this.authService.LoginWithToken(userLogin).subscribe(
+                      
+                      );
+  
 
                     this.router.navigateByUrl("")
                     this.secretError=""
@@ -138,10 +152,12 @@ export class RegisterComponent {
 
       this.birthdayError = false;
      
+    } else {
+      this.birthdayError = true;
     }
 
 
-    this.birthdayError = true;
+  
 
   }
 

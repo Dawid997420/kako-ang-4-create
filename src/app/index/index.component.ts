@@ -114,6 +114,8 @@ export class IndexComponent implements OnInit {
 
   getFirstImgArtice( article : Article) {
 
+    
+
   return this.articleService.getFirstImgArtice(article)
   }
 

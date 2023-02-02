@@ -17,10 +17,28 @@
 
 .item{
  
-  margin-left: 5px;
+  margin-left: 50px;
   margin-right: 5px;
 }
 
+
+
+@media (max-width: 2000px) {
+  .item{
+ 
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+  
+}
+@media (max-width: 1000px) {
+  .item{
+ 
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  
+}
 
 
 
@@ -482,6 +500,8 @@ a.active,a:hover{
   
 
 }
+
+
 
  
   

@@ -104,6 +104,9 @@ export class ArticleService {
       }
       
     }
+    if ( image.length < 10) {
+      image ="assets/szare.jpg"
+    }
 
     return image;
 

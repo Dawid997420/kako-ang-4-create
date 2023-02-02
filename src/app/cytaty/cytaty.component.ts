@@ -56,7 +56,7 @@ export class CytatyComponent implements OnInit{
 
   quotesList: Quote[] = [];
 
-  quoteNow : Quote = new Quote("","","");
+  quoteNow : Quote  | undefined = new Quote("","","");
 
   obs = interval(8000);
   

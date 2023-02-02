@@ -1,4 +1,5 @@
 
+<!--
 
 
   <header>
@@ -96,6 +97,79 @@
 
 
   </header>
+<<<<<<< HEAD
+-->
+
+<div class="row">
+
+      <nav >
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">DesignX</label>
+        <label style="width: 70px; " class="navbar" (click)="showResponsive()"  >
+          <img class="img-fluid " style="cursor: pointer;"  src="assets/navbar1.png"  >
+        </label>
+
+        <ul  >
+
+        
+          
+        
+          <li><a  [class.active]="active=='Home'" (click)="setActive('Home')"  routerLink="">Home</a></li>
+          <li><a  [class.active]="active=='Login'" routerLink="login" (click)="setActive('Login')">Login</a></li>
+               
+
+          <div class="" style="display: inline-block;" >
+           
+             <a class="dropdown-button">TEMATY</a> 
+
+             <div  class="dropdown-menu1" tabindex="1" >
+                dropdown contentsaddddddddddddd
+             </div>
+
+          </div>
+
+
+       
+
+          <li><a href="#" >Services</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Feedback</a></li>
+
+          <li style="width:80px " class="border-radius profil" *ngIf="authService.getRole()!='SPECTATOR'" routerLink="profile">
+            
+            <img class="img-fluid profil" style="margin-top: -5px;border-radius:700px; border: 2px solid whitesmoke;" src="assets/user1.png" >
+          </li>
+        
+
+        </ul>
+
+      
+      
+
+      
+
+        
+      </nav>
+
+
+      <div class="responsive " [class.show]="responsive" *ngIf="responsive">
+
+        <div class="respons"  style="text-align: center;" routerLink="">Home</div>
+        <div class="respons"> About</div>
+        <div class="respons">Services</div>
+        <div class="respons">Contact</div>
+        <li class="respons">Feedback</li>
+
+       
+      </div>
+
+
+
+</div>
+=======
 
 
 <!--   <div class="row">
@@ -142,3 +216,4 @@
 </div>
 -->
 
+>>>>>>> beb9b2b4ee6e7209d1a5149194611c9c72dffd63

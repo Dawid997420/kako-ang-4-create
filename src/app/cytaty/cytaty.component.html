@@ -1,16 +1,16 @@
-<div [@popOverState]="stateName"   class="row fade-in-fade-out  justify-content-md-center  m-1" style="opacity: 0;">
+<div [@popOverState]="stateName"   class="row fade-in-fade-out  justify-content-md-center  m-1" style="opacity: 0;position: relative;" *ngIf="quoteNow!=undefined">
 
     <div class="bg-secondary p-4 col-12 col-lg-9 my-1 cytat" >
 
-            <h4  class="m-1 ">
-                {{quoteNow.quote }}
+            <h4  class="m-1 " >
+                {{quoteNow.quote}}
         
             </h4>
 
-            <small style="font-size: 17px;" class="my-5">-{{quoteNow.author }}</small>
+            <small style="font-size: 17px;" class="my-5" >-{{quoteNow.author }}</small>
     </div>
 
-    <div class="col-12 col-lg-2 profil rounded-pill ">
+    <div class="col-12 col-lg-2 profil rounded-pill">
 
         <img [src]="quoteNow.image" style="" class="image rounded-circle">
         

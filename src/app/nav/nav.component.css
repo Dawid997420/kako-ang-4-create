@@ -440,19 +440,11 @@ a.active,a:hover{
 
 .dropdown {  
   position: relative;
+ 
 }
 
-.dropdown:hover {
-  position: relative;
-}
 
-.dropdown:hover {
-  position: relative;
-  text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 4px;
-  color: white;
-}
+
 
 
 .dropdown-button {
@@ -461,6 +453,8 @@ a.active,a:hover{
   text-transform: uppercase;
   color: white
 }
+
+
 .dropdown-button:hover {
 
   text-transform: uppercase;
@@ -470,36 +464,78 @@ a.active,a:hover{
 
 }
 
+
+
+
+
 .dropdown-menu1 {
-  
+
+  width: 30rem;
   position: absolute;
    font-size: 15px;
    background-color: white;
-  
+  color: dark;
    padding: .75rem;
-   border-radius: .25rem;
+   border-radius: .27rem;
    box-shadow: 0 4px 6px 0 rgb(0,0,0,.22);
-   opacity: 1;
+   
+  display: none; 
+  
+   transition: opacity 250ms ease-in-out , transform 250ms ease-in-out;
 }
 
-.dropdown-menu1:hover {
+.dropdown-menu1:hover{
   
-  position: absolute;
-   font-size: 15px;
-   background-color: rgb(223, 23, 23);
-  
-   padding: .75rem;
-   border-radius: .25rem;
-   box-shadow: 0 4px 6px 0 rgb(0,0,0,.22);
-   opacity: 1;
+  display: block; 
 }
 
 
-.dropdown > .dropdown-button:focus > .dropdown-menu1 {
-  background-color: rgb(216, 6, 6);
+
+
+.dropdown-menu0 {
   
+ 
+   display: block;
+    
+ 
+ 
+}
+
+.dropdown-menu0:hover {
+  
+  
+   display: block;
+ 
+    
+   
+ 
+}
+
+
+.dropdown-button:hover ~ .dropdown-menu1 {
+
+  display: block;
+  pointer-events:auto;
+}
+
+
+
+
+
+.dropdown-menu0:hover + .dropdown-menu1 {
+  
+  display: block;
+  pointer-events:auto;
 
 }
+
+.drop1 {}
+
+.drop1:hover {
+  display: block;
+  pointer-events:auto;
+}
+
 
 
 

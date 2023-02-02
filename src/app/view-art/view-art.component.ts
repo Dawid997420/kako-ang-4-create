@@ -60,8 +60,12 @@ export class ViewArtComponent implements OnInit{
     
     this.getNewUrl();
 
-    this.historyUrl.push(this.chosenArticle.topic)
+    if ( this.chosenArticle != undefined) {
+
+
+      this.historyUrl.push(this.chosenArticle.topic)
     
+    }    
     
   }
 

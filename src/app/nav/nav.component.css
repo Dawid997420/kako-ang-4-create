@@ -27,6 +27,7 @@
 
 
 
+
 .nofixed {
 
   position: static;
@@ -46,3 +47,441 @@
 
   cursor: pointer;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  font-family: 'segoe ui';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.nav > .nav-header {
+  display: inline;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: #efefef;
+}
+
+.nav > .nav-links > a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav > #nav-check {
+  display: none;
+}
+
+@media (max-width:600px) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav > .nav-links > a {
+
+    background-color: #eee;
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+
+
+  
+.showBars {
+
+  position: absolute;
+  display: block;
+  width: 100%;
+  background-color: rgb(190, 178, 178);
+  height: 0px;
+  transition: all 0.3s ease-in;
+
+  top: 50px;
+  left: 0px;
+
+}
+
+
+}
+
+
+.showBars {
+
+  position: absolute;
+  display: block;
+  width: 100%;
+  background-color: rgb(190, 178, 178);
+  height: 0px;
+  transition: all 0.3s ease-in;
+
+  top: 50px;
+  left: 0px;
+
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+body{
+  font-family: montserrat;
+}
+nav{
+  background: #0082e6;
+  height: 80px;
+  width: 100%;
+}
+label.logo{
+  color: white;
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
+}
+nav ul{
+  float: right;
+  margin-right: 20px;
+}
+nav ul li{
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li a{
+  color: white;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+a.active,a:hover{
+  background: #1b9bff;
+  transition: .5s;
+}
+.checkbtn{
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check{
+  display: none;
+}
+
+.navbar {
+  display: none;
+
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 902px){
+  label.logo{
+    font-size: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  nav ul li a{
+    font-size: 16px;
+  }
+}
+
+
+@media (max-width: 308px){
+
+  .navbar {
+    text-align: center;
+    float: right;
+    display:inline-block;
+    line-height: 67px;
+    padding: 0px;
+    
+    
+  
+  }
+}
+
+
+
+
+
+.responsive {
+  display: none;
+  background-color:#0082e6;
+  
+}
+
+.respons {
+  display: none;
+  cursor: pointer;
+  padding: 10px;
+  
+  text-transform: uppercase;
+  text-align: center;
+  color: aliceblue;
+  width: 100%;
+  height: auto;
+}
+
+
+
+
+.show {
+
+ color: #000;
+}
+
+
+@media (max-width: 1008px){
+
+
+  .show {
+
+    color: #000;
+  }
+  
+
+.navbar {
+   
+  float: right;
+  display:inline-block;
+  line-height: 67px;
+  margin-right: 20px;
+  padding: 5px;
+
+}
+
+  .checkbtn{
+    
+    display: block;
+  }
+  ul{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+  }
+  nav ul li{
+   
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a{
+    font-size: 20px;
+  }
+  a:hover,a.active{
+    background: none;
+    color: #0082e6;
+  }
+  #check:checked ~ ul{
+    left: 0;
+  }
+
+
+  .responsive {
+    display: block;
+    background-color:#0082e6;
+    
+  }
+
+  .respons {
+    font-weight: 600;
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+    background-color:#0082e6;
+    text-transform: uppercase;
+    text-align: center;
+    color: aliceblue;
+    width: 100%;
+    height: auto;
+  }
+
+  
+.respons:hover {
+  
+  display: block;
+  cursor: pointer;
+  padding: 10px;
+  font-weight: 600;
+  
+  text-transform: uppercase;
+  text-align: center;
+  background-color:#0272c9;
+  color: rgb(255, 255, 255);
+  width: 100%;
+  height: auto;
+}
+
+}
+
+.profil {
+  
+
+}
+
+.profil:hover {
+  cursor: pointer;
+  color: #489fe0;
+}
+
+
+.dropdown {  
+  position: relative;
+}
+
+.dropdown:hover {
+  position: relative;
+}
+
+.dropdown:hover {
+  position: relative;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  color: white;
+}
+
+
+.dropdown-button {
+  font-size: 17px;
+  padding: 7px 13px;
+  text-transform: uppercase;
+  color: white
+}
+.dropdown-button:hover {
+
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 3px;
+  color: white;
+
+}
+
+.dropdown-menu1 {
+  
+  position: absolute;
+   font-size: 15px;
+   background-color: white;
+  
+   padding: .75rem;
+   border-radius: .25rem;
+   box-shadow: 0 4px 6px 0 rgb(0,0,0,.22);
+   opacity: 1;
+}
+
+.dropdown-menu1:hover {
+  
+  position: absolute;
+   font-size: 15px;
+   background-color: rgb(223, 23, 23);
+  
+   padding: .75rem;
+   border-radius: .25rem;
+   box-shadow: 0 4px 6px 0 rgb(0,0,0,.22);
+   opacity: 1;
+}
+
+
+.dropdown > .dropdown-button:focus > .dropdown-menu1 {
+  background-color: rgb(216, 6, 6);
+  
+
+}
+
+ 
+  

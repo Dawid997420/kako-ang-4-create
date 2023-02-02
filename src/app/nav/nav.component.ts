@@ -16,11 +16,35 @@ export class NavComponent implements OnInit{
   showNav = false ;
   role= "SPECTATOR"
 
+
+
+  showButtons= true;
+
+  showNavBar: boolean = false ;
+
+
+  active = "Home";
+
+
+    
+  setActive(active:string) {
+      this.active = active;
+  }
+
   constructor( private articleSerice :ArticleService,
     public authService :AuthService,private httpService :HttpServiceService) {
 
   }
   ngOnInit(): void {
+    console.log(window.innerWidth)
+      if ( window.innerWidth < 1000) {
+        
+        this.showNavBar = true
+      } else {
+        this.showNavBar =false
+      }
+
+
       this.role= localStorage.getItem("role") || "SPECTATOR"
 
       this.authService.role = localStorage.getItem("role") ||"SPECTATOR"
@@ -99,6 +123,21 @@ export class NavComponent implements OnInit{
       this.articleSerice.setChosenCategory("NARKOTYKI")
 
     }
+
+
+
+    showMobile() {
+      this.showButtons = true
+    }
+
+    responsive:boolean= false;
+
+    showResponsive() {
+      console.log( this.responsive)
+      this.responsive =!this.responsive
+    }
+
+
 
 }
 

@@ -99,7 +99,15 @@ export class NavComponent implements OnInit{
     }
 
 
+    selectedInne() {
+      this.articleSerice.setChosenCategory("INNE");
+    }
+
+  selectedFood() {
+    this.articleSerice.setChosenCategory("ZABURZENIA_ODZYWIANIA");
+  }
     
+
   selectedPorno() {
 
     this.articleSerice.setChosenCategory("PORNOGRAFIA")

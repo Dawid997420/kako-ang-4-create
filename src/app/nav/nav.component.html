@@ -115,7 +115,7 @@
           
         
           <li><a  [class.active]="active=='Home'" (click)="setActive('Home')"  routerLink="">Home</a></li>
-          <li><a  [class.active]="active=='Login'" routerLink="login" (click)="setActive('Login')">Login</a></li>
+          
                
         
           <div class="dropdown" style="display: inline-block;" >
@@ -132,43 +132,177 @@
 
               <div class="row" style="text-align: center;">
 
-                <div class="col-9">
+                <div class="col-12">
 
                   <div class="row">
 
-                    <div class="col-12 rowTopics">
+                    <div style="margin-bottom: -0.4rem;"> 
 
-                        <i class="fa-solid fa-whiskey-glass icon" style="display: inline-block;"></i>
-                        <div style="display: inline-block; ">
-                         
-                          <div class="temat">
-                            Alkoholizm
-                          </div>
-                          <div class="tekst">
-                            Tematy poświęcone uzależnieniu od alkoholu
-                          </div>
-                       
+                    </div>
 
-                        </div>
+                    <div class="col-12 rowTopics" [class.rowTopicsActivated]="active=='Alcohol'" (click)="setActive('Alcohol')"
+                    routerLink="chosenCat" (click)="selectedAlcohol()">
+
+
+                      <div class="row">
+
+                            <div class="col-1 mx-2">
+                              <i class="fa-solid fa-whiskey-glass icon" style="display: inline-block;"></i>
+                              <div style="display: inline-block; ">
+                            </div>
+                            </div>
+
+                            <div class="col-9 p-1 mx-1">
+                              <div class="temat">
+                                Alkoholizm
+                              </div>
+                              <div class="tekst">
+                                Tematy poświęcone uzależnieniu od alkoholu
+                              </div>
+                            </div>
+
+
+                      </div>
                       
                     </div>
 
-                    <div class="col-12 rowTopics">
+                    <div class="col-12 rowTopics" [class.rowTopicsActivated]="active=='Drugs'" (click)="setActive('Drugs')"
+                    (click)="selectedDrugs()" routerLink="chosenCat">
 
-                      <i class="fa-solid fa-whiskey-glass icon" style="display: inline-block;"></i>
-                      <div style="display: inline-block; ">
-                       
-                        <div class="temat">
-                          Narkomania
-                        </div>
-                        <div class="tekst">
-                          Tematy poświęcone
-                        </div>
-                     
+
+                      <div class="row">
+
+                            <div class="col-1 mx-2">
+                              <i class="fa-solid fa-pills icon"></i>
+                              <div style="display: inline-block; ">
+                            </div>
+                            </div>
+
+                            <div class="col-10 p-1 mx-1">
+                              <div class="temat">
+                                Narkomania
+                              </div>
+                              <div class="tekst">
+                                Tematy poświęcone uzależnieniu od substancji psychoaktywnych
+                              </div>
+                            </div>
+
 
                       </div>
+                      
+                    </div>
+
+
                     
-                  </div>
+                    <div class="col-12 rowTopics" [class.rowTopicsActivated]="active=='Sex'" (click)="setActive('Sex')"
+                    routerLink="chosenCat" (click)="selectedSeks()">
+
+
+                      <div class="row">
+
+                            <div class="col-1 mx-2">
+                              <i class="fa-sharp fa-solid fa-heart icon"></i>
+                              <div style="display: inline-block; ">
+                            </div>
+                            </div>
+
+                            <div class="col-10 p-1 mx-1">
+                              <div class="temat">
+                                Uzależnienia seksualne
+                              </div>
+                              <div class="tekst">
+                                Tematy poświęcone uzależnienią od porno, seksu, cyberseksu itp
+                              </div>
+                            </div>
+
+
+                      </div>
+                      
+                    </div>
+
+
+
+                        
+                    <div class="col-12 rowTopics" [class.rowTopicsActivated]="active=='Hazard'" (click)="setActive('Hazard')" 
+                    routerLink="chosenCat" (click)="selectedHazard()">
+
+
+                      <div class="row">
+
+                            <div class="col-1 mx-2">
+                              <i class="fa-sharp fa-solid fa-dice-six icon"></i>
+                              <div style="display: inline-block; ">
+                            </div>
+                            </div>
+
+                            <div class="col-10 p-1 mx-1">
+                              <div class="temat">
+                                Hazard
+                              </div>
+                              <div class="tekst">
+                                Tematy poświęcone obsesją na punkcie gry o pieniądze
+                              </div>
+                            </div>
+
+
+                      </div>
+                      
+                    </div>
+
+                    <div class="col-12 rowTopics" [class.rowTopicsActivated]="active=='food'" (click)="setActive('food')"
+                   (click)="selectedFood()" routerLink="chosenCat">
+
+
+                      <div class="row">
+
+                            <div class="col-1 mx-2">
+                              <i class="fas fa-hotdog icon"></i>
+                              <div style="display: inline-block; ">
+                            </div>
+                            </div>
+
+                            <div class="col-10 p-1 mx-1">
+                              <div class="temat">
+                                Zaburzenia odżywiania 
+                              </div>
+                              <div class="tekst">
+                                Tematy poświęcone kompuslsywnemu objadaniu i zaburzenią odżywiania 
+                              </div>
+                            </div>
+
+
+                      </div>
+                      
+                    </div>
+
+
+
+
+                    <div class="col-12 rowTopics" [class.rowTopicsActivated]="active=='Inne'" (click)="setActive('Inne')"
+                    (click)="selectedInne()" routerLink="chosenCat">
+
+
+                      <div class="row">
+
+                            <div class="col-1 mx-2">
+                              <i class="far fa-question-circle icon"></i>
+                             
+                            </div>
+
+                            <div class="col-10 p-1 mx-1">
+                              <div class="temat">
+                                Inne uzależnienia 
+                              </div>
+                              <div class="tekst">
+                                Tematy poświęcone różnym ciekawym i rzadziej spotykanym uzależnienią
+                              </div>
+                            </div>
+
+
+                      </div>
+                      
+                    </div>
+
 
 
 
@@ -183,7 +317,7 @@
 
               </div>
 
-              dropdown contentsaddddddddddddddasfasfassagasfasgasgsa
+              
             </div>
          
 
@@ -191,14 +325,162 @@
        
        
 
-          <li><a href="#" >Services</a></li>
+          <li><a  [class.active]="active=='Login'" routerLink="login" (click)="setActive('Login')">Login</a></li>
           <li><a href="#">Contact</a></li>
           <li><a href="#">Feedback</a></li>
 
-          <li style="width:80px " class="border-radius profil" *ngIf="authService.getRole()!='SPECTATOR'" routerLink="profile">
+          <div class="admin-dropdown" style="display: inline-block;">
+            <a class="dropdown-button">Admin Site</a>
+          
+            
+            <div  class="admin-options"> 
+
+            </div>
+
+          </div>
+    
+
+
+
+
+          <li style="width:80px " class="border-radius " *ngIf="authService.getRole()!='SPECTATOR'" routerLink="profile">
             
             <img class="img-fluid profil" style="margin-top: -5px;border-radius:700px; border: 2px solid whitesmoke;" src="assets/user1.png" >
+          
+         
+          <div class="profil-options " >
+             
+
+
+            <div class="row">
+
+              <div style="width: 1rem; margin-bottom: 0.0rem;"></div>
+            
+             
+
+
+
+
+     
+            <div class="rowProfil " [class.rowProfilActivate]="active=='Profil'" (click)="setActive('Profil')">
+
+              <div class="row "  style="height: 3rem;" >
+
+
+                <div class="col-2 iconProfil" style="  text-align: center;">
+                  <i class="fas fa-user iconP"></i>
+                 
+                </div>
+
+                <div class="col-10 topicProfil"> 
+                  
+                  <div class="topicP" >
+                    <div style=" margin-top: -10px" >
+                      Profil
+                    </div>
+                   
+                  </div>
+                 
+            
+
+                </div>
+
+            </div>
+
+            </div>
+
+
+
+
+            <div class="rowProfil " [class.rowProfilActivate]="active=='Ustawienia'" (click)="setActive('Ustawienia')">
+
+              <div class="row "  style="height: 3rem;" >
+
+
+                <div class="col-2 iconProfil" style="  text-align: center;">
+                  <i class="fas fa-cogs iconP" style="margin-left: -0.4rem;"></i>
+            
+                 
+                </div>
+
+                <div class="col-10 topicProfil"> 
+                  
+                  <div class="topicP" >
+                    <div style=" margin-top: -10px" >
+                      Ustawienia
+                    </div>
+                   
+                  </div>
+                 
+            
+
+                </div>
+
+            </div>
+
+            </div>
+
+
+
+
+
+
+
+                
+
+                  
+                    <div class="rowProfil " >
+
+                      <div class="row "  style="height: 3rem;" >
+
+
+                        <div class="col-2 iconProfil" style="  text-align: center;">
+                          <i class="fas fa-sign-out-alt iconP "></i>
+                         
+                        </div>
+
+                        <div class="col-10 topicProfil"> 
+                          
+                          <div class="topicP" >
+                            <div style=" margin-top: -10px"  (click)="logout()" *ngIf="authService.getRole()=='ADMIN' || 
+                            authService.getRole()=='USER' ">
+                              Logout
+                            </div>
+                           
+                          </div>
+                         
+                    
+
+                        </div>
+
+                    </div>
+
+                    </div>
+                    
+
+                  
+
+                  
+               
+
+          </div>
+
+
+    
+      
+         
+
+
+           
+
+
+
+           </div>
+          
           </li>
+       
+        
+          
         
 
         </ul>

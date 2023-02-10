@@ -20,6 +20,9 @@ export class AuthService implements OnInit{
 
 
   getRole() {
+
+    
+
     return this.role;
   }
 
@@ -36,6 +39,7 @@ export class AuthService implements OnInit{
       let user : UserE = new UserE("","","",new Date(),"","SPECTATOR")
 
       this.httpService.getLogedUserInfo().subscribe( response => {
+
         user = response;
         this.role = user.role;
         //console.log(user)

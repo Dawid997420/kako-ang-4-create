@@ -31,7 +31,7 @@ import { SpectatorGuard } from '../guards/spectator.guard';
 const routes : Routes =  [
   { path:"", component:IndexComponent},
   { path:"contact", component:ContactComponent},
-  { path: "login", component:LoginComponent,canActivate:[!AuthGuard]},
+  { path: "login", component:LoginComponent,canActivate:[SpectatorGuard]},
   { path: "write", component:WriteComponent},
   { path: "profile", component:ProfileComponent ,canActivate:[AuthGuard]},
   { path: "register" , component:RegisterComponent, canActivate:[SpectatorGuard]},

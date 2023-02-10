@@ -32,7 +32,7 @@ background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,r
 
   position: relative;
   top: 50%;
-  transform: translateY(16%);
+  transform: translateY(26%);
   top: 50%;
   height: auto;
 
@@ -78,6 +78,10 @@ background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,r
 
 
   @media screen and (max-width:900px) {
+
+
+
+
     .zaloguj-btn {
       max-width: 300px;
     }

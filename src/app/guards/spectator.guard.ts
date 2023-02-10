@@ -17,9 +17,11 @@ export class SpectatorGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     
 
+      console.log(this.authService.getRole())
 
-      if (    this.authService.getRole()=='SPECTATOR'  ) {
-       
+      if (    this.authService.getRole()=='SPECTATOR' || !this.authService.isLoggedIn() ) {
+        
+
        
        
         return true;

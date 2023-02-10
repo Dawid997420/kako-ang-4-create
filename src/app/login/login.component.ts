@@ -61,7 +61,9 @@ export class LoginComponent {
 
     this.router.navigateByUrl("")
 
-    this.authService.setRole()  
+    this.authService.setRole()  ;
+    
+    location.reload();
 
     });
 

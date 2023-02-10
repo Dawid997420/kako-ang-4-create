@@ -358,7 +358,7 @@
        
        
 
-          <li><a  [class.active]="active=='Login'" *ngIf="authService.getRole()=='SPECTATOR'"
+          <li><a  [class.active]="active=='Login'" *ngIf="!authService.isLoggedIn()" 
             routerLink="login" (click)="setActive('Login')">Login</a></li>
           
 
@@ -580,7 +580,8 @@
 
           
 
-          <div class="admin-dropdown" style="display: inline-block;"  *ngIf="authService.getRole()=='ADMIN'">
+          <div class="admin-dropdown" style="display: inline-block;"  *ngIf="authService.getRole()=='ADMIN'
+           && authService.isLoggedIn">
             <a class="dropdown-button">Admin Site</a>
           
             <div  class="dropdown-menu0" style="height: 0.7rem;"tabindex="1" >
@@ -714,7 +715,7 @@
          
 
 
-          <li style="width:80px " class="border-radius " *ngIf="authService.getRole()!='SPECTATOR'" routerLink="profile">
+          <li style="width:80px " class="border-radius " *ngIf="authService.isLoggedIn()" routerLink="profile">
             
             <img class="img-fluid profil" style="width: 100px;margin-top: -5px;border-radius:700px; border: 2px solid whitesmoke;" 
             [src]="userImg" >

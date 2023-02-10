@@ -49,6 +49,7 @@ export class NavComponent implements OnInit{
   constructor( private articleSerice :ArticleService, private router:Router,
     public authService :AuthService,private httpService :HttpServiceService) {
 
+      
   }
   ngOnInit(): void {
     console.log(window.innerWidth)

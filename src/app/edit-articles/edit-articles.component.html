@@ -16,10 +16,10 @@
                 <div class="col-6 m-0 p-0" style="max-width: 300px;">
                     <select [(ngModel)]="selected" (change)="choseCategory()">
                         <option >WSZYSTKIE</option>
-                        <option>PORNOGRAFIA</option>
+                    
                         <option>ALKOHOL</option>
                         <option>NARKOTYKI</option>
-                        <option>CYBERSEKS</option>
+                      
                         <option>HAZARD</option>
                         <option>SPORT</option>
                         <option>ZAKUPOHOLIZM</option>
@@ -28,10 +28,12 @@
 
                         <option>WIARA</option>
                         <option>OBŻARSTWO</option>
-                        <option>SEKSOHOLIZM</option>
+                        <option value="UZALEZNIENIA_SEKSUALNE">UZALEZNIENIA_SEKSUALNE</option>
                         <option>TECHNOLOGY</option>
                         <option>ZABURZENIA_ODZYWIANIA</option>
                         <option>LEKOMANIA</option>
+                        <option value="PASJA">PASJA</option>
+                        <option>INNE</option>
 
                     </select>
                 </div>
@@ -49,7 +51,7 @@
             <div *ngFor="let article of articles">
 
                 
-                <div class="row m-0 p-0" *ngIf="categoryFilter(article)">
+                <div class="row m-0 p-0 artBorder" *ngIf="categoryFilter(article)">
                 <div #article1 class="col-8 article m-2"  >
 
 

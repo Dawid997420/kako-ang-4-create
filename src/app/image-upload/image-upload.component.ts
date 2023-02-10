@@ -29,6 +29,10 @@ export class ImageUploadComponent {
   @Input() 
   maxWidth : number | undefined = undefined;
 
+  @Input("profil")
+  profil: boolean = false;
+
+
   @Output()
   imageDestination2 = new EventEmitter<string>();
 
@@ -58,7 +62,11 @@ export class ImageUploadComponent {
     this.imageClear=true;
   }
 
+  @Input()
+  width= 16;
 
+  @Input()
+  height= 9;
   
 
   anuluj() {
@@ -75,10 +83,12 @@ export class ImageUploadComponent {
       this.cropper = new Cropper(this.imageElement.nativeElement, {
         zoomable : false ,
         scalable : false ,
-        aspectRatio : 16 / 9 , 
+        aspectRatio : this.width / this.height , 
         viewMode: 1,
       //  cropBoxResizable: false,
        // minCanvasWidth:200,
+        
+      
         
         crop : () => {
             const canvas = this.cropper.getCroppedCanvas();
@@ -90,7 +100,6 @@ export class ImageUploadComponent {
           
           
         }
-
       })
   }
 

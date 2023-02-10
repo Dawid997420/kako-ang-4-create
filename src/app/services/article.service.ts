@@ -26,12 +26,33 @@ export class ArticleService {
    }
 
 
+   selectedSexCat(chosenCat :string) {
+
+
+    if (chosenCat == "Sex") {
+
+     let pornoArt :Article[] = [] 
+     let cyberSeksArt :Article[] = [] 
+     let seksoholizmArt :Article[] = []
+
+      this.httpService.getArticlesByCategory("PORNOGRAFIA").subscribe(response =>{
+        this.articlesCategory= response;
+     })
+
+
+      this.articlesCategory 
+    }
+
+   }
+
    setChosenCategory(chosen:string) {
    
     this.chosenCategory = chosen;
 
     sessionStorage.setItem("category" ,this.chosenCategory)
-    this.getCategory(); this.router.navigateByUrl("chosenCat");
+    this.getCategory(); 
+    
+    this.router.navigateByUrl("chosenCat/" + this.chosenCategory);
    }
 
 

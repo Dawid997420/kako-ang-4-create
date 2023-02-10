@@ -1,0 +1,78 @@
+
+<div class="container-fluid c2 p-5" style="margin-top: -1rem;">
+
+
+    <div class="row book-value ">
+
+
+        <div class="col-6 p-3">
+
+            <div class="row" >
+
+                <div class="col-12 "  >
+                    <img [src]="chosenBook.image"  class="img-fluid book-img"  style="height: 33rem;" >
+                </div>
+                
+
+            </div>
+
+
+        </div>
+
+
+        <div class="col-5 real-book" >
+
+
+            <div class="row my-1" style="margin-left: -8.5rem;">
+
+                <div class="col-12 my-2 title ">
+
+                    
+                        {{chosenBook.title}}
+                
+                </div>
+                <div class="col-12">
+                    Autor: {{chosenBook.autor}}
+                </div>
+
+                <div class="col-12" style="margin-top: 1rem;">
+
+                    Data premiery : {{chosenBook.rok}}
+                </div>
+
+                <div class="col-12" style="margin-top: 1rem;">
+
+                    Category : 
+
+                    <div *ngFor="let cat of chosenBook.categories" style="display: inline-block;">
+
+                        {{cat  +', '}} 
+
+                    </div>
+
+                </div>
+
+                <div class="col-12" style="margin-top: 1rem;">
+
+                    Opis
+                    <br><br>
+
+                    <div style="text-align: justify; ">
+                        {{chosenBook.opis}}
+                    </div>
+                
+
+
+                </div>
+
+            </div>
+
+       
+        </div>
+
+
+    </div>
+
+
+
+</div>

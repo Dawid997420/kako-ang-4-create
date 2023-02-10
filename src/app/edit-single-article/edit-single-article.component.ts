@@ -435,7 +435,24 @@ export class EditSingleArticleComponent implements OnInit{
 
 
 
+  strzalaEndActive = false ;
 
+  addNewParagraphEnd() {
+    this.chosenArticleToEdit.paragraphs.push(new ParagraphDto("","textArea"))
+    this.strzalaEndActive = false ;
+
+  }
+
+  addNewParagraphImageEnd() {
+
+    this.chosenArticleToEdit.paragraphs.push(new ParagraphDto("","choseImage"));
+    this.strzalaEndActive = false ;
+  }
+
+
+  addNewParagraphAtEnd() {
+      this.strzalaEndActive = !this.strzalaEndActive;
+  }
 
 
   

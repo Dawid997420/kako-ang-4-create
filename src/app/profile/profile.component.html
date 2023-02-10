@@ -18,9 +18,35 @@
 
                          
                
-                    <div class="col-lg-3 col-xl-3 col-xs-7 col-sm-5 col-12 col-md-4 mx-auto  ">
-                            <img src="assets/user1.png" class="img-fluid rounded-circle profile">
+                    <div class="col-lg-3 col-xl-3 col-xs-7 col-sm-5 col-12 col-md-4 mx-auto"
+                     (click)="editProfilImg()">
+                            <img [src]="profilImg" class="img-fluid rounded-circle profile">
+
                     </div>
+
+                    
+                    <div *ngIf="editProfil" style="font-size: 30px; font-weight: 600;">
+                        EDIT PROFIL IMAGE
+
+                        <input  type="file" class="form-control " id="customFile"
+                        (change)="onSelectImage($event)"/>
+                        <small> </small>
+
+
+                        <!-- <img #realImg [src]="url" class="my-4 img-fluid"> -->
+                        <app-image-upload [profil]="true" [width]="10" [height]="10"
+                        *ngIf="url.length > 10" 
+                        (imageDestination2)="getImageDestination($event)" 
+                        [src]="url"> 
+
+                        </app-image-upload>
+                        
+                     
+
+                    </div>
+
+
+
 
                     <h2>{{user.username || ''}}</h2>
            
@@ -135,6 +161,7 @@
                                         </div>
                                       
                                       
+                                       
                                         
                                        
                                     </div>

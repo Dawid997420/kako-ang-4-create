@@ -8,8 +8,7 @@
 
 .keywordAdd {
     float:left; 
-    margin-left: 6px;
-    background-color: rgb(72, 28, 72);
+    margin-left: 6px;  background: #1b9bff;
     color: aliceblue;
     padding: 5px;
     border-radius: 5px;
@@ -38,7 +37,7 @@
 
     float:left; 
     margin-left: 6px;
-    background-color: rgb(126, 55, 126);
+    background: #1b9bff;
     color: aliceblue;
     padding: 5px;
     border-radius: 5px;
@@ -74,6 +73,8 @@
 
 
     background-color: #9583b4;
+
+    background-color: rgb(182, 205, 230);
     height: auto;
 }
 
@@ -132,12 +133,16 @@
 }
 
 .pointerText {
- 
+    border-radius: 0.5rem;
 }
 
 .pointerText:hover {
 
     background-color: #83739e;
+    background: #63bbfe;
+ 
+    transition: .3s;
+    border-radius: 0.5rem;
     
     cursor: pointer;
 }
@@ -146,7 +151,11 @@
 
 }
 .pointerImg:hover{
-    border: 7px solid  #83739e;
+    border: 7px solid   #63bbfe;
+   
+ 
+    transition: .3s;
+
     cursor: pointer;
 }
 

@@ -1,0 +1,163 @@
+<div class="container-fluid">
+
+
+    <div class="row sure1" *ngIf="areYouSure">
+
+        <div class="col-12">
+
+               
+
+                <div class="row d-flex justify-content-center warning" style="min-height: 75%; ">
+                    <div></div>
+                    <div class="col-12" style="text-align: center;">
+                        Do you want delete user <br>
+                        with username : {{userToDelete?.username}}
+                    </div>
+        
+                  
+                </div>
+
+                    <div class="row d-flex justify-content-center" 
+                    >
+
+
+
+                        <div class="col-5 m-1 sureDelete p-3" style="" (click)="deleteUser0(userToDelete!)"
+                        >DELETE</div>
+
+                        <div class="col-5 m-1 sureCancel p-3" (click)="cancelDelete()">CANCEL</div>
+
+                    </div>
+
+        </div>
+
+    </div>
+
+    <div class="row index-value ">
+                <div *ngFor="let user of users">
+
+                    
+                    <div class="row">
+
+                        
+                        <div class="col-8">
+                                <div class="row user " *ngIf="user.id!=changeRole">
+                                
+
+
+                                    <div class="col-4 " style="margin-top: 0.45rem;
+                                    width: 9rem">
+                                    
+                                            <img src="assets/user1.png" style="max-height:6rem;"  class="img-fluid" >
+                                    
+                                    
+                                    </div>
+                                
+                                    <div class="col-4" style="margin-top: 0.45rem;">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                Role:
+                                                {{user.role}}
+                                            </div>
+                                            <div class="col-12">
+                                                Username:
+                                                {{user.username}}
+                                            </div>
+
+                                            <div class="col-12">
+                                                Email:
+                                                {{user.email}}
+                                            </div>
+                                            <div class="col-12">
+                                                Birthday:
+                                                {{user.birthday | date}}
+                                              
+                                            </div>
+
+                                        </div>
+                                    
+                                    </div>
+
+                                    <div class="col-8">
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class="row user" *ngIf="user.id==changeRole">
+
+                                    <div class="col-6 roleUser " style="text-align: center;">
+                                        <div style="margin-top:2.5rem" (click)="changeRoleToUser(user)">
+                                            USER
+                                        </div>
+                                    
+                                    </div>
+
+                                    <div class="col-6 roleAdmin " style="text-align: center;">
+                                        <div style="margin-top:2.5rem"  (click)="changeRoleToAdmin(user)">
+                                            ADMIN
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                
+
+
+
+
+                            <div class="col-2">
+
+                                <div class="col-12 " style="margin-top: 11px;" >
+                          
+                                    <div class="delete pointer " (click)="deleteUser(user)"
+                                    style="text-align: center; margin-top: 7px; margin-bottom: 8px;" >
+                                        <div style="margin-top: 0px;" > Delete User</div>   
+                                    </div>
+        
+                                    <div class="edit p-0 my-0 pointer" (click)="editUserRole(user)"
+                                     style="margin-top: 20px; text-align: center;">Edit Privilege</div>
+                               
+                                </div>
+                            
+
+
+                            </div>
+
+                            <div class="col-2 " style="margin-left: -1rem;">
+                                <div class="col-12">
+                                   
+                                <div class="col-12 " style="margin-top: 11px;" >
+                          
+                                    <div class="info pointer " (click)="deteilInfo(user)"
+                                    style="text-align: center; margin-top: 7px; margin-bottom: 8px;" >
+                                        <div style="margin-top: 0px;" > Detail Info</div>   
+                                    </div>
+        
+                                    <div class="nwm p-0 my-0 pointer "                                                                   
+                                     style="margin-top: 20px; text-align: center;">Nwm LOL</div>
+                               
+                                </div>
+                                </div>
+                            
+                            </div>
+
+
+
+                        
+
+                    </div>
+                           
+                     
+
+
+
+                 
+                   
+        
+                </div>
+    </div>
+</div>

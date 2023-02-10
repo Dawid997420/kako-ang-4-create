@@ -3,12 +3,49 @@
 
 
 
+   
+
+
+
+
+
+
+    <div class="row  " *ngIf="tekstStartowy.length>1" >
+
+        <div class="col-12" style="   font-family: montserrat;
+            font-size: 45px; color: white; font-weight: 700;">
+           {{tytulStartowy}}
+        </div>
+
+        <div class="col-2">
+
+        </div>
+     
+            <div class="col-4 my-3" style="
+            max-height: 15rem;">
+                <img [src]="obrazStartowy" style="height: 15rem; width: 22rem;" class="rounded img-fluid"> 
+            </div>
+          
+
+            <div class="col-4 p-4 tekstStartowy" style="text-align: right;">
+                {{tekstStartowy}}
+            </div>
+    
+            <div class="col-2">
+
+            </div>
+
+        </div>
+
+
     <div class="row index-value ">
 
 
 
 
-        <div class="col-8">
+
+
+        <div class="col-8" >
 
 
             <div *ngFor="let article of articleService.articlesCategory">

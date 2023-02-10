@@ -1,0 +1,44 @@
+.index-value {
+
+    min-height: 10rem;
+    background-color: antiquewhite;
+    text-align: center;
+
+}
+
+.c2 {
+    background: #d97b93 ;
+
+    background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,rgb(102, 26, 224) 100%);
+    
+}
+
+.book-value  {
+    min-height: 10rem;
+    background-color: rgb(101, 204, 213);
+    margin-top: 1rem;
+    min-height: 33rem;
+    border-radius: 1.5rem;
+}
+
+.book-img {
+    background-color:white;
+    border: 2rem solid white;
+    border-radius: 1rem;
+   
+}
+
+
+
+.title {
+    
+    font-size: 30px;
+
+    font-weight: 600;
+}
+
+
+
+.real-book {
+    font-family: montserrat;
+}

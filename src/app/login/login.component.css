@@ -3,7 +3,7 @@
 
   text-align: center;
 
-    background-color:  linear-gradient(to bottom, #6e529d 100%,#d97b93 100%);;
+ 
 
     background: #d97b93 ;
 
@@ -17,11 +17,12 @@ background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,r
 .login {
 
   position: relative;
-  top: 50%;
+  top: 20%;
   transform: translateY(25%);
   top: 50%;
   height: auto;
   background-color: aliceblue;
+  
 }
 
 
@@ -51,9 +52,50 @@ background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,r
     height: auto;
 
   }
+
+
   
   }
   
+
+  @media screen and (max-width:400px) {
+    .zaloguj-btn {
+      max-width: 200px;
+    }
+  
+  
+    .facebook-btn {
+      max-width: 200px;
+    }
+  
+  
+    .google-btn {
+      max-width: 200px;
+  
+    }
+  }
+
+
+
+  @media screen and (max-width:900px) {
+    .zaloguj-btn {
+      max-width: 300px;
+    }
+  
+  
+    .facebook-btn {
+      max-width: 300px;
+    }
+  
+  
+    .google-btn {
+      max-width: 300px;
+  
+    }
+  }
+
+
+
 
 
 @media screen and (max-height: 600px) {
@@ -61,7 +103,7 @@ background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,r
   .login {
   
     position: relative;
-    top: 50%;
+    top: -50%;
     transform: translateY(3%);
     top: 50%;
     height: auto;

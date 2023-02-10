@@ -9,12 +9,12 @@
         
          <div class="col-1 profile rounded-circle " *ngIf="isUserLoggedIn()" >
             <div style="margin-top:1px;"></div>
-            <img src="assets/user1.png" class="img-fluid" style="width: 100%;">    
+            <img [src]="userImg"  class="img-fluid rounded-circle" style="width: 100%;">    
         </div>
         
         <div class="col-1 profile rounded-circle " *ngIf="!isUserLoggedIn()" >
-            <div style="margin-top:1px;"></div>
-            <img src="assets/user3.png" class="img-fluid" style="width: 100%;" >    
+            <div style="margin-top:1px;"> </div>
+            <img src="assets/user.png" class="img-fluid rounded-circle" style="width: 100%;" >    
         </div>
 
          <div class="col-10 my-1" style="margin-left: -20px;" *ngIf="isUserLoggedIn()">

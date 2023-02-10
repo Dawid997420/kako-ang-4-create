@@ -8,6 +8,9 @@ import { Quote } from '../model/Quote';
 import { UserE } from '../model/UserE';
 import { Comment } from '../model/Comment';
 import { UserELogin } from '../model/UserELogin';
+import { BooksComponent } from '../books/books.component';
+import { Book } from '../model/Book';
+import { CommentArticle } from '../model/CommentArticle';
 
 @Injectable({
   providedIn: 'root'
@@ -59,6 +62,12 @@ export class HttpServiceService {
   }
 
 
+
+
+
+
+
+
   registerAdmin(user:UserE ,secretCode : string) : Observable<boolean> {
 
     return this.http.post<boolean>(this.baseUrl + "users/" + secretCode ,user)
@@ -78,8 +87,13 @@ export class HttpServiceService {
   }
 
 
+  deleteUser(userId : string) : Observable<UserE>{
+    return this.http.delete<UserE>(this.baseUrl + "users/" + userId);
+  }
 
 
+
+  
 
   sendQuote2(formData : FormData) : Observable<any> {
 
@@ -115,7 +129,30 @@ export class HttpServiceService {
   }
 
 
-  
+  addBook(bookToAdd :Book) : Observable<Book> {
+    return this.http.post<Book>(this.baseUrl+ "books" , bookToAdd )
+  }  
+
+  getAllBooks() : Observable<Book[]> {
+    return this.http.get<Book[]>(this.baseUrl+ "books" )
+  }  
+
+
+  changeUserRole(user:UserE,role:string) : Observable<UserE> {
+    return this.http.patch<UserE>(this.baseUrl + "users/" + role ,user )
+  }
+
+
+  changeUserImg(user:UserE) :Observable<UserE> {
+    return this.http.put<UserE>(this.baseUrl + "users",user)
+
+  }
+
+
+  getCommentArticleList(comments:Comment[]) :Observable<CommentArticle[]> {
+
+    return this.http.post<CommentArticle[]>(this.baseUrl+"comments/article",comments)
+  }
 
 
 

@@ -12,11 +12,18 @@
 
             <div *ngIf="edit" class="my-3"></div>
             
-            <div class="img-preview d-flex justify-content-center">
+            <div *ngIf="!profil" class="img-preview d-flex justify-content-center">
                 <img imageUpload
                  *ngIf="imageDestination.length>1" class="img-preview " [style.width]="maxWidth+'px'"  [src]="imageDestination">
              </div>
           
+             <div *ngIf="profil">
+
+                <img imageUpload
+                 *ngIf="imageDestination.length>1" class="img-fluid img-preview rounded-circle"
+                 style="width: 250px; height: 250px;" [src]="imageDestination">
+
+             </div>
 
              <div *ngIf="!edit" class="row my-2 mx-0 p-0">
 

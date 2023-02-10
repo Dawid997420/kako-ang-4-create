@@ -1,0 +1,94 @@
+<div class="container-fluid">
+
+
+    <div class="row index-value ">
+               
+
+        <div class="col-12 title">
+            
+            Wyzdrowienie jest czymś, nad czym
+             trzeba pracować każdego dnia i jest to coś, co nie ma dnia wolnego.
+          
+        </div>
+
+        <div class="col-12 text" >
+
+            Uważam że powyższy cytat świetnie opisuje 
+            czego od nas wymaga wyjście z jakiego kolwiek uzależnienia. Formą pracy w wychodzeniu z
+             uzależnień
+            może być np. książka którą będziemy czytać codziennie.
+             Rozumiem że większość z
+            was może nie lubić książek ale warto wtedy się zastanowić czy lepiej przemęczyć się nad 
+            książką miesiąc, czy nad nałogiem kolejny rok.
+             Uważam że książki są jednym ze skuteczniejszych sposobów 
+            pokonywania uzależnień, książka nie musi być nawet związana z tematyką uzależnienienia, 
+            ogólnie chodzi o to ,że żeby wyjść z uzależnienia musimy stać inną osobą a książka 
+            może nam w tym pomóć. Każdy z nas jest inny dlatego jednej osobie może pomóć książka o potędze 
+            podświadomości a innej o szkodliwości alkoholu. 
+            <br>   <br>
+            -Autor strony
+        </div>
+
+
+
+        <div class="row my-3 " >
+            
+            <div class="col-3"></div>
+            <div class="col-6 m-0 p-0" style="max-width: 300px;">
+                <select [(ngModel)]="selected" class="form-control" >
+                    <option >WSZYSTKIE</option>
+                
+                    <option>ALKOHOL</option>
+                    <option>NARKOTYKI</option>
+                  
+                    <option>HAZARD</option>
+                    <option>SPORT</option>
+                    <option>ZAKUPOHOLIZM</option>
+                    <option>PRACOHOLIZM</option>
+                    <option>PAPIEROSY</option>
+
+                    <option>WIARA</option>
+                    <option>OBŻARSTWO</option>
+                    <option value="UZALEZNIENIA_SEKSUALNE">UZALEZNIENIA_SEKSUALNE</option>
+                    <option>TECHNOLOGY</option>
+                    <option>ZABURZENIA_ODZYWIANIA</option>
+                    <option>LEKOMANIA</option>
+                    <option value="PASJA">PASJA</option>
+                    <option value="ROZWOJ">ROZWOJ</option>
+                    <option>INNE</option>
+
+                </select>
+            </div>
+          
+            
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-12">
+            <div *ngFor="let book of books" class="justify-content-center" style="
+                margin: auto;display: inline-block; ">
+
+
+
+                <img *ngIf="categoryMatches(book)" [src]="book.image"  (click)="selectBook(book)" style="max-width: 14rem; 
+                display: inline-block;" class="book img-fluid mx-1 my-1">
+                
+
+            </div>
+        </div>
+
+        </div>
+
+        
+        <div class="row">
+
+            <div class="col-12" style="min-height: 2rem;"> </div>
+            
+        </div>
+
+
+
+    </div>
+</div>

@@ -1,4 +1,23 @@
 
+.c2 {
+
+    text-align: center;
+  
+   
+  
+    background-color:  linear-gradient(to bottom, #6e529d 100%,#d97b93 100%);;
+
+    background: #d97b93 ;
+
+background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,rgb(102, 26, 224) 100%);
+
+
+    position: relative;
+  
+  }
+
+
+
 .register {
 
 

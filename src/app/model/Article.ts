@@ -4,10 +4,12 @@ import { Comment } from "./Comment";
 
 export class Article {
 
+  constructor(public topic:string,public created:Date ) {}
+
   id? : string ;
-  topic! : string ;
+
   paragraphs! : ParagraphDto[]
-  created! : Date ;
+ 
   comments? : Comment[];
   userId! : string;
   categories! : string[]; 

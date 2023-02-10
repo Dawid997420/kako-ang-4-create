@@ -19,6 +19,7 @@ export class WriteCommentComponent implements OnInit {
   
   ngOnInit(): void {
     sessionStorage.setItem("previousSite","")
+    this.getUserImg();
   }
 
 
@@ -36,7 +37,7 @@ export class WriteCommentComponent implements OnInit {
   }
 
   saveComment(text:string) {
-    let article : Article  = new Article();
+    let article : Article  = new Article("",new Date());
     let comment:Comment = new Comment(text,"","","")
     let user:UserE = new UserE("","","",new Date(),"","");
     console.log(sessionStorage.getItem("user")|| "")
@@ -67,6 +68,25 @@ export class WriteCommentComponent implements OnInit {
     }
   }
   
+
+
+  userImg= "assets/user.png";
+
+  getUserImg() {
+   let userE:UserE = new UserE("","","",new Date(),"","");
+
+    this.httpService.getLogedUserInfo().subscribe( response=>{
+
+      userE = response;
+
+      this.userImg = userE.image || "assets/user.png";
+
+    })
+
+  }
+
+
+
 
   redirectTo() {
     sessionStorage.setItem("previousSite",this.router.url)

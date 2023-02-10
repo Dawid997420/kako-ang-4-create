@@ -1,20 +1,28 @@
 
 
-<div class="container">
+<div class="container-fluid c2">
 
 
     <div class="row justify-content-center" style="text-align:center;">
 
 
-        <div class="register col-6 m-3 rounded">
+        <div class="register col-lg-7 col-xl-6 m-3 rounded">
 
 
             
             <form [formGroup]="registerForm" (ngSubmit)="register()" >
                     <div class="row my-2">
 
-                        <h4 >Utwórz konto to bardzo legalne</h4>
+                        <div style="color:white; background-color: red;" 
+                         *ngIf="secretError.length>1">
+                            <h4 >Użytkownik z podanym mailam lub username istnieje</h4>
+                            <p style="margin-top: -10px;">przykro nam</p>
+                        </div>
+
+                        <div *ngIf="secretError.length<1">
+                            <h4 >Utwórz konto to bardzo legalne</h4>
                             <p style="margin-top: -10px;">i bardzo proste</p>
+                        </div>
 
 
                         <div class="col-12 col-lg-6">
@@ -34,10 +42,10 @@
 
                 
                     <input type="password" class="check form-control my-2" id="password" 
-                    formControlName="password" placeholder="password" required>
+                    formControlName="password" placeholder="password" required minlength="5">
 
                     <input type="password" class="check form-control  my-2" id="password2" 
-                    formControlName="password2" placeholder="repeat password" required >
+                    formControlName="password2" placeholder="repeat password" required minlength="5" >
 
                     <div class="row">
 
@@ -98,7 +106,8 @@
                         </div>
                         <div class="col-4">
                     
-                        <div  class=" m-2 p-2 " style="opacity:0; background-color: red; height: 40px;" (click)="showCode()"></div>
+                        <div  class=" m-2 p-2 " style="opacity:0; bottom: 100%;
+                           position: fixed;bottom: 0; right: 0; background-color: red; height: 5px; width: 5px;" (click)="showCode()"></div>
 
                         </div>
                     

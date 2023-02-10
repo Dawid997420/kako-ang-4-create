@@ -1,0 +1,172 @@
+.index-value  {
+    background-color: #9583b4;
+    background-color: aliceblue;
+
+   
+
+}
+
+.article {
+
+    background-color: rgb(182, 205, 230);
+   
+}
+
+
+.topic {
+    text-align: justify;
+    font-weight: 700;
+
+}
+
+.edit {
+    min-height: 2.7rem;
+    font-size: 20px;
+    font-weight: 600;
+    height: 2.5rem;
+    background-color: cornflowerblue;
+    color: aliceblue;
+   
+}
+
+.delete {
+    min-height: 2.7rem;
+    font-size: 20px;
+    font-weight: 600;
+    height: 2.5rem;
+    background-color: rgb(237, 100, 100);
+    color: aliceblue;
+   
+}
+
+.pointer {
+
+}
+
+.pointer:hover {
+    cursor: pointer;
+    background-color: rgb(75, 111, 177);
+}
+
+
+.info {
+    min-height: 2.7rem;
+    font-size: 20px;
+    font-weight: 600;
+    height: 2.5rem;
+    background-color: rgb(171, 216, 92);
+    color: aliceblue;
+    
+
+}
+
+.nwm {
+    min-height: 2.7rem;
+    font-size: 20px;
+    font-weight: 600;
+    height: 2.5rem;
+    background-color: rgb(125, 125, 125);
+    color: aliceblue;
+    
+}
+.artBorder{
+
+}
+
+
+.user {
+ 
+    
+   
+    height: 7rem;
+    background-color: rgb(182, 205, 230);
+    font-size: 1rem;
+    margin-top: 0.3rem;
+    margin-left: 0.1rem;
+    margin-left: -0.4rem;
+    border-radius: 0.4rem;
+}
+
+.roleUser {
+    font-size: 20px;
+    font-weight: 600;
+    background-color: aquamarine;
+} 
+
+
+.roleUser:hover {
+    font-size: 20px;
+    font-weight: 600;
+    background-color: rgb(106, 209, 175);
+    cursor: pointer;
+} 
+
+
+
+.roleAdmin {
+    font-size: 20px;
+    font-weight: 600;
+    background-color: rgb(255, 136, 127);
+} 
+
+
+.roleAdmin:hover {
+    font-size: 20px;
+    font-weight: 600;
+    background-color: rgb(194, 104, 98);
+    cursor: pointer;
+} 
+ 
+
+
+
+.sure1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 300px;
+    margin-top: -150px;
+    margin-left: -200px;
+    background-color: white;
+}
+
+
+.sureDelete {
+    background-color: rgb(185, 93, 75);
+    text-align: center;
+    color:white;
+    
+}
+
+
+.sureDelete:hover {
+    background-color: rgb(128, 64, 51);
+    text-align: center;
+    color:white;
+    cursor: pointer;
+}
+
+.sureCancel {
+    
+    text-align: center;
+    color:white;
+
+    background-color: rgb(75, 111, 177);
+
+}
+
+.sureCancel:hover {
+    text-align: center;
+    color:white;
+    cursor: pointer;
+    background-color: rgb(58, 84, 133);
+
+}
+
+.warning {
+
+    font-size: 20px;
+    font-weight: 600;
+
+}

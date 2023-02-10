@@ -3,6 +3,7 @@ import { Article } from '../model/Article';
 import { Paragraph } from '../model/paragraph';
 import { ParagraphDto } from '../model/ParagraphDto';
 import { UserE } from '../model/UserE';
+import { AuthService } from '../services/auth.service';
 import { HttpServiceService } from '../services/http-service.service';
 
 @Component({
@@ -45,7 +46,7 @@ export class ArticlesComponent implements OnInit{
   selected :string = ""
 
 
-  constructor( private httpService :HttpServiceService) {}
+  constructor( private httpService :HttpServiceService , private authService :AuthService) {}
   
 
 
@@ -119,7 +120,6 @@ export class ArticlesComponent implements OnInit{
 
   getImageDestination(event:string){
     this.paragraphsList.push(new Paragraph(event,"image","normal")) 
-     
 
     this.saveParagraphsList()
 
@@ -127,9 +127,97 @@ export class ArticlesComponent implements OnInit{
 
   saveArticle() {
 
+
+    if ( this.categories.length < 1) {
+      console.log("Dodaj chociaż 1 kategorie")
+    
+      return "essa"
+    } 
+
+
+    if ( sessionStorage.getItem("user") == null || sessionStorage.getItem("user") == undefined) {
+   
+   
+      this.httpService.getLogedUserInfo().subscribe( response => {
+        let  user :UserE = new UserE("","","",new Date(),"","");
+        let role = "";
+        user = response;
+        role = user.role;
+        //console.log(user)
+        sessionStorage.setItem("user",JSON.stringify(user))
+       
+        localStorage.setItem("role",user.role)
+        
+        
+       // console.log(this.role)
+       
+       let user1 : UserE = JSON.parse(sessionStorage.getItem("user")|| "") ;
+
+       let articleToSave  = new Article("", new Date());
+   
+       articleToSave.created = new Date();
+       articleToSave.topic = this.title ;
+       articleToSave.categories = this.categories;
+       
+       articleToSave.userId = user1.id || "";
+   
+   
+       let paragraphListDto : ParagraphDto[] = []
+   
+      
+       let textToAdd = ''
+       let paragraphDto : ParagraphDto;
+   
+       
+   
+       for ( let i = 0 ; i < this.paragraphsList.length; i++ ) {
+   
+        
+   
+         paragraphDto = new ParagraphDto(this.paragraphsList[i].text,this.paragraphsList[i].type)
+         
+         
+         if ( paragraphDto.type == "font-plain") {
+           paragraphDto.type = "plain";
+         } else if ( paragraphDto.type == "font-bold"){
+           paragraphDto.type = "bold";
+         } else if (   paragraphDto.type == "image") {
+           paragraphDto.type = "image";
+         }  else if (  paragraphDto.type == "font-subtitle") {
+           paragraphDto.type = "subtitle";
+         } 
+        
+         paragraphListDto.push(paragraphDto);
+   
+       }
+   
+   
+       articleToSave.paragraphs = paragraphListDto ;
+   
+      this.httpService.saveArticle(articleToSave).subscribe( response => {
+         console.log(response)
+       }) 
+   
+   
+      
+       this.clearAll();
+
+
+       
+
+
+
+
+
+     
+      })
+      return "essa"
+    } else {
+
+    
    let user1 : UserE = JSON.parse(sessionStorage.getItem("user")|| "") ;
 
-    let articleToSave  = new Article();
+    let articleToSave  = new Article("",new Date());
 
     articleToSave.created = new Date();
     articleToSave.topic = this.title ;
@@ -177,6 +265,9 @@ export class ArticlesComponent implements OnInit{
 
    
     this.clearAll();
+
+    return "essa"
+    }
 
   }
 
@@ -598,6 +689,48 @@ this.mouseClass2 = ""
   saveTextToStorage() {
     sessionStorage.setItem("text",this.text);
     
+  }
+  linkYT = "";
+
+  addYouTubeVideo() {
+
+    if ( this.linkYT.length > 23) {
+
+
+     
+      
+    
+
+     this.linkYT.split("https://www.youtube.com/watch?v=");
+
+     let link :string =   this.linkYT.split("https://www.youtube.com/watch?v=")[1];
+    
+
+
+     let startCut = 0 ;
+
+     for ( let i = 0 ; i < this.linkYT.length ; i++ ) {
+
+      if ( this.linkYT.charAt(i)=='&') {
+        startCut = i;
+        
+        break;
+      }
+     
+    }
+
+    let realId = link.slice(startCut,this.linkYT.length)
+    console.log(realId)
+
+  
+    this.paragraphsList.push(new Paragraph(realId,"yt",""))
+
+
+    this.linkYT = "";
+    this.saveParagraphsList();
+  } else {
+
+  }
   }
 
 

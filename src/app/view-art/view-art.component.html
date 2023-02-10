@@ -12,7 +12,7 @@
                                 <div  class=" title  text-justify  font-subtitle mx-3 px-3 " >
 
 
-                                <div style=""  >{{chosenArticle.topic}}</div> 
+                                <div style=""  >{{chosenArticle.topic }}</div> 
                             
 
                                  </div>
@@ -64,7 +64,7 @@
 
                             <div class="mr-5">
                                     
-                                            <div *ngFor="let paragraph of chosenArticle.paragraphs;let i = index" class="row " >
+                                            <div *ngFor="let paragraph of chosenArticle.paragraphs;let i = index" class="row all-val" >
 
                                             
                                                 <div  class="row  text-val " >
@@ -74,8 +74,21 @@
                                                         <div [ngClass]="paragraph.type"  class="my-1" 
                                                         [class.indentation]="i==0 &&  paragraph.type != 'image'"
                                                          >
-                                                        <div class="row" >
-                                                            <div *ngIf="paragraph.type!='image'" class="col-12 m-lg-3 " style="margin-right: 100px;" [ngClass]="paragraph.type">
+
+                                                         <div *ngIf="paragraph.type=='yt'" class="mx-3 p-1">
+                                                            <youtube-player 
+                                                            [videoId]="paragraph.text"                 
+                                                            suggestedQuality="highres" 
+                                                            [height]="480" 
+                                                            [width]="875" 
+                                                            [startSeconds]="4"
+                                                            [endSeconds]="8">
+                                                          </youtube-player>
+                                                        </div>
+
+                                                        <div class="row " >
+                                                            <div *ngIf="paragraph.type!='image' && 
+                                                            paragraph.type!='yt' " class="col-12 m-lg-3 " style="margin-right: 100px;" [ngClass]="paragraph.type">
                                                                 {{paragraph.text}}
                                                             </div>
                                                             
@@ -142,7 +155,7 @@
 
                         <div class="col-lg-3 p-3 m-0 "  >
                                 
-                            <div *ngFor="let article of rightArticles" >
+                            <div *ngFor="let article of rightArticles" style=" font-family: montserrat;" >
                                 
                         
                                 <div class="row pointer my-0 " *ngIf="article.id!=chosenArticle.id" (click)="chosenArticle2(article )" >

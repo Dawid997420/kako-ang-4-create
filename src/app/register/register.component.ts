@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserE } from '../model/UserE';
@@ -11,12 +11,17 @@ import { AuthService } from './../services/auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
 
 
 
   constructor( private httpService : HttpServiceService,
     private router: Router, private authService :AuthService ) {}
+
+
+  ngOnInit(): void {
+   
+  }
 
   registerForm = new FormGroup({
 
@@ -45,7 +50,7 @@ export class RegisterComponent {
   register() {
 
 
-
+ 
 
     if ( this.registerForm.valid && this.registerFormCheck() ) {
 
@@ -59,14 +64,14 @@ export class RegisterComponent {
                   , this.registerForm.value.email || '' , birthday, this.registerForm.value.sex || '','');
 
 
-                  console.log(user)
                 this.httpService.register(user).subscribe( response => {
 
               
+                  console.log(response)
                   
                   if ( response) {
 
-                   
+                    this.secretError="";
                     let userLogin : UserELogin = new UserELogin(user.email,user.password)
                     this.authService.LoginWithToken(userLogin).subscribe(
 
@@ -134,7 +139,15 @@ export class RegisterComponent {
    
         
 
+    } else {
+
+
+
+      alert("Hasła nie są takie same , hasło ma mniej niż 5 znaków lub user jest za młody")
+
     }
+
+
   }
 
   bithdayChange() {

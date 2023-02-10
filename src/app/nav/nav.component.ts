@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserE } from '../model/UserE';
 import { ArticleService } from '../services/article.service';
 import { AuthService } from '../services/auth.service';
@@ -26,12 +27,26 @@ export class NavComponent implements OnInit{
   active = "Home";
 
 
+  userImg= "assets/user.png";
+
+  getUserImg() {
+   let userE:UserE = new UserE("","","",new Date(),"","");
+
+    this.httpService.getLogedUserInfo().subscribe( response=>{
+
+      userE = response;
+
+      this.userImg = userE.image ||  "assets/user.png";
+
+    })
+
+  }
     
   setActive(active:string) {
       this.active = active;
   }
 
-  constructor( private articleSerice :ArticleService,
+  constructor( private articleSerice :ArticleService, private router:Router,
     public authService :AuthService,private httpService :HttpServiceService) {
 
   }
@@ -45,10 +60,12 @@ export class NavComponent implements OnInit{
       }
 
 
+      
       this.role= localStorage.getItem("role") || "SPECTATOR"
 
       this.authService.role = localStorage.getItem("role") ||"SPECTATOR"
     console.log(localStorage.getItem("role"))
+    this.getUserImg();
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -81,13 +98,34 @@ export class NavComponent implements OnInit{
   
   }
 
+  selectedSport() {
+    this.articleSerice.setChosenCategory("SPORT")
+  }
+
+
+
+  selectedWiara() {
+    this.articleSerice.setChosenCategory("WIARA")
+  }
+
+  selectedPasja() {
+    this.articleSerice.setChosenCategory("PASJA")
+  }
+
+
   selectedAlcohol() {
 
     this.articleSerice.setChosenCategory("ALKOHOL")
  
    // window.location.reload();
     }
+    selectedTechnology() {
 
+      this.articleSerice.setChosenCategory("TECHNOLOGY")
+   
+     // window.location.reload();
+      }
+  
 
     logout() {
       
@@ -95,6 +133,7 @@ export class NavComponent implements OnInit{
       localStorage.setItem("role","")
      this.authService.role = localStorage.getItem("role") ||"SPECTATOR"
      sessionStorage.setItem("user","")
+     this.router.navigateByUrl("")
  
     }
 
@@ -108,23 +147,14 @@ export class NavComponent implements OnInit{
   }
     
 
-  selectedPorno() {
 
-    this.articleSerice.setChosenCategory("PORNOGRAFIA")
- 
-    
-    }
 
     selectedSeks() {
-      this.articleSerice.setChosenCategory("SEKSOHOLIZM")
+      this.articleSerice.setChosenCategory("UZALEZNIENIA_SEKSUALNE")
  
     
     }
 
-    selectedCyberSeks(){
-        this.articleSerice.setChosenCategory("SEKSOHOLIZM")
- 
-    }
 
 
     selectedDrugs(){

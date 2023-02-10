@@ -26,8 +26,11 @@ background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,r
 .index-value {
 
     background-color: #9583b4;
+    background-color: white;
+    background-color: rgb(182, 205, 230);
     min-height: 2200px;
-
+     font-family: montserrat;
+    
 }
 
 .reklama {
@@ -44,8 +47,8 @@ background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,r
 
 
 .topic-right {
-
-  font-weight: 700;
+ 
+  font-weight: 500;
 
 }
 
@@ -79,6 +82,31 @@ background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,r
 
   justify-content:space-evenly;
   word-spacing: -1px;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 20px;
+}
+
+
+body {
+  color: white;
+
+  font-family: 'segoe ui';
+  font-family: montserrat;
+}
+
+
+.wstep {
+  margin-left: -8rem;
+  font-family: montserrat;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: left;
+  padding: 10px;
+ 
+}
+.wstep0{
+  background-color: rgb(182, 205, 230);
+
+  margin-top: 0rem;
+
 }

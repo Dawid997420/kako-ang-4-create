@@ -1,0 +1,39 @@
+.index-value  {
+    background-color: #9583b4;
+    background-color: aliceblue;
+
+    
+   
+
+}
+.title{
+    font-weight: 700;
+    text-align: center;
+    font-size: 30px; 
+     font-family: montserrat;
+     padding: 20px;
+
+}
+
+.text {
+    padding: 28px;
+    font-size: 18px; 
+    font-weight: 600;
+    font-family: montserrat;
+    text-align: justify;
+}
+
+.selected {
+
+    margin-left: -19.5rem;
+}
+
+.book {
+ 
+}
+
+.book:hover {
+    cursor: pointer;
+    padding: 0.2rem;
+    transition: 150ms;
+}

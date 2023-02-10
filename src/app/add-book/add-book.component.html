@@ -1,0 +1,190 @@
+<div class="container-fluid p-5 c2 ">
+
+
+    <div class="row index-value " >
+
+
+        <div class="col-6">
+
+            <div class="row">
+
+
+                <div class="col-12 my-1">
+                    Okłada książki
+                    <input  type="file" class="form-control " id="customFile"
+                    (change)="onSelectImage($event)"/>
+                  
+                </div>
+
+                <div class="col-12 ">
+                    Tytuł Książki
+                    <input  type="text" class="form-control" [(ngModel)]="title" 
+                    (change)="saveTitleToStorage()"/>
+                  
+                </div>
+
+                <div class="col-12 ">
+                    Autor Książki
+                    <input  type="text" class="form-control" [(ngModel)]="autor" 
+                    (change)="saveAutorToStorage()"/>
+                  
+                </div>
+
+                <div class="col-12 ">
+                    Data premiery
+                    <input  type="date" class="form-control"[(ngModel)]="date" (change)="saveDateToStorage()"/>
+                  
+                </div>
+
+                <div class="col-12 ">
+                    Krótki opis
+               <textarea class="form-control" style="max-height: 10rem;" [(ngModel)]="opis" 
+               (change)="saveOpisToStorage()"
+                >
+
+               </textarea>
+            
+
+               <div class="col-12 my-1">
+                Kategorie
+
+                <select [(ngModel)]="category" class="form-select" name="categorie"
+                aria-label="Default select example">
+                   <option selected>Kategorie</option>
+                   <option value="NARKOTYKI">Narkotyki</option>
+                   <option value="ALKOHOL">Alkohol</option>
+                   <option value="HAZARD">HAZARD</option>
+             
+                   <option value="SPORT">Sport</option>
+                   <option value="WIARA">Wiara</option>
+                   <option value="ZAKUPOHOLIZM">Zakupoholizm</option>
+                   <option value="PRACOHOLIZM">pracoholizm</option>
+                   <option value="PAPIEROSY">Papierosy</option>
+                   <option value="OBŻARSTWO">Obżarstwo</option>
+                   <option value="UZALEZNIENIA_SEKSUALNE">UZALEZNIENIA SEKSUALNE</option>
+                   <option value="TECHNOLOGY">TECHNOLOGY</option>
+                   <option value="ZABURZENIA_ODZYWIANIA">ZABURZENIA ODŻYWIANIA</option>
+                   <option value="PAPIEROSY">PAPIEROSY</option>
+                   <option value="LEKOMANIA">LEKOMANIA</option>
+                   <option value="PASJA">PASJA</option>
+                   <option value="ROZWOJ">ROZWOJ</option>
+                   <option value="INNE">INNE</option>
+                 </select>
+
+                 <button class="btn btn-primary mx-1 my-1" (click)="addCategorie()">ADD</button>
+                 <button class="btn btn-danger" (click)="deleteAllCat()">DELETE ALL</button>
+               </div>
+                  
+                </div>
+                <div class="col-12 " style="min-height: 1rem;">
+
+                </div>
+
+
+
+            </div>
+       
+        </div>
+
+
+
+
+        <div class="col-6 my-3" >
+
+        <app-image-upload  (imageDestination2)="getImageDestination($event)" [src]="url"
+        *ngIf="url.length > 10" [width]="10" [height]="14">
+
+
+        </app-image-upload>
+
+        </div>
+    
+
+     
+     
+        <div class="row m-0 my-2">
+            <div class="col-6 save" (click)="addBook()">SAVE</div>
+           
+            <div class="col-6 clear" (click)="clearAll()">CLEAR</div>
+        </div>
+       
+
+
+    </div>
+
+
+    
+
+    <div class="row book-value ">
+
+
+        <div class="col-6 p-3">
+
+            <div class="row" >
+
+                <div class="col-12 "  >
+                    <img [src]="okladka"  class="img-fluid book-img"  style="height: 33rem;" >
+                </div>
+                
+
+            </div>
+
+
+        </div>
+
+
+        <div class="col-5 real-book" >
+
+
+            <div class="row my-1" style="margin-left: -6.5rem;">
+
+                <div class="col-12 my-2 title ">
+
+                    
+                        {{title}}
+                
+                </div>
+                <div class="col-12">
+                    Autor: {{autor}}
+                </div>
+
+                <div class="col-12" style="margin-top: 1rem;">
+
+                    Data premiery : {{date}}
+                </div>
+
+                <div class="col-12" style="margin-top: 1rem;">
+
+                    Category : 
+
+                    <div *ngFor="let cat of categories" style="display: inline-block;">
+
+                        {{cat  +', '}} 
+
+                    </div>
+
+                </div>
+
+                <div class="col-12" style="margin-top: 1rem;">
+
+                    Opis
+                    <br><br>
+
+                    <div style="text-align: justify; ">
+                        {{opis}}
+                    </div>
+                
+
+
+                </div>
+
+            </div>
+
+       
+        </div>
+
+
+    </div>
+
+
+</div>

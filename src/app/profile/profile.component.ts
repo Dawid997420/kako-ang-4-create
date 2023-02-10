@@ -20,6 +20,21 @@ export class ProfileComponent implements OnInit{
 
   ngOnInit(): void {
         this.getPrincipalInfo()
+        
+  }
+
+
+  profilImg= "assets/user.png";
+
+  getProfilImg() {
+
+    if ( this.user.image == null ) {
+
+    } else if (this.user.image.length < 1  ) {
+
+    } else{
+      this.profilImg= this.user.image;
+    }
 
   }
 
@@ -43,10 +58,66 @@ export class ProfileComponent implements OnInit{
     this.httpService.getLogedUserInfo().subscribe( response => {
       
       this.user = response;
-     
+      this.getProfilImg();
     })
   } 
 
+
+  url = "";
+
+  getImageDestination(image:any) {
+
+   
+   this.user.image = image;
+
+   this.httpService.changeUserImg(this.user).subscribe(response => {
+
+    this.user = response;
+    this.getProfilImg();
+
+   })
+
+
+   console.log(event)
+
+
+  }
+
+  clearImg() {
+    this.url = "";
+  }
+
+  onSelectImage(event:any) {
+
+    this.clearImg();
+
+    if ( event.target.files) {
+      //display image on angular
+        let reader = new FileReader();
+        reader.readAsDataURL(event.target.files[0]);
+        reader.onload = (event2:any) =>{
+       
+      // convert image to file to send
+      this.url = event2.target.result;
+
+  
+
+        }
+       
+ 
+      }
+
+  }
+
+  editProfil= false ;
+
+  editProfilImg() {
+
+    this.editProfil = !this.editProfil;
+  }
+
+
+  
 
 
 

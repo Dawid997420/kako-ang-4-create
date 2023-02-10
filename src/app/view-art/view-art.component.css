@@ -37,9 +37,18 @@
 
 
     background-color: #9583b4;
+    background-color: white;
+
+    background-color: rgb(182, 205, 230);
+    background-color: (230,238,245);
     height: auto;
+    font-family: 'segoe ui';
+    
 }
 
+.all-val {
+    font-family: montserrat;
+}
 
 
 .font-subtitle {

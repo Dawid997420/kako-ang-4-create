@@ -17,7 +17,7 @@ import { HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS } from '@angu
 import { RegisterComponent } from './register/register.component';
 import { CytatyComponent } from './cytaty/cytaty.component';
 import { QuotesComponent } from './quotes/quotes.component';
-import { UsersComponent } from './users/users.component';
+
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { AuthInterceptor } from './interceptors/auth.interceptor';
@@ -32,8 +32,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { CommentsComponent } from './comments/comments.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UsersEditComponent } from './users-edit/users-edit.component';
+import { AutorComponent } from './autor/autor.component'
+import { YouTubePlayerModule} from '@angular/youtube-player';
+import { BooksComponent } from './books/books.component';
+import { AddBookComponent } from './add-book/add-book.component';
+import { ViewBookComponent } from './view-book/view-book.component'
 
 
 @NgModule({
@@ -49,7 +54,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     RegisterComponent,
     CytatyComponent,
     QuotesComponent,
-    UsersComponent,
+
     ImageUploadComponent,
     ViewArtComponent,
     WriteCommentComponent,
@@ -58,7 +63,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     EditArticlesComponent,
     EditSingleArticleComponent,
     NotFoundComponent,
-    CommentsComponent
+    CommentsComponent,
+    UsersEditComponent,
+    AutorComponent,
+    BooksComponent,
+    AddBookComponent,
+    ViewBookComponent
    
   ],
   imports: [
@@ -71,7 +81,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    YouTubePlayerModule
   
 
 

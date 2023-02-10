@@ -1,11 +1,13 @@
 .index-value  {
     background-color: #9583b4;
+    background-color: aliceblue;
     min-height: 2200px;
 }
 
 .article {
-    background-color: aliceblue;
-    
+
+    background-color: rgb(182, 205, 230);
+   
 }
 
 
@@ -32,4 +34,8 @@
 .pointer:hover {
     cursor: pointer;
     background-color: rgb(75, 111, 177);
+}
+
+.artBorder{
+
 }

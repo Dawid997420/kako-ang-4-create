@@ -102,20 +102,22 @@ font-weight: 900;"></i>
                                 <option value="NARKOTYKI">Narkotyki</option>
                                 <option value="ALKOHOL">Alkohol</option>
                                 <option value="HAZARD">HAZARD</option>
-                                <option value="PORNOGRAFIA">Pornografia</option>
-                                <option value="Seksoholizm">Seksoholizm</option>
-                                <option value="CYBERSEKS">Cyberseks</option>
+                            
+                           
+                        
                                 <option value="SPORT">Sport</option>
                                 <option value="WIARA">Wiara</option>
                                 <option value="ZAKUPOHOLIZM">Zakupoholizm</option>
                                 <option value="PRACOHOLIZM">pracoholizm</option>
                                 <option value="PAPIEROSY">Papierosy</option>
                                 <option value="OBŻARSTWO">Obżarstwo</option>
-                                <option value="SEKSOHOLIZM">Seksoholizm</option>
+                                <option value="UZALEZNIENIA_SEKSUALNE">UZALEZNIENIA_SEKSUALNE</option>
                                 <option value="TECHNOLOGY">TECHNOLOGY</option>
                                 <option value="ZABURZENIA_ODZYWIANIA">ZABURZENIA ODŻYWIANIA</option>
                                 <option value="PAPIEROSY">PAPIEROSY</option>
                                 <option value="LEKOMANIA">LEKOMANIA</option>
+                                <option value="ROZWOJ">ROZWOJ</option>
+                                <option value="INNE">INNE</option>
                             </select>
 
                          
@@ -204,8 +206,23 @@ font-weight: 900;"></i>
                         >
                                                         <div class="row" >
                                                             <div class="row m-0 p-0">
+
+
+                                                                <div *ngIf="paragraph.type=='yt'" class="mx-4 p-1">
+                                                                    <youtube-player 
+                                                                    [videoId]="paragraph.text"                 
+                                                                    suggestedQuality="highres" 
+                                                                    [height]="380" 
+                                                                    [width]="805" 
+                                                                    [startSeconds]="4"
+                                                                    [endSeconds]="8">
+                                                                  </youtube-player>
+                                                                </div>
+
+
+
                                                                 <div *ngIf="paragraph.type!='image'&&paragraph.type!='textArea'
-                                                                && chosenParagraphToEdit != paragraph" class="col-12 m-lg-3 " 
+                                                                && chosenParagraphToEdit != paragraph&& paragraph.type!='yt'" class="col-12 m-lg-3 " 
                                                                 [class.pointerText]="choseParagraphOption"
                                                                 [ngClass]="paragraph.type" (click)="editParagraph(paragraph)">
                                                                     {{paragraph.text}} 
@@ -375,6 +392,58 @@ font-weight: 900;"></i>
         </div>
 
         
+        <div class="col-12" style="max-height: 60px;" >
+            <div class="row mt-1">
+
+
+                <div #opcja  class="col-10 ms-5 me-4 p-3 mt-2 beforeStrzala"  style="height: 54px; 
+                    margin-top: -120px;   " >
+
+                    <div class="row  p-1 " style="margin-top: -12px;
+                    background-color: aliceblue;" *ngIf="strzalaEndActive "  >
+                        
+                        
+                            <div class="col-6 editOption " >
+                                
+                                <div style="margin-top: 2.5%;" (click)="addNewParagraphImageEnd()"
+                                 class="">
+                                            ADD IMAGE
+                                </div>
+
+
+                            </div>
+                                                                                                                        
+
+                            <div  class="col-6 editOption" (click)="addNewParagraphEnd()" >
+                            <div style="margin-top: 2.5%;">
+                                ADD PARAGRAPH
+                            </div>
+                                
+                            </div>
+
+                        
+
+
+                    </div>
+                    
+
+                </div>
+
+                
+                
+                <div  class="col-6 p-0   strzal" style=""  *ngIf=" availableStrzaly"  >
+                   
+                    <img  #strzala class="img-fluid mx-2 pointer" (click)="addNewParagraphAtEnd()"
+                     [src]="strzalka">
+                </div>
+
+                
+
+            </div>
+
+        </div>
+
+
 
 </div>
 </div>

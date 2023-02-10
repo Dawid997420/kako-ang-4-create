@@ -104,9 +104,9 @@
       <nav >
       
         
-        <label class="logo" >DesignX</label>
+        <label class="logo" >DopaminaX</label>
         <label style="width: 70px; " class="navbar" (click)="showResponsive()"  >
-          <img class="img-fluid " style="cursor: pointer;"  src="assets/navbar1.png"  >
+          <img class="img-fluid strip-bar " style="cursor: pointer;"  src="assets/navbar1.png"  >
         </label>
 
         <ul  >
@@ -165,6 +165,36 @@
                       </div>
                       
                     </div>
+
+
+
+                    <div class="col-12 rowTopics" [class.rowTopicsActivated]="active=='TECHNOLOGY'" (click)="setActive('TECHNOLOGY')"
+                    routerLink="chosenCat" (click)="selectedTechnology()">
+
+
+                      <div class="row">
+
+                            <div class="col-1 mx-2">
+                              <i class="fa-solid fa-robot icon" style="margin-left: -0.2rem;"></i>
+                              <div style="display: inline-block; ">
+                            </div>
+                            </div>
+
+                            <div class="col-9 p-1 mx-1">
+                              <div class="temat">
+                                Uzależnienia od Technologii
+                              </div>
+                              <div class="tekst">
+                                Tematy poświęcone często spotykanym uzależnienią od telefonu internetu czy gier
+                              </div>
+                            </div>
+
+
+                      </div>
+                      
+                    </div>
+
+
 
                     <div class="col-12 rowTopics" [class.rowTopicsActivated]="active=='Drugs'" (click)="setActive('Drugs')"
                     (click)="selectedDrugs()" routerLink="chosenCat">
@@ -305,6 +335,9 @@
 
 
 
+                
+
+
 
                   </div>
 
@@ -325,27 +358,366 @@
        
        
 
-          <li><a  [class.active]="active=='Login'" routerLink="login" (click)="setActive('Login')">Login</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Feedback</a></li>
+          <li><a  [class.active]="active=='Login'" *ngIf="authService.getRole()=='SPECTATOR'"
+            routerLink="login" (click)="setActive('Login')">Login</a></li>
+          
 
-          <div class="admin-dropdown" style="display: inline-block;">
+
+          <div  class="admin-dropdown" style="display: inline-block;">
+
+            <a class="dropdown-button" >
+              Kontakt
+            </a>
+          
+          <div  class="dropdown-menu0" style="height: 0.7rem; "tabindex="1" ></div>
+
+
+            <div class="Omnie-options" style="margin-top: 1.65rem;"> 
+
+
+              <div class="col-12 rowTopics" [class.rowTopicsActivated]="active=='Omnie'" (click)="setActive('Omnie')"
+              routerLink="autor" >
+
+
+                <div class="row">
+
+                      <div class="col-1 mx-2">
+                        <i class="fa-solid fa-user-tie icon"></i>
+                        <div style="display: inline-block; ">
+                      </div>
+                      </div>
+
+                      <div class="col-9 p-1 mx-1">
+                        <div class="temat">
+                          O Mnie
+                        </div>
+                        <div class="tekst">
+                          Kim jestem, kilka słów o autorze i o tym czemu powinieneś go zatrudnić
+                        </div>
+                      </div>
+
+
+                </div>
+                
+              </div>
+
+
+
+
+              <div class="col-12 rowTopics" [class.rowTopicsActivated]="active=='Kontakt'" (click)="setActive('Kontakt')"
+              routerLink="contact" >
+
+
+                <div class="row">
+
+                      <div class="col-1 mx-2">
+                        <i class="fa-solid fa-envelope icon"></i>
+                        <div style="display: inline-block; ">
+                      </div>
+                      </div>
+
+                      <div class="col-9 p-1 mx-1">
+                        <div class="temat">
+                          Kontakt
+                        </div>
+                        <div class="tekst">
+                          Masz sprawę, chcesz ulepszyć stronę lub coś ci nie działa skontaktuj się ze mną
+                        </div>
+                      </div>
+
+
+                </div>
+                
+              </div>
+
+
+
+
+            </div>
+
+
+          </div>
+
+          
+
+
+          <div  class="admin-dropdown" style="display: inline-block;">
+
+            <a class="dropdown-button">
+              Materiały
+            </a>
+          
+          <div  class="dropdown-menu0" style="height: 0.7rem;"tabindex="1" ></div>
+
+
+            <div class="materials-options" style="margin-top: 1.65rem;"> 
+
+
+              <div class="col-12 rowTopics" [class.rowTopicsActivated]="active=='Books'" (click)="setActive('Books')"
+              routerLink="books" >
+
+
+                <div class="row">
+
+                      <div class="col-1 mx-2">
+                        <i class="fa-solid fa-book icon"></i>
+                        <div style="display: inline-block; ">
+                      </div>
+                      </div>
+
+                      <div class="col-9 p-1 mx-1">
+                        <div class="temat">
+                          Książki
+                        </div>
+                        <div class="tekst">
+                          Pomocne książki w budowaniu silnej woli i świadomości
+                        </div>
+                      </div>
+
+
+                </div>
+                
+              </div>
+
+
+
+
+              <div class="col-12 rowTopics" [class.rowTopicsActivated]="active=='Wiara'" (click)="setActive('Wiara')"
+              routerLink="chosenCat" (click)="selectedWiara()">
+
+
+                <div class="row">
+
+                      <div class="col-1 mx-2">
+                        <i class="fa-solid fa-church icon" style="margin-left: -0.4rem;"></i>
+                        <div style="display: inline-block; ">
+                      </div>
+                      </div>
+
+                      <div class="col-9 p-1 mx-1">
+                        <div class="temat">
+                          Wiara
+                        </div>
+                        <div class="tekst">
+                          Wiara w Boga a uzależnienia , dlaczego to bardziej istotne niż ci się wydaje
+                        </div>
+                      </div>
+
+
+                </div>
+                
+              </div>
+
+
+
+
+
+
+
+              <div class="col-12 rowTopics" [class.rowTopicsActivated]="active=='PASJA'" (click)="setActive('PASJA')"
+              routerLink="chosenCat" (click)="selectedPasja()">
+
+
+                <div class="row">
+
+                      <div class="col-1 mx-2">
+                        <i class="fa-solid fa-guitar icon"></i>
+                        <div style="display: inline-block; ">
+                      </div>
+                      </div>
+
+                      <div class="col-9 p-1 mx-1">
+                        <div class="temat">
+                          Pasja
+                        </div>
+                        <div class="tekst">
+                          Dlaczego warto mieć jakąś pasję i dlaczego pomoże ci to pokonać nałóg
+                        </div>
+                      </div>
+
+
+                </div>
+                
+              </div>
+
+
+
+
+
+              <div class="col-12 rowTopics" [class.rowTopicsActivated]="active=='Sport'" (click)="setActive('Sport')"
+              routerLink="chosenCat" (click)="selectedSport()">
+
+
+                <div class="row">
+
+                      <div class="col-1 mx-2">
+                        <i class="fa-solid fa-person-running icon"></i>
+                        <div style="display: inline-block; ">
+                      </div>
+                      </div>
+
+                      <div class="col-9 p-1 mx-1">
+                        <div class="temat">
+                          Sport
+                        </div>
+                        <div class="tekst">
+                          Dlaczego regularne uprawianie sportu może cię ocalić
+                        </div>
+                      </div>
+
+
+                </div>
+                
+              </div>
+
+
+
+            </div>
+
+
+          </div>
+
+
+          
+
+          <div class="admin-dropdown" style="display: inline-block;"  *ngIf="authService.getRole()=='ADMIN'">
             <a class="dropdown-button">Admin Site</a>
           
-            
-            <div  class="admin-options"> 
+            <div  class="dropdown-menu0" style="height: 0.7rem;"tabindex="1" >
+               
+             
+              
+            </div>
+            <div  class="admin-options" style="margin-top: 1.65rem;"> 
+
+              <div class="col-12 rowTopics" routerLink="articlesOption"  [class.rowTopicsActivated]="active=='Articles'" (click)="setActive('Articles')"
+               >
+
+
+                <div class="row" >
+
+                      <div class="col-1 mx-2">
+                        <i class="fa-solid fa-scroll icon"></i>
+                        <div style="display: inline-block; ">
+                      </div>
+                      </div>
+
+                      <div class="col-9 p-1 mx-1">
+                        <div class="temat">
+                          Artykuły
+                        </div>
+                        <div class="tekst">
+                          Dodawaj, usuwaj lub edytuj artykuły  
+                        </div>
+                      </div>
+
+
+                </div>
+                
+              </div>
+
+
+
+              <div class="col-12 rowTopics"  routerLink="users" [class.rowTopicsActivated]="active=='Users'" (click)="setActive('Users')"
+             >
+
+
+                <div class="row">
+
+                      <div class="col-1 mx-2">
+                        <i class="fa-solid fa-users icon" style="margin-left: -0.21rem;"></i>
+                        <div style="display: inline-block; ">
+                      </div>
+                      </div>
+
+                      <div class="col-9 p-1 mx-1">
+                        <div class="temat">
+                          Użytkownicy
+                        </div>
+                        <div class="tekst">
+                          Zarządzaj kontami użytkowników
+                        </div>
+                      </div>
+
+
+                </div>
+                
+              </div>
+
+
+
+
+              <div class="col-12 rowTopics" [class.rowTopicsActivated]="active=='Quotes'" (click)="setActive('Quotes')"
+              routerLink="chosenCat" routerLink="quotes">
+
+
+                <div class="row">
+
+                      <div class="col-1 mx-2">
+                        <i class="fa-solid fa-brain icon"></i>
+                        <div style="display: inline-block; ">
+                      </div>
+                      </div>
+
+                      <div class="col-9 p-1 mx-1">
+                        <div class="temat">
+                          Cytaty
+                        </div>
+                        <div class="tekst">
+                          Dodawaj, usuwaj lub edytuj cytaty  
+                        </div>
+                      </div>
+
+
+                </div>
+                
+              </div>
+
+
+
+
+              <div class="col-12 rowTopics" routerLink="addBook"  [class.rowTopicsActivated]="active=='AddBook'" (click)="setActive('AddBook')"
+               >
+
+
+                <div class="row" >
+
+                      <div class="col-1 mx-2">
+                        <i class="fa-solid fa-book-medical icon"></i>
+                        <div style="display: inline-block; ">
+                      </div>
+                      </div>
+
+                      <div class="col-9 p-1 mx-1">
+                        <div class="temat">
+                          Książki
+                        </div>
+                        <div class="tekst">
+                          Dodawaj, usuwaj lub edytuj książki 
+                        </div>
+                      </div>
+
+
+                </div>
+                
+              </div>
+
+
+
 
             </div>
 
           </div>
     
 
-
+  
+         
 
 
           <li style="width:80px " class="border-radius " *ngIf="authService.getRole()!='SPECTATOR'" routerLink="profile">
             
-            <img class="img-fluid profil" style="margin-top: -5px;border-radius:700px; border: 2px solid whitesmoke;" src="assets/user1.png" >
+            <img class="img-fluid profil" style="width: 100px;margin-top: -5px;border-radius:700px; border: 2px solid whitesmoke;" 
+            [src]="userImg" >
           
          
           <div class="profil-options " >
@@ -362,7 +734,8 @@
 
 
      
-            <div class="rowProfil " [class.rowProfilActivate]="active=='Profil'" (click)="setActive('Profil')">
+            <div class="rowProfil " [class.rowProfilActivate]="active=='Profil'" (click)="setActive('Profil')"
+            *ngIf="authService.getRole()!='SPECTATOR'" >
 
               <div class="row "  style="height: 3rem;" >
 
@@ -375,7 +748,7 @@
                 <div class="col-10 topicProfil"> 
                   
                   <div class="topicP" >
-                    <div style=" margin-top: -10px" >
+                    <div style=" margin-top: -10px" routerLink="profile">
                       Profil
                     </div>
                    
@@ -392,33 +765,6 @@
 
 
 
-            <div class="rowProfil " [class.rowProfilActivate]="active=='Ustawienia'" (click)="setActive('Ustawienia')">
-
-              <div class="row "  style="height: 3rem;" >
-
-
-                <div class="col-2 iconProfil" style="  text-align: center;">
-                  <i class="fas fa-cogs iconP" style="margin-left: -0.4rem;"></i>
-            
-                 
-                </div>
-
-                <div class="col-10 topicProfil"> 
-                  
-                  <div class="topicP" >
-                    <div style=" margin-top: -10px" >
-                      Ustawienia
-                    </div>
-                   
-                  </div>
-                 
-            
-
-                </div>
-
-            </div>
-
-            </div>
 
 
 
@@ -466,8 +812,6 @@
           </div>
 
 
-    
-      
          
 
 
@@ -477,10 +821,18 @@
 
            </div>
           
+
+         
+      
+
+
           </li>
        
         
-          
+          <div class="navbar-nav ml-auto settings-hov" >
+            
+            <img src="assets/set2.png" class="img-fluid" style="max-width: 60px; margin-top: -4px;">
+          </div>
         
 
         </ul>

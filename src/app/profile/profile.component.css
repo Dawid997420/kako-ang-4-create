@@ -17,6 +17,7 @@ background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,r
 .index-value {
 
     background-color:aliceblue;
+    
     height: auto;
 
 }
@@ -34,7 +35,21 @@ background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,r
     height: auto;
     margin-top: -95px;
     border: 6px solid aliceblue;
+    transition: 100ms;
 }
+
+
+.profile:hover {
+
+
+    background-color: rgb(78, 78, 78);
+    height: auto;
+    margin-top: -95px;
+    border: 6px solid aliceblue;
+    cursor: pointer;
+    border: 2px solid rgb(220, 139, 139);
+}
+
 @media (max-width: 570px) {
     .profile {
 
@@ -43,6 +58,7 @@ background: linear-gradient(to bottom, #d97b93  1%, #6e529d 143%, #d97b93  40%,r
         height: auto;
         margin-top: -95px;
         border: 6px solid aliceblue;
+
     }
     
   }

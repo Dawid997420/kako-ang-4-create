@@ -13,7 +13,7 @@ import { HttpServiceService } from '../services/http-service.service';
 export class ViewArtComponent implements OnInit{
 
 
-  chosenArticle! : Article ;
+  chosenArticle : Article = new Article("",new Date()) ;
 
 
   rightArticles : Article[] = [];
@@ -24,7 +24,9 @@ export class ViewArtComponent implements OnInit{
   constructor(private route:ActivatedRoute ,private artService :ArticleService , 
     private httpService : HttpServiceService, private authService :AuthService) {
 
-    
+ 
+
+
     this.getChosenArticleFromSession();
     
 
@@ -43,6 +45,7 @@ export class ViewArtComponent implements OnInit{
     this.httpService.getArticleFromUrl(this.name).subscribe(repsonse =>{
       this.chosenArticle = repsonse;
       sessionStorage.setItem("chosenArticle",JSON.stringify(this.chosenArticle))
+      this.historyUrl.push(this.chosenArticle.topic)
     })}
 
   }
@@ -62,8 +65,9 @@ export class ViewArtComponent implements OnInit{
 
     if ( this.chosenArticle != undefined) {
 
+      console.log("Added")
 
-      this.historyUrl.push(this.chosenArticle.topic)
+     
     
     }    
     
@@ -88,7 +92,7 @@ export class ViewArtComponent implements OnInit{
   @HostListener('window:popstate', ['$event'])
   onPopState(event:any) {
    
-  
+    console.log("elo")
     //this.chosenArticle.topic="";
    this.getNewUrl();
    this.getPrevious();
@@ -104,9 +108,9 @@ export class ViewArtComponent implements OnInit{
     for ( let i = 0 ; i < this.historyUrl.length ; i++) {
      
       
-      let historyValue = this.artService.makeUrl(this.historyUrl[i])
+      let historyValue =  this.artService.makeUrl(this.historyUrl[i])
    
-     // console.log( this.name  + "   " + this.historyUrl[i].valueOf() )
+      console.log( this.name  + "   " + this.historyUrl[i].valueOf() )
 
       if ( this.name ==  historyValue && this.historyUrl[i-1] != null ) {
 
@@ -114,12 +118,12 @@ export class ViewArtComponent implements OnInit{
         let historyValueBefore = this.artService.makeUrl(this.historyUrl[i-1])
 
         previousURL = historyValueBefore
-        console.log("--------------" + historyValueBefore)
+     //   console.log("--------------" + historyValueBefore)
 
         this.httpService.getArticleFromUrl(historyValueBefore).subscribe(repsonse =>{
           this.chosenArticle = repsonse;
           sessionStorage.setItem("chosenArticle",JSON.stringify(this.chosenArticle))
-          console.log(this.chosenArticle)
+       //   console.log(this.chosenArticle)
           this.chosenArticle= JSON.parse(sessionStorage.getItem("chosenArticle") || "")
         })
      
@@ -167,7 +171,7 @@ export class ViewArtComponent implements OnInit{
 
       let article:Article = JSON.parse(sessionStorage.getItem("chosenArticle") || "") ;
      this.httpService.getArticleById(article.id || "" ).subscribe( response =>  {
-      console.log(response)
+    //  console.log(response)
       sessionStorage.setItem("chosenArticle",JSON.stringify(response));
       this.chosenArticle = JSON.parse(sessionStorage.getItem("chosenArticle") || "")
 

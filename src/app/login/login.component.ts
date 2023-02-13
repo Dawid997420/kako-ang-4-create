@@ -6,6 +6,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { catchError, throwError } from 'rxjs';
 import { UserELogin } from '../model/UserELogin';
 import { Route, Router } from '@angular/router';
+import { JwtDecodeOptions } from 'jwt-decode';
+import * as jwt_decode from "jwt-decode";
 
 @Component({
   selector: 'app-login',
@@ -30,7 +32,9 @@ export class LoginComponent {
 
   constructor(private router :Router,private httpService : HttpServiceService, private authService :AuthService) {}
 
-
+  register() {
+    this.router.navigateByUrl("register")
+  }
 
   LoginGetToken() {
 
@@ -57,13 +61,12 @@ export class LoginComponent {
 
  
   sessionStorage.setItem("user",response)
-
+     
 
     this.router.navigateByUrl("")
 
-    this.authService.setRole()  ;
-    
-    location.reload();
+
+    //location.reload();
 
     });
 
@@ -76,6 +79,8 @@ export class LoginComponent {
   }
 
 
+
+ 
 
 
 }

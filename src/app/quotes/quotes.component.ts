@@ -40,14 +40,18 @@ export class QuotesComponent {
   saveQuote() {
 
     if ( this.quoteForm.valid) {
-    let formData = new FormData();
-    formData.append('image',this.imageFile)
-    formData.append('quote',this.quoteForm.value.quote || '')
-    formData.append('author', this.quoteForm.value.author || '' )
 
-    this.http.sendQuote2(formData).subscribe(response => {
+
+     let  quoteToSave:Quote = new Quote(this.quoteForm.value.quote || "",this.url,
+      this.quoteForm.value.author || "");
+
+
+      
+  
+
+    this.http.sendQuote2(quoteToSave).subscribe(response => {
+      
       console.log(response);
-
       this.quoteForm.reset()
 
     })

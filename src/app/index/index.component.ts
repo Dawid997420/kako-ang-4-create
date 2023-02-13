@@ -63,11 +63,15 @@ export class IndexComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
-  
+
+    this.httpService.getIPAddress();
+    console.log("essa")
     this.getAllArticles();
     
   }
+
+
+  
 
   getNormalArticles() {
 

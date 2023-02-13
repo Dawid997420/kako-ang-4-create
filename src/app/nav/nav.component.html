@@ -1,103 +1,4 @@
 
-<!--
-
-
-  <header>
-
-
-
-    <nav class=" navbar navbar-dark bg-dark navbar-expand-lg "
-     role = "navigation"  >
-
-      <a class="item navbar-brand  h1" style="font-size:30px; font-family: 'Hanalei Fill', cursive;" href="#">Writers</a>
-
-      <button class="navbar-toggler  my-0" type="button" (click)="showNavClick()">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-nav navbar-collapse" *ngIf="!showNav">
-
-        <a class="item nav-item nav-link routerClick  " routerLink="" >Home</a>
-
-        <a class="item nav-item nav-link navbar-light  routerClick" routerLink="contact" >Contact</a>
-
-        <a class="item nav-item nav-link navbar-light routerClick  " routerLink="write">Write</a>
-
-        <a class="item nav-item nav-link navbar-light routerClick "
-        *ngIf="authService.getRole()=='SPECTATOR'" routerLink="login">Login</a>/
-
-        <a class="item nav-item nav-link navbar-light routerClick  mx-2 " *ngIf="authService.getRole()!='SPECTATOR'" routerLink="profile"
-      >Profile</a>
-
-
-        <div class="item nav-item nav-link navbar-light routerClick   " routerLink="chosenCat" (click)="selectedHazard()">Hazard</div>
-
-        <a class="item nav-item nav-link navbar-light routerClick " (click)="selectedDrugs()" routerLink="chosenCat">Narkomania</a>
-
-        
-        <li class="item nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"  data-bs-toggle="dropdown" aria-expanded="false">
-            Uzależnienia seksualne
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><div class="dropdown-item pointer" routerLink="chosenCat" (click)="selectedPorno()">Pornografia</div></li>
-            <li><a class="dropdown-item" routerLink="chosenCat" (click)="selectedSeks()">Seksoholizm</a></li>
-            <li><a class="dropdown-item" routerLink="chosenCat"  (click)="selectedCyberSeks()">Cyberseks</a></li>
-          </ul>
-        </li>
-
-        <div class="item nav-item nav-link navbar-light routerClick  " routerLink="chosenCat" (click)="selectedAlcohol()">Alkoholizm</div>
-
-
-        <a class="item nav-item nav-link navbar-light routerClick  " 
-        *ngIf="authService.getRole()=='SPECTATOR'" routerLink="register">Register</a>
-       
-        <li class="item nav-item dropdown" *ngIf="authService.getRole()=='ADMIN'">
-          <a class="item nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"  data-bs-toggle="dropdown" aria-expanded="false">
-            Admin Site
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><a class="dropdown-item" routerLink="quotes">Quotes</a></li>
-            <li><a class="dropdown-item" routerLink="articlesOption">Articles</a></li>
-            <li><a class="dropdown-item" routerLink="users">Users</a></li>
-            <li><a class="dropdown-item" routerLink="image">ImageTEST</a></li>
-          </ul> s
-        </li>
-
-        <div class="float-right nav-item routerClick " 
-        style="max-width: 50px;float: right;">
-
-
-        <li class="item nav-item dropdown" >
-          <a class="item nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"  data-bs-toggle="dropdown" aria-expanded="false">
-            <div class="navbar-nav ml-auto " style="min-width: 20px;  top: 50%; margin-left: -10%;">
-              <img src="assets/set2.png" class="img-fluid" style="">
-            </div>
-          </a>
-          <ul class="dropdown-menu" style="margin-left: -50px;" aria-labelledby="navbarScrollingDropdown" >
-            <li><a class="dropdown-item" routerLink="quotes">Pomoc</a></li>
-            <li><a class="dropdown-item" routerLink="articlesOption">Profil</a></li>
-            <li><a class="dropdown-item" routerLink="users">Ustawienia</a></li>
-            <li><a class="dropdown-item" routerLink="" (click)="logout()" *ngIf="authService.getRole()=='ADMIN' || 
-              authService.getRole()=='USER' ">Logout</a></li>
-          </ul>
-        </li>
-
-          
-        </div>
-
-      </div>
-
-
-
-
-    </nav>
-
-
-
-
-
-  </header>
--->
 
 <div class="row">
 
@@ -736,20 +637,29 @@
 
      
             <div class="rowProfil " [class.rowProfilActivate]="active=='Profil'" (click)="setActive('Profil')"
-            *ngIf="authService.getRole()!='SPECTATOR'" >
+            *ngIf="authService.isLoggedIn()">
 
               <div class="row "  style="height: 3rem;" >
 
 
-                <div class="col-2 iconProfil" style="  text-align: center;">
-                  <i class="fas fa-user iconP"></i>
+                <div class="col-2 " style="   max-height: 3rem; text-align: center;">
+                  <i class="fas fa-user " style=" font-size: 2rem; top: 60%;
+                  -ms-transform: translateY(-20%);
+                  transform: translateY(-20%);"></i>
                  
                 </div>
 
-                <div class="col-10 topicProfil"> 
+                <div class="col-10 " style=" margin-top: -0.5rem;
+                height: 1.6rem; 
+                text-align: justify;"> 
                   
-                  <div class="topicP" >
-                    <div style=" margin-top: -10px" routerLink="profile">
+                  <div  style="    text-align: top;
+                  font-size: 20px;
+                  height: 20px;
+                  display:block;
+                  margin-top: 0.5rem;
+                  margin-left: 1rem;" >
+                    <div style=" margin-top: -10px" routerLink="profile" >
                       Profil
                     </div>
                    
@@ -781,16 +691,24 @@
                       <div class="row "  style="height: 3rem;" >
 
 
-                        <div class="col-2 iconProfil" style="  text-align: center;">
-                          <i class="fas fa-sign-out-alt iconP "></i>
+                        <div class="col-2 iconProfil" style="  max-height: 3rem;  text-align: center;">
+                          <i class="fas fa-sign-out-alt iconP" style=" font-size: 2rem;top: 60%;
+                          -ms-transform: translateY(-20%);
+                          transform: translateY(-20%);"></i>
                          
                         </div>
 
-                        <div class="col-10 topicProfil"> 
+                        <div class="col-10" style=" margin-top: -0.5rem;
+                        height: 1.6rem; 
+                        text-align: justify;">  
                           
-                          <div class="topicP" >
-                            <div style=" margin-top: -10px"  (click)="logout()" *ngIf="authService.getRole()=='ADMIN' || 
-                            authService.getRole()=='USER' ">
+                          <div  style="    text-align: top;
+                          font-size: 20px;
+                          height: 20px;
+                          display:block;
+                          margin-top: 0.5rem;
+                          margin-left: 1rem;">
+                            <div style=" margin-top: -10px"  (click)="logout()" *ngIf="authService.isLoggedIn()">
                               Logout
                             </div>
                            

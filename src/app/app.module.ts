@@ -38,7 +38,8 @@ import { AutorComponent } from './autor/autor.component'
 import { YouTubePlayerModule} from '@angular/youtube-player';
 import { BooksComponent } from './books/books.component';
 import { AddBookComponent } from './add-book/add-book.component';
-import { ViewBookComponent } from './view-book/view-book.component'
+import { ViewBookComponent } from './view-book/view-book.component';
+import { LazyLoadImageModule} from 'ng-lazyload-image';
 
 
 @NgModule({
@@ -82,7 +83,8 @@ import { ViewBookComponent } from './view-book/view-book.component'
     MatToolbarModule,
     MatIconModule,
     FontAwesomeModule,
-    YouTubePlayerModule
+    YouTubePlayerModule,
+    LazyLoadImageModule
   
 
 

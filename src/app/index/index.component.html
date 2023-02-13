@@ -61,7 +61,9 @@
 
                                         <div  class="obraz">
 
-                                            <img class="img-fluid" [src]="getFirstImgArtice(article)"
+                                            <img [lazyLoad]="getFirstImgArtice(article)" class="img-fluid"
+                                         
+                                    
                                             style="min-width: 100%;">
                                         </div>
                                     
@@ -82,7 +84,7 @@
 
                                 <div  class="obraz">
 
-                                    <img class="img-fluid" [src]="getFirstImgArtice(article)">
+                                    <img class="img-fluid" [lazyLoad]="getFirstImgArtice(article)" >
                                 </div>
                             
                                 <div class="topic">
@@ -105,7 +107,7 @@
 
                                 <div  class="obraz">
 
-                                    <img class="img-fluid" [src]="getFirstImgArtice(article)">
+                                    <img class="img-fluid" [lazyLoad]="getFirstImgArtice(article)" >
                                 </div>
                             
                                 <div class="topic">
@@ -137,7 +139,7 @@
 
                             <div class="col-lg-4 p-0 p-1 m-0">
 
-                                <img class="img-fluid" [src]="getFirstImgArtice(article)">
+                                <img class="img-fluid" [lazyLoad]="getFirstImgArtice(article)" >
 
                             </div>
 

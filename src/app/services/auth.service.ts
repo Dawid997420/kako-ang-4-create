@@ -46,7 +46,7 @@ export class AuthService implements OnInit{
         sessionStorage.setItem("user",JSON.stringify(user))
        
         localStorage.setItem("role",user.role)
-        
+        console.log(this.getRole())
         
        // console.log(this.role)
        
@@ -89,6 +89,7 @@ export class AuthService implements OnInit{
 
     const parsedPayload = JSON.parse(payload);
 
+    sessionStorage.setItem("role",parsedPayload.scope)
 
     return parsedPayload.exp > Date.now() / 1000 ;
   } else  {

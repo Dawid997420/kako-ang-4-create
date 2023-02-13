@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UrlTree } from '@angular/router';
 import { catchError, Observable } from 'rxjs';
@@ -19,8 +19,18 @@ export class HttpServiceService {
 
 
   private baseUrl : string= "http://localhost:1010/";
+ 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private httpModule:HttpClientModule) {
+
+  
+
+   }
+
+
+   getIPAddress() {
+   // this.httpModule.getIpAddress();;
+  }
 
 
 
@@ -95,14 +105,14 @@ export class HttpServiceService {
 
   
 
-  sendQuote2(formData : FormData) : Observable<any> {
+  sendQuote2(quote : Quote) : Observable<Quote> {
 
-    return this.http.post<FormData>(this.baseUrl + "quotes", formData)
+    return this.http.post<Quote>(this.baseUrl + "quotes", quote)
   }
 
   getQuotesWithImages() : Observable<Quote[]>{
 
-    return this.http.get<Quote[]>(this.baseUrl + "quotes/dto");
+    return this.http.get<Quote[]>(this.baseUrl + "quotes");
   }
 
   getLogedUserInfo() : Observable<UserE> {
@@ -154,8 +164,39 @@ export class HttpServiceService {
     return this.http.post<CommentArticle[]>(this.baseUrl+"comments/article",comments)
   }
 
+  ipAddress = "";
+  
+  getIPAddress1()
+  {
+
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': 'true',
+          'Access-Control-Allow-Headers': 'Content-Type',
+          'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+          'key': 'x-api-key',
+          'value': 'NNctr6Tjrw9794gFXf3fi6zWBZ78j6Gv3UCb3y0x',
+
+      })
+  };
+
+
+
+    this.http.get("http://api.ipify.org/?format=jsonp&callback=JSONP_CALLBACK",httpOptions).subscribe((res:any)=>{
+    //  this.ipAddress = res.ip;
+    console.log(res);
+   
+    });
+  }
 
 
 
 
 }
+function flow(arg0: () => Generator<any, void, unknown>) {
+  throw new Error('Function not implemented.');
+}
+
